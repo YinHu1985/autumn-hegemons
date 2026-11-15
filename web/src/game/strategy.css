@@ -1,0 +1,157 @@
+@font-face {
+  font-family: Daoli;
+  src: url("../../public/assets/fonts/AlimamaDaoLiTi-Regular.woff2")
+    format("woff2");
+  font-display: swap;
+}
+:root {
+  --pine: #263d33;
+  --paper: #eee5cd;
+  --gold: #b39b68;
+  --ink: #29352d;
+  --line: #beac84;
+}
+.shell-game {
+  height: 100dvh;
+  min-height: 0;
+  overflow: hidden;
+  color: var(--ink);
+  background: #273e31;
+  font-family: Georgia, "Songti SC", serif;
+}
+main.game-main {
+  max-width: none;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+.strategy-shell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  isolation: isolate;
+}
+.strategy-shell button {
+  border-radius: 1px;
+  font-family: inherit;
+}
+.strategy-shell button:disabled {
+  opacity: 0.5;
+}
+.parchment {
+  border: 1px solid #ad9569;
+  background: #ece3ca url("../../public/assets/ui/paper-fibers.svg");
+  box-shadow: 0 4px 20px #14251b55;
+}
+.province-window {
+  position: absolute;
+  z-index: 12;
+  top: calc(var(--strategy-header-height, 96px) + 16px);
+  left: 16px;
+  width: 330px;
+  height: min(740px, calc(100dvh - var(--strategy-header-height, 96px) - 56px));
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #c4a876;
+  box-shadow:
+    0 12px 35px #13261c77,
+    0 0 0 3px #253c2f99;
+  background: #ece3ca;
+}
+.province-window-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  min-height: 37px;
+  padding: 0 8px 0 14px;
+  background: linear-gradient(#344c3b, #233b2e);
+  color: #eeddad;
+  border-bottom: 1px solid #baa06a;
+}
+.province-window-heading span {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+.province-window-heading button {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid #a88f5866;
+  color: #efddb0;
+  background: #1b2e2480;
+  font-size: 20px;
+}
+.province-window .city-inspector {
+  flex: 1;
+  min-height: 0;
+  border: 0;
+  box-shadow: none;
+}
+.province-window .city-scene {
+  height: 146px;
+}
+.strategy-message {
+  position: absolute;
+  z-index: 30;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: min(600px, 90vw);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 14px;
+  background: #283b2ef2;
+  color: #f1dfb3;
+  border: 1px solid #b49a63;
+  box-shadow: 0 5px 20px #0005;
+  font-size: 12px;
+}
+.strategy-message button {
+  padding: 0 5px;
+  background: transparent;
+  color: inherit;
+  border: none;
+  font-size: 18px;
+}
+.end-banner {
+  position: absolute;
+  top: calc(var(--strategy-header-height, 96px) + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 18;
+  background: #3a3026;
+  color: #efdeb5;
+  padding: 16px;
+  border: 3px double #b99e62;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.end-banner strong {
+  font-family: Daoli, serif;
+  font-size: 28px;
+  white-space: nowrap;
+}
+.end-banner span {
+  font-size: 12px;
+  max-width: 300px;
+}
+@media (max-height: 720px) {
+  .province-window .city-scene {
+    height: 90px;
+  }
+  .province-window .inspector-content {
+    padding: 9px;
+  }
+}
+@media (max-width: 720px) {
+  .province-window {
+    left: 8px;
+    width: min(330px, calc(100vw - 68px));
+    top: calc(var(--strategy-header-height, 96px) + 10px);
+  }
+}

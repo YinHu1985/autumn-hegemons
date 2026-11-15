@@ -1,0 +1,741 @@
+{
+  "start": {
+    "year": -450,
+    "month": 1,
+    "day": 1
+  },
+  "nations": [
+    {
+      "id": "qi",
+      "name": "齐",
+      "color": "#547e99",
+      "treasury": 300,
+      "baseResources": {
+        "grain": 24,
+        "leather_armor": 6,
+        "bows": 3,
+        "bronze_arms": 3,
+        "wood": 2
+      },
+      "budget": {
+        "buildings": 1,
+        "army": 1,
+        "research": 1
+      },
+      "manpower": 8000
+    },
+    {
+      "id": "lu",
+      "name": "鲁",
+      "color": "#b5915a",
+      "treasury": 300,
+      "baseResources": {
+        "grain": 24,
+        "leather_armor": 6,
+        "bows": 3,
+        "bronze_arms": 3,
+        "wood": 2
+      },
+      "budget": {
+        "buildings": 1,
+        "army": 1,
+        "research": 1
+      },
+      "manpower": 8000
+    },
+    {
+      "id": "chu",
+      "name": "楚",
+      "color": "#966459",
+      "treasury": 300,
+      "baseResources": {
+        "grain": 24,
+        "leather_armor": 6,
+        "bows": 3,
+        "bronze_arms": 3,
+        "wood": 2
+      },
+      "budget": {
+        "buildings": 1,
+        "army": 1,
+        "research": 1
+      },
+      "manpower": 8000
+    },
+    {
+      "id": "qin",
+      "name": "秦",
+      "color": "#687e70",
+      "treasury": 300,
+      "baseResources": {
+        "grain": 24,
+        "leather_armor": 6,
+        "bows": 3,
+        "bronze_arms": 3,
+        "wood": 2
+      },
+      "budget": {
+        "buildings": 1,
+        "army": 1,
+        "research": 1
+      },
+      "manpower": 8000
+    },
+    {
+      "id": "jin",
+      "name": "晋",
+      "color": "#8376a2",
+      "treasury": 300,
+      "baseResources": {
+        "grain": 24,
+        "leather_armor": 6,
+        "bows": 3,
+        "bronze_arms": 3,
+        "wood": 2
+      },
+      "budget": {
+        "buildings": 1,
+        "army": 1,
+        "research": 1
+      },
+      "manpower": 8000
+    },
+    {
+      "id": "yan",
+      "name": "燕",
+      "color": "#78949a",
+      "treasury": 300,
+      "baseResources": {
+        "grain": 24,
+        "leather_armor": 6,
+        "bows": 3,
+        "bronze_arms": 3,
+        "wood": 2
+      },
+      "budget": {
+        "buildings": 1,
+        "army": 1,
+        "research": 1
+      },
+      "manpower": 8000
+    }
+  ],
+  "settlements": [
+    {
+      "id": "linzi",
+      "name": "临淄",
+      "owner": "qi",
+      "map": {
+        "x": 1168,
+        "y": 358
+      },
+      "terrain": "plain",
+      "specialty": "grain",
+      "scale": 3,
+      "governance": 1,
+      "buildings": {
+        "warehouse": 1,
+        "market": 1,
+        "walls": 1
+      }
+    },
+    {
+      "id": "jimo",
+      "name": "即墨",
+      "owner": "qi",
+      "map": {
+        "x": 1246,
+        "y": 381
+      },
+      "terrain": "forest",
+      "specialty": "wood",
+      "scale": 2,
+      "governance": 0.85,
+      "buildings": {
+        "lumberyard": 1
+      }
+    },
+    {
+      "id": "yingqiu",
+      "name": "营丘",
+      "owner": "qi",
+      "map": {
+        "x": 1195,
+        "y": 375
+      },
+      "terrain": "plain",
+      "specialty": "salt",
+      "scale": 2,
+      "governance": 0.85,
+      "buildings": {
+        "saltworks": 1
+      }
+    },
+    {
+      "id": "ju",
+      "name": "莒",
+      "owner": "qi",
+      "map": {
+        "x": 1191,
+        "y": 427
+      },
+      "terrain": "hill",
+      "specialty": "hemp",
+      "scale": 1,
+      "governance": 0.85,
+      "buildings": {
+        "hempworks": 1
+      }
+    },
+    {
+      "id": "qufu",
+      "name": "曲阜",
+      "owner": "lu",
+      "map": {
+        "x": 1108,
+        "y": 427
+      },
+      "terrain": "plain",
+      "specialty": "grain",
+      "scale": 2,
+      "governance": 0.85,
+      "buildings": {
+        "warehouse": 1
+      }
+    },
+    {
+      "id": "mengshan",
+      "name": "蒙山",
+      "owner": "lu",
+      "map": {
+        "x": 1149,
+        "y": 433
+      },
+      "terrain": "hill",
+      "specialty": "copper",
+      "scale": 2,
+      "governance": 0.85,
+      "buildings": {
+        "copperworks": 1
+      }
+    },
+    {
+      "id": "teng",
+      "name": "滕",
+      "owner": "lu",
+      "map": {
+        "x": 1117,
+        "y": 456
+      },
+      "terrain": "plain",
+      "specialty": "cattle",
+      "scale": 1,
+      "governance": 0.85,
+      "buildings": {
+        "tannery": 1
+      }
+    },
+    {
+      "id": "ying",
+      "name": "郢",
+      "owner": "chu",
+      "map": {
+        "x": 886,
+        "y": 727
+      },
+      "terrain": "plain",
+      "specialty": "grain",
+      "scale": 3,
+      "governance": 1,
+      "buildings": {
+        "warehouse": 1,
+        "market": 1,
+        "walls": 1
+      }
+    },
+    {
+      "id": "wan",
+      "name": "宛",
+      "owner": "chu",
+      "map": {
+        "x": 900,
+        "y": 577
+      },
+      "terrain": "hill",
+      "specialty": "iron",
+      "scale": 2,
+      "governance": 0.85,
+      "buildings": {
+        "ironworks": 1
+      }
+    },
+    {
+      "id": "shouchun",
+      "name": "寿春",
+      "owner": "chu",
+      "map": {
+        "x": 1098,
+        "y": 600
+      },
+      "terrain": "marsh",
+      "specialty": "fish",
+      "scale": 2,
+      "governance": 0.85,
+      "buildings": {
+        "warehouse": 1
+      }
+    },
+    {
+      "id": "chen",
+      "name": "陈",
+      "owner": "chu",
+      "map": {
+        "x": 1006,
+        "y": 537
+      },
+      "terrain": "plain",
+      "specialty": "silk",
+      "scale": 2,
+      "governance": 0.85,
+      "buildings": {
+        "silkworks": 1
+      }
+    },
+    {
+      "id": "yong",
+      "name": "雍",
+      "owner": "qin",
+      "map": {
+        "x": 665,
+        "y": 490
+      },
+      "terrain": "hill",
+      "specialty": "grain",
+      "scale": 3,
+      "governance": 1,
+      "buildings": {
+        "warehouse": 1,
+        "market": 1,
+        "walls": 1
+      }
+    },
+    {
+      "id": "chen_cang",
+      "name": "陈仓",
+      "owner": "qin",
+      "map": {
+        "x": 655,
+        "y": 496
+      },
+      "terrain": "mountain",
+      "specialty": "wood",
+      "scale": 1,
+      "governance": 0.85,
+      "buildings": {
+        "lumberyard": 1
+      }
+    },
+    {
+      "id": "longxi",
+      "name": "陇西",
+      "owner": "qin",
+      "map": {
+        "x": 535,
+        "y": 462
+      },
+      "terrain": "hill",
+      "specialty": "horse",
+      "scale": 2,
+      "governance": 0.85,
+      "buildings": {
+        "pasture": 1
+      }
+    },
+    {
+      "id": "lantian",
+      "name": "蓝田",
+      "owner": "qin",
+      "map": {
+        "x": 752,
+        "y": 508
+      },
+      "terrain": "hill",
+      "specialty": "jade",
+      "scale": 2,
+      "governance": 0.85,
+      "buildings": {
+        "jadeworks": 1
+      }
+    },
+    {
+      "id": "xintian",
+      "name": "新田",
+      "owner": "jin",
+      "map": {
+        "x": 849,
+        "y": 427
+      },
+      "terrain": "plain",
+      "specialty": "grain",
+      "scale": 3,
+      "governance": 1,
+      "buildings": {
+        "warehouse": 1,
+        "market": 1,
+        "walls": 1
+      }
+    },
+    {
+      "id": "jinyang",
+      "name": "晋阳",
+      "owner": "jin",
+      "map": {
+        "x": 900,
+        "y": 300
+      },
+      "terrain": "hill",
+      "specialty": "iron",
+      "scale": 2,
+      "governance": 0.85,
+      "buildings": {
+        "ironworks": 1
+      }
+    },
+    {
+      "id": "hangu",
+      "name": "函谷",
+      "owner": "jin",
+      "map": {
+        "x": 826,
+        "y": 485
+      },
+      "terrain": "mountain",
+      "specialty": "copper",
+      "scale": 2,
+      "governance": 0.85,
+      "buildings": {
+        "copperworks": 1
+      }
+    },
+    {
+      "id": "puyang",
+      "name": "濮阳",
+      "owner": "jin",
+      "map": {
+        "x": 1015,
+        "y": 421
+      },
+      "terrain": "plain",
+      "specialty": "pottery",
+      "scale": 2,
+      "governance": 0.85,
+      "buildings": {
+        "potteryworks": 1
+      }
+    },
+    {
+      "id": "ji",
+      "name": "蓟",
+      "owner": "yan",
+      "map": {
+        "x": 1080,
+        "y": 179
+      },
+      "terrain": "plain",
+      "specialty": "grain",
+      "scale": 3,
+      "governance": 1,
+      "buildings": {
+        "warehouse": 1,
+        "market": 1,
+        "walls": 1
+      }
+    },
+    {
+      "id": "yishui",
+      "name": "易水",
+      "owner": "yan",
+      "map": {
+        "x": 1038,
+        "y": 213
+      },
+      "terrain": "hill",
+      "specialty": "gold",
+      "scale": 2,
+      "governance": 0.85,
+      "buildings": {
+        "goldworks": 1
+      }
+    },
+    {
+      "id": "liaoxi",
+      "name": "辽西",
+      "owner": "yan",
+      "map": {
+        "x": 1269,
+        "y": 115
+      },
+      "terrain": "hill",
+      "specialty": "horse",
+      "scale": 2,
+      "governance": 0.85,
+      "buildings": {
+        "pasture": 1
+      }
+    },
+    {
+      "id": "yuyang",
+      "name": "渔阳",
+      "owner": "yan",
+      "map": {
+        "x": 1126,
+        "y": 173
+      },
+      "terrain": "forest",
+      "specialty": "wood",
+      "scale": 1,
+      "governance": 0.85,
+      "buildings": {
+        "lumberyard": 1
+      }
+    }
+  ],
+  "roads": [
+    {
+      "from": "chen",
+      "to": "puyang"
+    },
+    {
+      "from": "chen",
+      "to": "shouchun"
+    },
+    {
+      "from": "chen",
+      "to": "teng"
+    },
+    {
+      "from": "chen",
+      "to": "wan"
+    },
+    {
+      "from": "chen",
+      "to": "xintian"
+    },
+    {
+      "from": "chen_cang",
+      "to": "lantian"
+    },
+    {
+      "from": "chen_cang",
+      "to": "longxi"
+    },
+    {
+      "from": "chen_cang",
+      "to": "yong"
+    },
+    {
+      "from": "hangu",
+      "to": "lantian"
+    },
+    {
+      "from": "hangu",
+      "to": "wan"
+    },
+    {
+      "from": "hangu",
+      "to": "xintian"
+    },
+    {
+      "from": "ji",
+      "to": "yishui"
+    },
+    {
+      "from": "ji",
+      "to": "yuyang"
+    },
+    {
+      "from": "jimo",
+      "to": "ju"
+    },
+    {
+      "from": "jimo",
+      "to": "liaoxi"
+    },
+    {
+      "from": "jimo",
+      "to": "linzi"
+    },
+    {
+      "from": "jimo",
+      "to": "yingqiu"
+    },
+    {
+      "from": "jinyang",
+      "to": "puyang"
+    },
+    {
+      "from": "jinyang",
+      "to": "xintian"
+    },
+    {
+      "from": "jinyang",
+      "to": "yishui"
+    },
+    {
+      "from": "ju",
+      "to": "mengshan"
+    },
+    {
+      "from": "ju",
+      "to": "shouchun"
+    },
+    {
+      "from": "ju",
+      "to": "teng"
+    },
+    {
+      "from": "ju",
+      "to": "yingqiu"
+    },
+    {
+      "from": "lantian",
+      "to": "wan"
+    },
+    {
+      "from": "lantian",
+      "to": "xintian"
+    },
+    {
+      "from": "lantian",
+      "to": "ying"
+    },
+    {
+      "from": "lantian",
+      "to": "yong"
+    },
+    {
+      "from": "liaoxi",
+      "to": "linzi"
+    },
+    {
+      "from": "liaoxi",
+      "to": "yuyang"
+    },
+    {
+      "from": "linzi",
+      "to": "mengshan"
+    },
+    {
+      "from": "linzi",
+      "to": "puyang"
+    },
+    {
+      "from": "linzi",
+      "to": "qufu"
+    },
+    {
+      "from": "linzi",
+      "to": "teng"
+    },
+    {
+      "from": "linzi",
+      "to": "xintian"
+    },
+    {
+      "from": "linzi",
+      "to": "ying"
+    },
+    {
+      "from": "linzi",
+      "to": "yingqiu"
+    },
+    {
+      "from": "linzi",
+      "to": "yishui"
+    },
+    {
+      "from": "linzi",
+      "to": "yuyang"
+    },
+    {
+      "from": "longxi",
+      "to": "yong"
+    },
+    {
+      "from": "mengshan",
+      "to": "qufu"
+    },
+    {
+      "from": "mengshan",
+      "to": "teng"
+    },
+    {
+      "from": "mengshan",
+      "to": "ying"
+    },
+    {
+      "from": "mengshan",
+      "to": "yingqiu"
+    },
+    {
+      "from": "puyang",
+      "to": "qufu"
+    },
+    {
+      "from": "puyang",
+      "to": "teng"
+    },
+    {
+      "from": "puyang",
+      "to": "xintian"
+    },
+    {
+      "from": "puyang",
+      "to": "yishui"
+    },
+    {
+      "from": "qufu",
+      "to": "teng"
+    },
+    {
+      "from": "qufu",
+      "to": "xintian"
+    },
+    {
+      "from": "qufu",
+      "to": "ying"
+    },
+    {
+      "from": "shouchun",
+      "to": "teng"
+    },
+    {
+      "from": "shouchun",
+      "to": "wan"
+    },
+    {
+      "from": "shouchun",
+      "to": "ying"
+    },
+    {
+      "from": "teng",
+      "to": "xintian"
+    },
+    {
+      "from": "wan",
+      "to": "xintian"
+    },
+    {
+      "from": "wan",
+      "to": "ying"
+    },
+    {
+      "from": "xintian",
+      "to": "yong"
+    },
+    {
+      "from": "yishui",
+      "to": "yuyang"
+    }
+  ]
+}

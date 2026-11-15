@@ -1,0 +1,61 @@
+.music-settings {
+  margin-top: 20px;
+  padding-top: 13px;
+  border-top: 1px solid #b7a67b88;
+  color: #655c40;
+  font-size: 12px;
+}
+.music-settings-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.music-settings-heading label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.music-settings input[type="checkbox"] {
+  margin: 0;
+  accent-color: #3c5840;
+}
+.music-settings input[type="range"] {
+  display: block;
+  width: 100%;
+  margin: 9px 0;
+  padding: 0;
+  accent-color: #3c5840;
+}
+.music-current-track {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 30px;
+}
+.music-current-track > span {
+  min-width: 0;
+}
+.music-current-track small {
+  display: block;
+  font-size: 10px;
+  color: #938261;
+}
+.music-current-track strong {
+  display: block;
+  font-size: 11px;
+  font-weight: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-top: 3px;
+}
+.game-menu .music-current-track button {
+  flex-shrink: 0;
+  padding: 5px 8px;
+  background: #dfd2b0;
+  color: #46513b;
+  border: 1px solid #baa67b;
+  font-size: 11px;
+}

@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "goods": "goods.json",
+  "buildings": "buildings.json",
+  "scenario": "scenario.json",
+  "technologies": "technologies.json",
+  "ideas": "ideas.json",
+  "units": "units.json",
+  "events": "events.json",
+  "terrains": "terrains.json",
+  "specialties": "specialties.json",
+  "warfare": "warfare.json",
+  "tactics": "tactics.json",
+  "diplomacy": "diplomacy.json"
+}

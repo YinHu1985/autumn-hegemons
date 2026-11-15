@@ -1,0 +1,272 @@
+.loading-screen {
+  height: 100vh;
+  background: #24382a;
+  color: #e8d6a2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 60px;
+  font-family: serif;
+}
+.loading-screen small {
+  font-size: 14px;
+  margin: 25px;
+}
+.game-menu-shade {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #101c166e;
+  backdrop-filter: blur(1.5px);
+}
+.game-menu {
+  background: #e9dfc4 url("../../public/assets/ui/paper-fibers.svg");
+  border: 3px double #bba16d;
+  box-shadow:
+    0 20px 90px #0009,
+    inset 0 0 0 1px #fff0ca;
+  color: #344435;
+  font-family: Georgia, "Songti SC", serif;
+  max-height: calc(100dvh - 48px);
+  overflow: auto;
+}
+.game-menu-pause {
+  width: min(390px, calc(100vw - 32px));
+}
+.game-menu-setup {
+  width: min(1180px, calc(100vw - 48px));
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  height: min(960px, calc(100dvh - 48px));
+  overflow: hidden;
+}
+.game-menu-setup .menu-content {
+  overflow-y: auto;
+  min-width: 0;
+  min-height: 0;
+  padding: 22px 28px;
+}
+.game-menu-setup .system-menu-heading {
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+}
+.game-menu-setup .system-load-actions {
+  grid-template-columns: repeat(3, 1fr);
+}
+.game-menu-setup .system-editor-entry {
+  grid-column: auto;
+}
+.game-menu-setup .menu-hint {
+  margin-top: 12px;
+  padding-top: 10px;
+}
+.game-menu-setup .music-settings {
+  margin-top: 14px;
+  padding-top: 10px;
+}
+.menu-content {
+  padding: 28px;
+}
+.system-menu-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 17px;
+  border-bottom: 1px solid #ae966c;
+}
+.system-menu-heading small {
+  display: block;
+  color: #88724e;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+}
+.system-menu-heading h2 {
+  font-family: Daoli, "Songti SC", serif;
+  font-size: 31px;
+  font-weight: normal;
+  margin: 0;
+  letter-spacing: 0.1em;
+}
+.game-menu button {
+  border-radius: 2px;
+  font-family: inherit;
+}
+.game-menu .system-menu-close {
+  flex: 0 0 30px;
+  height: 30px;
+  padding: 0;
+  font-size: 23px;
+  line-height: 1;
+  color: #e7d7ad;
+  background: #3b5040;
+  border: 1px solid #9a8457;
+}
+.game-menu .system-menu-close:hover {
+  background: #6f4231;
+}
+.game-menu .system-menu-primary {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(#405e48, #2b4535);
+  border: 1px solid #a28c59;
+  color: #ffefc7;
+  font-size: 15px;
+  box-shadow: inset 0 0 0 1px #ffffff12;
+}
+.game-menu .system-menu-primary:hover {
+  background: #48664d;
+  border-color: #d0af6d;
+}
+.system-menu-section-label {
+  font-size: 10px;
+  color: #87754f;
+  letter-spacing: 0.2em;
+  margin: 20px 0 8px;
+}
+.menu-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.menu-actions button,
+.system-menu-back {
+  padding: 11px 6px;
+  border: 1px solid #baa67b;
+  background: #dfd2b0;
+  color: #46513b;
+  font-size: 13px;
+}
+.menu-actions button:hover,
+.system-menu-back:hover {
+  background: #f2e6c7;
+  border-color: #8e7950;
+}
+.system-load-actions {
+  margin-top: 10px;
+}
+.system-editor-entry {
+  grid-column: 1 / -1;
+}
+.system-menu-back {
+  width: 100%;
+  margin-top: 10px;
+}
+.system-import-input {
+  display: none;
+}
+.menu-hint {
+  border-top: 1px solid #b7a67b88;
+  padding-top: 17px;
+  margin: 24px 0 0;
+  color: #7c714f;
+  font-size: 11px;
+  line-height: 1.9;
+  text-align: center;
+}
+.menu-hint span {
+  font-size: 10px;
+  color: #938261;
+}
+.system-menu-notice {
+  margin: 15px 0 0;
+  padding: 9px;
+  background: #d3ddba;
+  border-left: 2px solid #5a754d;
+  font-size: 12px;
+  color: #3b5237;
+  line-height: 1.5;
+}
+.menu-art {
+  background:
+    linear-gradient(#1d302c28, #11261df0),
+    url("../../public/assets/cities/north.png") center/cover;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  color: #f7e6bd;
+  text-shadow: 0 3px 4px #000;
+}
+.menu-art > span {
+  font-size: 12px;
+  letter-spacing: 0.25em;
+}
+.menu-art h1 {
+  font-family: Daoli, serif;
+  font-size: 60px;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  margin: 20px 0 0;
+  font-weight: normal;
+}
+.menu-art p {
+  font-size: 15px;
+  letter-spacing: 0.1em;
+}
+.menu-art small {
+  font-size: 11px;
+  margin-top: 50px;
+  color: #d7c69f;
+}
+@media (min-width: 761px) and (max-width: 1000px) {
+  .game-menu-setup {
+    grid-template-columns: 270px minmax(0, 1fr);
+  }
+  .game-menu-setup .menu-content {
+    padding-inline: 20px;
+  }
+  .menu-art h1 {
+    font-size: 52px;
+  }
+  .menu-art p {
+    font-size: 13px;
+  }
+}
+@media (max-width: 760px) {
+  .game-menu-setup {
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px minmax(0, 1fr);
+  }
+  .game-menu-setup .menu-art {
+    min-height: 100px;
+  }
+  .menu-art h1 {
+    font-size: 46px;
+    margin: 8px 0;
+  }
+  .menu-art > span,
+  .menu-art small,
+  .menu-art p {
+    display: none;
+  }
+  .menu-content {
+    padding: 22px;
+  }
+  .game-menu-shade {
+    padding: 16px;
+  }
+}
+@media (max-height: 650px) {
+  .menu-content {
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+  .system-menu-heading {
+    margin-bottom: 15px;
+    padding-bottom: 12px;
+  }
+  .menu-hint {
+    margin-top: 14px;
+    padding-top: 12px;
+  }
+  .game-menu-setup {
+    min-height: 0;
+  }
+}

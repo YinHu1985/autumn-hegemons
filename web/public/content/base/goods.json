@@ -1,0 +1,92 @@
+[
+  {
+    "id": "grain",
+    "name": "粮食",
+    "kind": "treasury"
+  },
+  {
+    "id": "gold",
+    "name": "黄金",
+    "kind": "capacity"
+  },
+  {
+    "id": "copper",
+    "name": "铜",
+    "kind": "capacity"
+  },
+  {
+    "id": "iron",
+    "name": "铁",
+    "kind": "capacity"
+  },
+  {
+    "id": "wood",
+    "name": "木材",
+    "kind": "capacity"
+  },
+  {
+    "id": "leather",
+    "name": "皮革",
+    "kind": "capacity"
+  },
+  {
+    "id": "cloth",
+    "name": "布匹",
+    "kind": "capacity"
+  },
+  {
+    "id": "silk",
+    "name": "丝绸",
+    "kind": "capacity"
+  },
+  {
+    "id": "jade",
+    "name": "玉器",
+    "kind": "capacity"
+  },
+  {
+    "id": "pottery",
+    "name": "陶器",
+    "kind": "capacity"
+  },
+  {
+    "id": "horses",
+    "name": "马匹",
+    "kind": "capacity"
+  },
+  {
+    "id": "salt",
+    "name": "盐",
+    "kind": "capacity"
+  },
+  {
+    "id": "leather_armor",
+    "name": "革甲",
+    "kind": "capacity"
+  },
+  {
+    "id": "bows",
+    "name": "弓箭",
+    "kind": "capacity"
+  },
+  {
+    "id": "bronze_arms",
+    "name": "铜制兵甲",
+    "kind": "capacity"
+  },
+  {
+    "id": "iron_arms",
+    "name": "铁制兵甲",
+    "kind": "capacity"
+  },
+  {
+    "id": "chariots",
+    "name": "战车",
+    "kind": "capacity"
+  },
+  {
+    "id": "warhorses",
+    "name": "战马",
+    "kind": "capacity"
+  }
+]

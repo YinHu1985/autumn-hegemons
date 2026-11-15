@@ -1,0 +1,10 @@
+{
+  "preparationDays": 90,
+  "queuedProgressCap": 0.5,
+  "returnDays": 30,
+  "expeditionUpkeepMultiplier": 1.5,
+  "recentCombatDays": 90,
+  "offensiveFatiguePerAttack": 0.2,
+  "maximumOffensiveFatigue": 0.6,
+  "fatigueRecoveryDays": 60
+}

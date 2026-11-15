@@ -1,0 +1,318 @@
+[
+  {
+    "id": "idea_youjiao_wulei",
+    "name": "有教无类",
+    "description": "儒家的治国主张。研究后可安排实行，改变国家发展方向。",
+    "school": "儒家",
+    "category": "humanities",
+    "route": "confucian",
+    "tier": 1,
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "effects": {
+      "research_efficiency": 0.15
+    },
+    "image": "assets/ideas/youjiao_wulei.png"
+  },
+  {
+    "id": "idea_zhongyong_zhidao",
+    "name": "中庸之道",
+    "description": "儒家的治国主张。研究后可安排实行，改变国家发展方向。",
+    "school": "儒家",
+    "category": "humanities",
+    "route": "confucian",
+    "tier": 2,
+    "cost": 1000,
+    "inspiration": 250,
+    "inspirationCap": 0.5,
+    "upkeep": 1.6,
+    "effects": {
+      "governance_cap": 0.1,
+      "income": 0.1
+    },
+    "image": "assets/ideas/zhongyong_zhidao.png"
+  },
+  {
+    "id": "idea_neisheng_waiwang",
+    "name": "内圣外王",
+    "description": "儒家的治国主张。研究后可安排实行，改变国家发展方向。",
+    "school": "儒家",
+    "category": "humanities",
+    "route": "confucian",
+    "tier": 3,
+    "cost": 10000,
+    "inspiration": 2500,
+    "inspirationCap": 0.65,
+    "upkeep": 3.2,
+    "effects": {
+      "idea.slots": 1,
+      "research.seats.humanities": 1
+    },
+    "image": "assets/ideas/neisheng_waiwang.png"
+  },
+  {
+    "id": "idea_dingzhu_xingshu",
+    "name": "鼎铸刑书",
+    "description": "法家的治国主张。研究后可安排实行，改变国家发展方向。",
+    "school": "法家",
+    "category": "humanities",
+    "route": "legalist",
+    "tier": 1,
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "effects": {
+      "governance_cap": 0.1
+    },
+    "image": "assets/ideas/dingzhu_xingshu.png"
+  },
+  {
+    "id": "idea_gengzhan_zhidu",
+    "name": "耕战制度",
+    "description": "法家的治国主张。研究后可安排实行，改变国家发展方向。",
+    "school": "法家",
+    "category": "humanities",
+    "route": "legalist",
+    "tier": 2,
+    "cost": 1000,
+    "inspiration": 250,
+    "inspirationCap": 0.5,
+    "upkeep": 1.6,
+    "effects": {
+      "manpower": 0.2,
+      "army.limit": 1
+    },
+    "image": "assets/ideas/gengzhan_zhidu.png"
+  },
+  {
+    "id": "idea_fenjun_lixian",
+    "name": "分郡立县",
+    "description": "法家的治国主张。研究后可安排实行，改变国家发展方向。",
+    "school": "法家",
+    "category": "humanities",
+    "route": "legalist",
+    "tier": 3,
+    "cost": 10000,
+    "inspiration": 2500,
+    "inspirationCap": 0.65,
+    "upkeep": 3.2,
+    "effects": {
+      "income": 0.25,
+      "research_scale": 10
+    },
+    "image": "assets/ideas/fenjun_lixian.png"
+  },
+  {
+    "id": "idea_jianai_jiaoli",
+    "name": "兼爱交利",
+    "description": "墨家的治国主张。研究后可安排实行，改变国家发展方向。",
+    "school": "墨家",
+    "category": "humanities",
+    "route": "mohist",
+    "tier": 1,
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "effects": {
+      "building_cost": -0.1
+    },
+    "image": "assets/ideas/jianai_jiaoli.png"
+  },
+  {
+    "id": "idea_shouyu_zhiqi",
+    "name": "守御之器",
+    "description": "墨家的治国主张。研究后可安排实行，改变国家发展方向。",
+    "school": "墨家",
+    "category": "humanities",
+    "route": "mohist",
+    "tier": 2,
+    "cost": 1000,
+    "inspiration": 250,
+    "inspirationCap": 0.5,
+    "upkeep": 1.6,
+    "effects": {
+      "army.defense": 0.25
+    },
+    "image": "assets/ideas/shouyu_zhiqi.png"
+  },
+  {
+    "id": "idea_mojia_houxue",
+    "name": "墨家后学",
+    "description": "墨家的治国主张。研究后可安排实行，改变国家发展方向。",
+    "school": "墨家",
+    "category": "humanities",
+    "route": "mohist",
+    "tier": 3,
+    "cost": 10000,
+    "inspiration": 2500,
+    "inspirationCap": 0.65,
+    "upkeep": 3.2,
+    "effects": {
+      "research.seats.craft": 1,
+      "research_scale": 5
+    },
+    "image": "assets/ideas/mojia_houxue.png"
+  },
+  {
+    "id": "idea_wuwei_erzhi",
+    "name": "无为而治",
+    "description": "道家的治国主张。研究后可安排实行，改变国家发展方向。",
+    "school": "道家",
+    "category": "humanities",
+    "route": "taoist",
+    "tier": 1,
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "effects": {
+      "income": 0.12
+    },
+    "image": "assets/ideas/wuwei_erzhi.png"
+  },
+  {
+    "id": "idea_guisheng_zhongji",
+    "name": "贵生重己",
+    "description": "道家的治国主张。研究后可安排实行，改变国家发展方向。",
+    "school": "道家",
+    "category": "humanities",
+    "route": "taoist",
+    "tier": 2,
+    "cost": 1000,
+    "inspiration": 250,
+    "inspirationCap": 0.5,
+    "upkeep": 1.6,
+    "effects": {
+      "manpower": 0.2
+    },
+    "image": "assets/ideas/guisheng_zhongji.png"
+  },
+  {
+    "id": "idea_tianren_heyi",
+    "name": "天人合一",
+    "description": "道家的治国主张。研究后可安排实行，改变国家发展方向。",
+    "school": "道家",
+    "category": "humanities",
+    "route": "taoist",
+    "tier": 3,
+    "cost": 10000,
+    "inspiration": 2500,
+    "inspirationCap": 0.65,
+    "upkeep": 3.2,
+    "effects": {
+      "production": 0.25,
+      "research_scale": 5
+    },
+    "image": "assets/ideas/tianren_heyi.png"
+  },
+  {
+    "id": "idea_shangbing_famou",
+    "name": "上兵伐谋",
+    "description": "兵家的治国主张。研究后可安排实行，改变国家发展方向。",
+    "school": "兵家",
+    "category": "humanities",
+    "route": "militarist",
+    "tier": 1,
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "effects": {
+      "army.attack": 0.1
+    },
+    "image": "assets/ideas/shangbing_famou.png"
+  },
+  {
+    "id": "idea_zhiye_jundui",
+    "name": "职业军队",
+    "description": "兵家的治国主张。研究后可安排实行，改变国家发展方向。",
+    "school": "兵家",
+    "category": "humanities",
+    "route": "militarist",
+    "tier": 2,
+    "cost": 1000,
+    "inspiration": 250,
+    "inspirationCap": 0.5,
+    "upkeep": 1.6,
+    "effects": {
+      "army.units": 1,
+      "army.cadre_ratio": 0.2
+    },
+    "image": "assets/ideas/zhiye_jundui.png"
+  },
+  {
+    "id": "idea_gongcheng_zhiji",
+    "name": "攻城之计",
+    "description": "兵家的治国主张。研究后可安排实行，改变国家发展方向。",
+    "school": "兵家",
+    "category": "humanities",
+    "route": "militarist",
+    "tier": 3,
+    "cost": 10000,
+    "inspiration": 2500,
+    "inspirationCap": 0.65,
+    "upkeep": 3.2,
+    "effects": {
+      "research.seats.military": 1,
+      "army.offense": 0.4
+    },
+    "image": "assets/ideas/gongcheng_zhiji.png"
+  },
+  {
+    "id": "idea_junmin_tonggeng",
+    "name": "君民同耕",
+    "description": "农家的治国主张。研究后可安排实行，改变国家发展方向。",
+    "school": "农家",
+    "category": "humanities",
+    "route": "agriculturalist",
+    "tier": 1,
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "effects": {
+      "income": 0.1,
+      "manpower": 0.1
+    },
+    "image": "assets/ideas/junmin_tonggeng.png"
+  },
+  {
+    "id": "idea_sitian_keshui",
+    "name": "私田课税",
+    "description": "农家的治国主张。研究后可安排实行，改变国家发展方向。",
+    "school": "农家",
+    "category": "humanities",
+    "route": "agriculturalist",
+    "tier": 2,
+    "cost": 1000,
+    "inspiration": 250,
+    "inspirationCap": 0.5,
+    "upkeep": 1.6,
+    "effects": {
+      "income": 0.22
+    },
+    "image": "assets/ideas/sitian_keshui.png"
+  },
+  {
+    "id": "idea_zhongzhi_suozai",
+    "name": "众志所在",
+    "description": "农家的治国主张。研究后可安排实行，改变国家发展方向。",
+    "school": "农家",
+    "category": "humanities",
+    "route": "agriculturalist",
+    "tier": 3,
+    "cost": 10000,
+    "inspiration": 2500,
+    "inspirationCap": 0.65,
+    "upkeep": 3.2,
+    "effects": {
+      "research.seats.civil": 1,
+      "governance_cap": 0.15
+    },
+    "image": "assets/ideas/zhongzhi_suozai.png"
+  }
+]

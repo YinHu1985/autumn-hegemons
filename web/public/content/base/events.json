@@ -1,0 +1,145 @@
+[
+  {
+    "id": "good_harvest",
+    "title": "丰岁入仓",
+    "description": "郡县报来丰收，仓廪渐实。乡里希望留下一部分粮食修整渠堰。",
+    "weight": 3,
+    "duration": 45,
+    "options": [
+      {
+        "label": "均入公仓",
+        "description": "获得 45 粮食。",
+        "effects": [
+          {
+            "kind": "grain",
+            "amount": 45
+          }
+        ]
+      },
+      {
+        "label": "留粮赈乡",
+        "description": "获得 10 粮食，各城治理提高 4%。",
+        "effects": [
+          {
+            "kind": "grain",
+            "amount": 10
+          },
+          {
+            "kind": "governance",
+            "amount": 0.04
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "displaced_people",
+    "title": "流民来归",
+    "description": "邻国战乱，数百户携家来投。如何安置新来之人？",
+    "weight": 2,
+    "duration": 30,
+    "options": [
+      {
+        "label": "编入乡里",
+        "description": "全国人力恢复 700。",
+        "effects": [
+          {
+            "kind": "manpower",
+            "amount": 700
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "granary_fire",
+    "title": "仓廪失火",
+    "description": "一处仓廪夜间失火。吏员已将火势扑灭，仍须补济受灾乡里。",
+    "weight": 1,
+    "duration": 30,
+    "options": [
+      {
+        "label": "拨粮救济",
+        "description": "消耗至多 35 粮食，治理提高 2%。",
+        "effects": [
+          {
+            "kind": "grain",
+            "amount": -35
+          },
+          {
+            "kind": "governance",
+            "amount": 0.02
+          }
+        ]
+      },
+      {
+        "label": "令地方自筹",
+        "description": "节省粮食，各城治理降低 5%。",
+        "effects": [
+          {
+            "kind": "governance",
+            "amount": -0.05
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "merchant_caravan",
+    "title": "商旅会集",
+    "description": "道路暂安，诸国商旅聚集于市，献上额外税赋。",
+    "weight": 2,
+    "duration": 40,
+    "options": [
+      {
+        "label": "照章收税",
+        "description": "获得 30 粮食。",
+        "effects": [
+          {
+            "kind": "grain",
+            "amount": 30
+          }
+        ]
+      },
+      {
+        "label": "宽税招徕",
+        "description": "各城治理提高 3%。",
+        "effects": [
+          {
+            "kind": "governance",
+            "amount": 0.03
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "travelling_scholar",
+    "title": "游士献策",
+    "description": "远道而来的游士携新法入境，愿向本国学者传授见闻。",
+    "weight": 2,
+    "duration": 45,
+    "options": [
+      {
+        "label": "延入学舍",
+        "description": "当前课题各获得40点启发，受课题启发上限限制。",
+        "effects": [
+          {
+            "kind": "research",
+            "amount": 40
+          }
+        ]
+      },
+      {
+        "label": "荐入郡县",
+        "description": "各城治理提高3%。",
+        "effects": [
+          {
+            "kind": "governance",
+            "amount": 0.03
+          }
+        ]
+      }
+    ]
+  }
+]

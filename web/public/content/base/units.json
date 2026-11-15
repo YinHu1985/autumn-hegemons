@@ -1,0 +1,125 @@
+[
+  {
+    "id": "levy",
+    "name": "乡卒",
+    "description": "纯征召基础步兵。只需粮食与人力，适合填线与守土。",
+    "category": "infantry",
+    "cadre": 0,
+    "levy": 1000,
+    "cost": 16,
+    "upkeep": 3,
+    "attack": 0.45,
+    "defense": 0.7,
+    "range": 1,
+    "equipment": {}
+  },
+  {
+    "id": "infantry",
+    "name": "甲士",
+    "description": "百名常备甲士带领九百征召，专业核心提供战力。",
+    "category": "infantry",
+    "cadre": 100,
+    "levy": 900,
+    "cost": 35,
+    "upkeep": 6,
+    "attack": 4,
+    "defense": 1.2,
+    "range": 1,
+    "equipment": {
+      "leather_armor": 2
+    },
+    "requires": "infantry_1"
+  },
+  {
+    "id": "heavy_infantry",
+    "name": "魏武卒",
+    "description": "重装核心，正面作战强悍，但维护与军备昂贵。",
+    "category": "infantry",
+    "cadre": 250,
+    "levy": 750,
+    "cost": 90,
+    "upkeep": 14,
+    "attack": 5.5,
+    "defense": 2.1,
+    "range": 1,
+    "equipment": {
+      "iron_arms": 3,
+      "leather_armor": 2
+    },
+    "requires": "infantry_2"
+  },
+  {
+    "id": "crossbow",
+    "name": "劲弩士",
+    "description": "常备弩士承担远射，征召护卫承担阵线损失。",
+    "category": "ranged",
+    "cadre": 150,
+    "levy": 850,
+    "cost": 60,
+    "upkeep": 10,
+    "attack": 5,
+    "defense": 0.9,
+    "range": 3,
+    "equipment": {
+      "bows": 3,
+      "bronze_arms": 1
+    },
+    "requires": "crossbow_1"
+  },
+  {
+    "id": "chariot",
+    "name": "车乘",
+    "description": "战车核心配步卒，在平原能造成强力冲击。",
+    "category": "chariot",
+    "cadre": 180,
+    "levy": 820,
+    "cost": 85,
+    "upkeep": 13,
+    "attack": 6,
+    "defense": 1.4,
+    "range": 1,
+    "equipment": {
+      "chariots": 2,
+      "horses": 2,
+      "bronze_arms": 2
+    },
+    "requires": "chariot_1"
+  },
+  {
+    "id": "cavalry",
+    "name": "胡服骑士",
+    "description": "全常备骑兵。独立机动，不携带步行征召。",
+    "category": "cavalry",
+    "cadre": 500,
+    "levy": 0,
+    "cost": 140,
+    "upkeep": 22,
+    "attack": 3.5,
+    "defense": 1.4,
+    "range": 1,
+    "equipment": {
+      "warhorses": 5,
+      "leather_armor": 3,
+      "iron_arms": 2
+    },
+    "requires": "cavalry_1"
+  },
+  {
+    "id": "siege",
+    "name": "攻城匠卒",
+    "description": "专业器械兵配役卒，在会战中提供远程支援，需要步兵掩护。",
+    "category": "siege",
+    "cadre": 100,
+    "levy": 900,
+    "cost": 80,
+    "upkeep": 12,
+    "attack": 2,
+    "defense": 0.65,
+    "range": 2,
+    "equipment": {
+      "wood": 4,
+      "iron_arms": 1
+    },
+    "requires": "siege_1"
+  }
+]

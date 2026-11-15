@@ -1,0 +1,245 @@
+.tech-team-rail {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  color: #3d4937;
+  background: linear-gradient(90deg, #d1c2a0, #ddd0af);
+  border-right: 1px solid #ad966b;
+}
+.tech-team-rail-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-shrink: 0;
+  min-height: 38px;
+  padding: 0 12px;
+  border-bottom: 1px solid #b6a079;
+  background: #cabc99;
+}
+.tech-team-rail-heading strong {
+  font-size: 15px;
+  letter-spacing: 0.08em;
+}
+.tech-team-rail-heading small {
+  font-size: 10px;
+  white-space: nowrap;
+}
+.tech-team-seats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px 10px;
+  padding: 9px 12px;
+  border-bottom: 1px solid #b5a27b;
+  font-size: 11px;
+}
+.tech-team-seats > span {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 5px;
+}
+.tech-team-seats b {
+  color: #35503a;
+  font-variant-numeric: tabular-nums;
+}
+.tech-team-seats i {
+  color: #837254;
+  font-style: normal;
+  font-weight: normal;
+}
+.tech-team-seats .is-over-limit,
+.tech-team-seats .is-over-limit b {
+  color: #a04b30;
+}
+.tech-team-warning,
+.tech-team-empty {
+  margin: 0;
+  padding: 8px 11px;
+  font-size: 11px;
+  line-height: 1.6;
+}
+.tech-team-warning {
+  background: #dfc79f;
+  color: #934529;
+}
+.tech-team-list {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 9px;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #a18a61 #d9caa8;
+}
+.tech-team-card {
+  padding: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #b39b6f;
+  background: linear-gradient(120deg, #f1e6ca, #e5d7b5);
+  box-shadow: 0 1px 3px #6f583419;
+}
+.tech-team-card.is-selected {
+  border-color: #9a713a;
+  box-shadow: inset 0 0 0 1px #ad8647;
+  background: linear-gradient(120deg, #f6e9c6, #e6d4a4);
+}
+.tech-team-rail .tech-team-select {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  color: #334832;
+}
+.tech-team-rail .tech-team-select:hover {
+  background: transparent;
+  color: #855c2c;
+}
+.tech-team-rail button:focus-visible {
+  outline: 2px solid #9b723a;
+  outline-offset: 3px;
+}
+.tech-team-portrait {
+  width: 38px;
+  height: 48px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid #ac9263;
+  background: #d4c3a1;
+}
+.tech-team-monogram {
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+}
+.tech-team-identity {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.tech-team-name {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px;
+}
+.tech-team-name strong {
+  overflow: hidden;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tech-team-name small {
+  flex-shrink: 0;
+  font-size: 10px;
+  color: #6f7751;
+}
+.tech-team-target {
+  overflow: hidden;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tech-team-specialty {
+  font-size: 9px;
+  line-height: 1.5;
+}
+.tech-team-progress-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  margin-top: 8px;
+  font-size: 10px;
+}
+.tech-team-progress-caption small {
+  font-size: inherit;
+}
+.tech-team-progress-caption span {
+  color: #50603e;
+  white-space: nowrap;
+}
+.tech-team-rail .tech-team-progress {
+  display: block;
+  height: 4px;
+  margin: 5px 0 8px;
+  width: 100%;
+  accent-color: #6c8050;
+  border: 0;
+}
+.tech-team-investment {
+  display: block;
+  margin: 0;
+}
+.tech-team-investment > span {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+}
+.tech-team-rail .tech-team-investment input {
+  display: block;
+  width: 100%;
+  height: 12px;
+  margin: 5px 0;
+  padding: 0;
+  accent-color: #667a47;
+}
+.tech-team-funding {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+}
+.tech-team-funding small {
+  font-size: 10px;
+}
+.tech-team-rail .tech-team-funding button {
+  padding: 2px 7px;
+  font-size: 10px;
+  border: 1px solid #b5a079;
+  background: #e7d9b8;
+  color: #745837;
+}
+.tech-team-rail .tech-team-funding button:hover {
+  background: #f6ebcd;
+  border-color: #977749;
+}
+.tech-team-section-label {
+  display: flex;
+  justify-content: space-between;
+  margin: 11px 2px 7px;
+  font-size: 11px;
+  color: #756446;
+}
+.tech-team-section-label:first-child {
+  margin-top: 1px;
+}
+.tech-team-idle {
+  background: #e7dcc0;
+}
+.tech-team-idle .tech-team-target {
+  color: #837151;
+  font-size: 11px;
+}
+.tech-team-rail-footer {
+  flex-shrink: 0;
+  border-top: 1px solid #baa77d;
+  padding: 7px 11px;
+  background: #d4c6a5;
+}
+.tech-team-rail-footer p {
+  margin: 0;
+  font-size: 10px;
+  line-height: 1.6;
+  color: #776649;
+}
+.tech-team-rail-footer p[role="status"] {
+  color: #85522f;
+}

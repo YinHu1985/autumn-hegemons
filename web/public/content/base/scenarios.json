@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "defaultScenario": "spring-autumn",
+  "entries": [
+    {
+      "id": "spring-autumn",
+      "file": "scenario.json"
+    },
+    {
+      "id": "warring-states",
+      "file": "warring-states.json"
+    }
+  ]
+}

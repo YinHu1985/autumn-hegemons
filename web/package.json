@@ -1,0 +1,28 @@
+{
+  "name": "autumn-hegemons-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "test": "node --test tests/*.test.mjs",
+    "format": "prettier --write src tests vite.config.ts index.html",
+    "format:check": "prettier --check src tests vite.config.ts index.html",
+    "preview": "vite preview",
+    "map:build": "node scripts/build-map.mjs",
+    "prebuild": "npm run map:build"
+  },
+  "dependencies": {
+    "react": "19.2.7",
+    "react-dom": "19.2.7"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
+    "esbuild": "^0.28.2",
+    "prettier": "^3.9.10",
+    "typescript": "6.0.3",
+    "vite": "8.3.6"
+  }
+}

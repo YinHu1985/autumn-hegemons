@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "defaultVolume": 0.3,
+  "mainTheme": "courtyard",
+  "battle": "battle_banners",
+  "strategy": [
+    "courtyard",
+    "jade_river",
+    "crimson_chronicles",
+    "jade_banners",
+    "jiashen"
+  ],
+  "tracks": [
+    {
+      "id": "courtyard",
+      "title": "江山闲赋",
+      "src": "assets/audio/strategy-courtyard.wav"
+    },
+    {
+      "id": "jade_river",
+      "title": "Jade River Reflections",
+      "src": "assets/audio/Jade_River_Reflections.mp3"
+    },
+    {
+      "id": "crimson_chronicles",
+      "title": "Chronicles of the Crimson Empire",
+      "src": "assets/audio/Chronicles_of_the_Crimson_Empire.mp3"
+    },
+    {
+      "id": "jade_banners",
+      "title": "Crimson Banners of the Jade Empire",
+      "src": "assets/audio/Crimson_Banners_of_the_Jade_Empire.mp3"
+    },
+    {
+      "id": "jiashen",
+      "title": "甲申未至",
+      "src": "assets/audio/jiashen-wei-zhi.mp3"
+    },
+    {
+      "id": "battle_banners",
+      "title": "旌旗动地",
+      "src": "assets/audio/battle-banners.wav"
+    }
+  ]
+}

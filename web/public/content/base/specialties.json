@@ -1,0 +1,67 @@
+[
+  {
+    "id": "gold",
+    "name": "黄金",
+    "resourceId": "gold"
+  },
+  {
+    "id": "copper",
+    "name": "铜",
+    "resourceId": "copper"
+  },
+  {
+    "id": "iron",
+    "name": "铁",
+    "resourceId": "iron"
+  },
+  {
+    "id": "wood",
+    "name": "木材",
+    "resourceId": "wood"
+  },
+  {
+    "id": "cattle",
+    "name": "牛",
+    "resourceId": "leather"
+  },
+  {
+    "id": "hemp",
+    "name": "麻",
+    "resourceId": "cloth"
+  },
+  {
+    "id": "silk",
+    "name": "丝绸",
+    "resourceId": "silk"
+  },
+  {
+    "id": "jade",
+    "name": "玉",
+    "resourceId": "jade"
+  },
+  {
+    "id": "pottery",
+    "name": "陶器",
+    "resourceId": "pottery"
+  },
+  {
+    "id": "grain",
+    "name": "粮食",
+    "resourceId": "grain"
+  },
+  {
+    "id": "fish",
+    "name": "鱼",
+    "resourceId": "grain"
+  },
+  {
+    "id": "horse",
+    "name": "马",
+    "resourceId": "horses"
+  },
+  {
+    "id": "salt",
+    "name": "盐",
+    "resourceId": "salt"
+  }
+]

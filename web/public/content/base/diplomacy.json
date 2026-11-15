@@ -1,0 +1,22 @@
+{
+  "minRelation": -200,
+  "maxRelation": 200,
+  "center": 20,
+  "yearlyDrift": 1,
+  "actions": [
+    {
+      "id": "gift",
+      "name": "赠送礼物",
+      "days": 30,
+      "relationChange": 50,
+      "cost": 30
+    },
+    {
+      "id": "denounce",
+      "name": "谴责声讨",
+      "days": 30,
+      "relationChange": -50,
+      "cost": 0
+    }
+  ]
+}

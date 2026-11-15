@@ -1,0 +1,1473 @@
+[
+  {
+    "id": "gold_1",
+    "name": "淘沙取金",
+    "description": "推广黄金技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 1,
+    "route": "gold",
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "effects": {
+      "production": 0.012,
+      "production.gold": 0.15
+    }
+  },
+  {
+    "id": "gold_2",
+    "name": "凿脉采金",
+    "description": "推广黄金技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 2,
+    "route": "gold",
+    "cost": 1000,
+    "inspiration": 80,
+    "inspirationCap": 0.8,
+    "upkeep": 1.6,
+    "effects": {
+      "production": 0.012,
+      "production.gold": 0.15
+    },
+    "prerequisite": "gold_1"
+  },
+  {
+    "id": "gold_3",
+    "name": "金料精炼",
+    "description": "推广黄金技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 3,
+    "route": "gold",
+    "cost": 10000,
+    "inspiration": 800,
+    "inspirationCap": 0.9,
+    "upkeep": 3.2,
+    "effects": {
+      "production": 0.012,
+      "production.gold": 0.15
+    },
+    "prerequisite": "gold_2"
+  },
+  {
+    "id": "copper_1",
+    "name": "选矿焙烧",
+    "description": "推广铜技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 1,
+    "route": "copper",
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "effects": {
+      "production": 0.012,
+      "production.copper": 0.15
+    },
+    "image": "assets/technology/bronze_foundry.jpg"
+  },
+  {
+    "id": "copper_2",
+    "name": "鼓风熔铜",
+    "description": "推广铜技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 2,
+    "route": "copper",
+    "cost": 1000,
+    "inspiration": 80,
+    "inspirationCap": 0.8,
+    "upkeep": 1.6,
+    "effects": {
+      "production": 0.012,
+      "production.copper": 0.15
+    },
+    "prerequisite": "copper_1",
+    "image": "assets/technology/bronze_foundry.jpg"
+  },
+  {
+    "id": "copper_3",
+    "name": "炉冶精炼",
+    "description": "推广铜技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 3,
+    "route": "copper",
+    "cost": 10000,
+    "inspiration": 800,
+    "inspirationCap": 0.9,
+    "upkeep": 3.2,
+    "effects": {
+      "production": 0.012,
+      "production.copper": 0.15
+    },
+    "prerequisite": "copper_2",
+    "image": "assets/technology/bronze_foundry.jpg"
+  },
+  {
+    "id": "iron_1",
+    "name": "块炼冶铁",
+    "description": "推广铁技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 1,
+    "route": "iron",
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "effects": {
+      "production": 0.012,
+      "production.iron": 0.15
+    },
+    "image": "assets/technology/bloomery.jpg"
+  },
+  {
+    "id": "iron_2",
+    "name": "鼓风冶铸",
+    "description": "推广铁技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 2,
+    "route": "iron",
+    "cost": 1000,
+    "inspiration": 80,
+    "inspirationCap": 0.8,
+    "upkeep": 1.6,
+    "effects": {
+      "production": 0.012,
+      "production.iron": 0.15
+    },
+    "prerequisite": "iron_1",
+    "image": "assets/technology/bloomery.jpg"
+  },
+  {
+    "id": "iron_3",
+    "name": "铸铁柔化",
+    "description": "推广铁技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 3,
+    "route": "iron",
+    "cost": 10000,
+    "inspiration": 800,
+    "inspirationCap": 0.9,
+    "upkeep": 3.2,
+    "effects": {
+      "production": 0.012,
+      "production.iron": 0.15
+    },
+    "prerequisite": "iron_2",
+    "image": "assets/technology/bloomery.jpg"
+  },
+  {
+    "id": "wood_1",
+    "name": "林木选伐",
+    "description": "推广木材技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 1,
+    "route": "wood",
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "effects": {
+      "production": 0.012,
+      "production.wood": 0.15
+    }
+  },
+  {
+    "id": "wood_2",
+    "name": "顺纹解材",
+    "description": "推广木材技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 2,
+    "route": "wood",
+    "cost": 1000,
+    "inspiration": 80,
+    "inspirationCap": 0.8,
+    "upkeep": 1.6,
+    "effects": {
+      "production": 0.012,
+      "production.wood": 0.15
+    },
+    "prerequisite": "wood_1"
+  },
+  {
+    "id": "wood_3",
+    "name": "材木干燥",
+    "description": "推广木材技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 3,
+    "route": "wood",
+    "cost": 10000,
+    "inspiration": 800,
+    "inspirationCap": 0.9,
+    "upkeep": 3.2,
+    "effects": {
+      "production": 0.012,
+      "production.wood": 0.15
+    },
+    "prerequisite": "wood_2"
+  },
+  {
+    "id": "leather_1",
+    "name": "刮脂治皮",
+    "description": "推广牛技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 1,
+    "route": "leather",
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "effects": {
+      "production": 0.012,
+      "production.leather": 0.15
+    }
+  },
+  {
+    "id": "leather_2",
+    "name": "鞣革成材",
+    "description": "推广牛技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 2,
+    "route": "leather",
+    "cost": 1000,
+    "inspiration": 80,
+    "inspirationCap": 0.8,
+    "upkeep": 1.6,
+    "effects": {
+      "production": 0.012,
+      "production.leather": 0.15
+    },
+    "prerequisite": "leather_1"
+  },
+  {
+    "id": "leather_3",
+    "name": "熟革精制",
+    "description": "推广牛技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 3,
+    "route": "leather",
+    "cost": 10000,
+    "inspiration": 800,
+    "inspirationCap": 0.9,
+    "upkeep": 3.2,
+    "effects": {
+      "production": 0.012,
+      "production.leather": 0.15
+    },
+    "prerequisite": "leather_2"
+  },
+  {
+    "id": "hemp_1",
+    "name": "沤麻取纤",
+    "description": "推广麻技艺，形成更成熟的组织与生产能力。",
+    "category": "civil",
+    "tier": 1,
+    "route": "hemp",
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "effects": {
+      "production": 0.012,
+      "production.hemp": 0.15
+    }
+  },
+  {
+    "id": "hemp_2",
+    "name": "绩麻成缕",
+    "description": "推广麻技艺，形成更成熟的组织与生产能力。",
+    "category": "civil",
+    "tier": 2,
+    "route": "hemp",
+    "cost": 1000,
+    "inspiration": 80,
+    "inspirationCap": 0.8,
+    "upkeep": 1.6,
+    "effects": {
+      "production": 0.012,
+      "production.hemp": 0.15
+    },
+    "prerequisite": "hemp_1"
+  },
+  {
+    "id": "hemp_3",
+    "name": "精织细布",
+    "description": "推广麻技艺，形成更成熟的组织与生产能力。",
+    "category": "civil",
+    "tier": 3,
+    "route": "hemp",
+    "cost": 10000,
+    "inspiration": 800,
+    "inspirationCap": 0.9,
+    "upkeep": 3.2,
+    "effects": {
+      "production": 0.012,
+      "production.hemp": 0.15
+    },
+    "prerequisite": "hemp_2"
+  },
+  {
+    "id": "silk_1",
+    "name": "蚕桑培育",
+    "description": "推广丝绸技艺，形成更成熟的组织与生产能力。",
+    "category": "civil",
+    "tier": 1,
+    "route": "silk",
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "effects": {
+      "production": 0.012,
+      "production.silk": 0.15
+    }
+  },
+  {
+    "id": "silk_2",
+    "name": "缫丝整经",
+    "description": "推广丝绸技艺，形成更成熟的组织与生产能力。",
+    "category": "civil",
+    "tier": 2,
+    "route": "silk",
+    "cost": 1000,
+    "inspiration": 80,
+    "inspirationCap": 0.8,
+    "upkeep": 1.6,
+    "effects": {
+      "production": 0.012,
+      "production.silk": 0.15
+    },
+    "prerequisite": "silk_1"
+  },
+  {
+    "id": "silk_3",
+    "name": "提花织锦",
+    "description": "推广丝绸技艺，形成更成熟的组织与生产能力。",
+    "category": "civil",
+    "tier": 3,
+    "route": "silk",
+    "cost": 10000,
+    "inspiration": 800,
+    "inspirationCap": 0.9,
+    "upkeep": 3.2,
+    "effects": {
+      "production": 0.012,
+      "production.silk": 0.15
+    },
+    "prerequisite": "silk_2"
+  },
+  {
+    "id": "jade_1",
+    "name": "辨璞取玉",
+    "description": "推广玉技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 1,
+    "route": "jade",
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "effects": {
+      "production": 0.012,
+      "production.jade": 0.15
+    }
+  },
+  {
+    "id": "jade_2",
+    "name": "琢磨成器",
+    "description": "推广玉技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 2,
+    "route": "jade",
+    "cost": 1000,
+    "inspiration": 80,
+    "inspirationCap": 0.8,
+    "upkeep": 1.6,
+    "effects": {
+      "production": 0.012,
+      "production.jade": 0.15
+    },
+    "prerequisite": "jade_1"
+  },
+  {
+    "id": "jade_3",
+    "name": "镂空透雕",
+    "description": "推广玉技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 3,
+    "route": "jade",
+    "cost": 10000,
+    "inspiration": 800,
+    "inspirationCap": 0.9,
+    "upkeep": 3.2,
+    "effects": {
+      "production": 0.012,
+      "production.jade": 0.15
+    },
+    "prerequisite": "jade_2"
+  },
+  {
+    "id": "pottery_1",
+    "name": "淘泥制坯",
+    "description": "推广陶器技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 1,
+    "route": "pottery",
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "effects": {
+      "production": 0.012,
+      "production.pottery": 0.15
+    }
+  },
+  {
+    "id": "pottery_2",
+    "name": "轮制成形",
+    "description": "推广陶器技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 2,
+    "route": "pottery",
+    "cost": 1000,
+    "inspiration": 80,
+    "inspirationCap": 0.8,
+    "upkeep": 1.6,
+    "effects": {
+      "production": 0.012,
+      "production.pottery": 0.15
+    },
+    "prerequisite": "pottery_1"
+  },
+  {
+    "id": "pottery_3",
+    "name": "窑火调控",
+    "description": "推广陶器技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 3,
+    "route": "pottery",
+    "cost": 10000,
+    "inspiration": 800,
+    "inspirationCap": 0.9,
+    "upkeep": 3.2,
+    "effects": {
+      "production": 0.012,
+      "production.pottery": 0.15
+    },
+    "prerequisite": "pottery_2"
+  },
+  {
+    "id": "agriculture_1",
+    "name": "畎亩耕作",
+    "description": "推广粮食、鱼等（农业）技艺，形成更成熟的组织与生产能力。",
+    "category": "civil",
+    "tier": 1,
+    "route": "agriculture",
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "effects": {
+      "production": 0.012,
+      "production.agriculture": 0.15,
+      "manpower": 0.05
+    }
+  },
+  {
+    "id": "agriculture_2",
+    "name": "沟洫灌田",
+    "description": "推广粮食、鱼等（农业）技艺，形成更成熟的组织与生产能力。",
+    "category": "civil",
+    "tier": 2,
+    "route": "agriculture",
+    "cost": 1000,
+    "inspiration": 80,
+    "inspirationCap": 0.8,
+    "upkeep": 1.6,
+    "effects": {
+      "production": 0.012,
+      "production.agriculture": 0.15,
+      "manpower": 0.05
+    },
+    "prerequisite": "agriculture_1"
+  },
+  {
+    "id": "agriculture_3",
+    "name": "精耕细作",
+    "description": "推广粮食、鱼等（农业）技艺，形成更成熟的组织与生产能力。",
+    "category": "civil",
+    "tier": 3,
+    "route": "agriculture",
+    "cost": 10000,
+    "inspiration": 800,
+    "inspirationCap": 0.9,
+    "upkeep": 3.2,
+    "effects": {
+      "production": 0.012,
+      "production.agriculture": 0.15,
+      "manpower": 0.05
+    },
+    "prerequisite": "agriculture_2"
+  },
+  {
+    "id": "horse_1",
+    "name": "水草择牧",
+    "description": "推广马技艺，形成更成熟的组织与生产能力。",
+    "category": "civil",
+    "tier": 1,
+    "route": "horse",
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "effects": {
+      "production": 0.012,
+      "production.horse": 0.15
+    }
+  },
+  {
+    "id": "horse_2",
+    "name": "分群牧养",
+    "description": "推广马技艺，形成更成熟的组织与生产能力。",
+    "category": "civil",
+    "tier": 2,
+    "route": "horse",
+    "cost": 1000,
+    "inspiration": 80,
+    "inspirationCap": 0.8,
+    "upkeep": 1.6,
+    "effects": {
+      "production": 0.012,
+      "production.horse": 0.15
+    },
+    "prerequisite": "horse_1"
+  },
+  {
+    "id": "horse_3",
+    "name": "择种育驹",
+    "description": "推广马技艺，形成更成熟的组织与生产能力。",
+    "category": "civil",
+    "tier": 3,
+    "route": "horse",
+    "cost": 10000,
+    "inspiration": 800,
+    "inspirationCap": 0.9,
+    "upkeep": 3.2,
+    "effects": {
+      "production": 0.012,
+      "production.horse": 0.15
+    },
+    "prerequisite": "horse_2"
+  },
+  {
+    "id": "salt_1",
+    "name": "煎卤成盐",
+    "description": "推广盐技艺，形成更成熟的组织与生产能力。",
+    "category": "civil",
+    "tier": 1,
+    "route": "salt",
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "effects": {
+      "production": 0.012,
+      "production.salt": 0.15
+    }
+  },
+  {
+    "id": "salt_2",
+    "name": "淋滤取卤",
+    "description": "推广盐技艺，形成更成熟的组织与生产能力。",
+    "category": "civil",
+    "tier": 2,
+    "route": "salt",
+    "cost": 1000,
+    "inspiration": 80,
+    "inspirationCap": 0.8,
+    "upkeep": 1.6,
+    "effects": {
+      "production": 0.012,
+      "production.salt": 0.15
+    },
+    "prerequisite": "salt_1"
+  },
+  {
+    "id": "salt_3",
+    "name": "大釜煎盐",
+    "description": "推广盐技艺，形成更成熟的组织与生产能力。",
+    "category": "civil",
+    "tier": 3,
+    "route": "salt",
+    "cost": 10000,
+    "inspiration": 800,
+    "inspirationCap": 0.9,
+    "upkeep": 3.2,
+    "effects": {
+      "production": 0.012,
+      "production.salt": 0.15
+    },
+    "prerequisite": "salt_2"
+  },
+  {
+    "id": "leather_armor_1",
+    "name": "裁革制甲",
+    "description": "推广革甲作坊技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 1,
+    "route": "leather_armor",
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "effects": {
+      "production": 0.012,
+      "production.leather_armor": 0.15
+    }
+  },
+  {
+    "id": "leather_armor_2",
+    "name": "叠札联缀",
+    "description": "推广革甲作坊技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 2,
+    "route": "leather_armor",
+    "cost": 1000,
+    "inspiration": 80,
+    "inspirationCap": 0.8,
+    "upkeep": 1.6,
+    "effects": {
+      "production": 0.012,
+      "production.leather_armor": 0.15
+    },
+    "prerequisite": "leather_armor_1"
+  },
+  {
+    "id": "leather_armor_3",
+    "name": "髹漆固甲",
+    "description": "推广革甲作坊技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 3,
+    "route": "leather_armor",
+    "cost": 10000,
+    "inspiration": 800,
+    "inspirationCap": 0.9,
+    "upkeep": 3.2,
+    "effects": {
+      "production": 0.012,
+      "production.leather_armor": 0.15
+    },
+    "prerequisite": "leather_armor_2"
+  },
+  {
+    "id": "bows_1",
+    "name": "选材制弓",
+    "description": "推广弓箭作坊技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 1,
+    "route": "bows",
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "effects": {
+      "production": 0.012,
+      "production.bows": 0.15
+    }
+  },
+  {
+    "id": "bows_2",
+    "name": "角筋合弓",
+    "description": "推广弓箭作坊技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 2,
+    "route": "bows",
+    "cost": 1000,
+    "inspiration": 80,
+    "inspirationCap": 0.8,
+    "upkeep": 1.6,
+    "effects": {
+      "production": 0.012,
+      "production.bows": 0.15
+    },
+    "prerequisite": "bows_1"
+  },
+  {
+    "id": "bows_3",
+    "name": "六材成弓",
+    "description": "推广弓箭作坊技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 3,
+    "route": "bows",
+    "cost": 10000,
+    "inspiration": 800,
+    "inspirationCap": 0.9,
+    "upkeep": 3.2,
+    "effects": {
+      "production": 0.012,
+      "production.bows": 0.15
+    },
+    "prerequisite": "bows_2"
+  },
+  {
+    "id": "bronze_arms_1",
+    "name": "陶范铸兵",
+    "description": "推广铜兵甲作坊技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 1,
+    "route": "bronze_arms",
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "effects": {
+      "production": 0.012,
+      "production.bronze_arms": 0.15
+    },
+    "image": "assets/technology/bronze_foundry.jpg"
+  },
+  {
+    "id": "bronze_arms_2",
+    "name": "兵范合度",
+    "description": "推广铜兵甲作坊技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 2,
+    "route": "bronze_arms",
+    "cost": 1000,
+    "inspiration": 80,
+    "inspirationCap": 0.8,
+    "upkeep": 1.6,
+    "effects": {
+      "production": 0.012,
+      "production.bronze_arms": 0.15
+    },
+    "prerequisite": "bronze_arms_1",
+    "image": "assets/technology/bronze_foundry.jpg"
+  },
+  {
+    "id": "bronze_arms_3",
+    "name": "复合铸锋",
+    "description": "推广铜兵甲作坊技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 3,
+    "route": "bronze_arms",
+    "cost": 10000,
+    "inspiration": 800,
+    "inspirationCap": 0.9,
+    "upkeep": 3.2,
+    "effects": {
+      "production": 0.012,
+      "production.bronze_arms": 0.15
+    },
+    "prerequisite": "bronze_arms_2",
+    "image": "assets/technology/bronze_foundry.jpg"
+  },
+  {
+    "id": "iron_arms_1",
+    "name": "锻铁成刃",
+    "description": "推广铁兵甲作坊技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 1,
+    "route": "iron_arms",
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "effects": {
+      "production": 0.012,
+      "production.iron_arms": 0.15
+    },
+    "image": "assets/technology/bloomery.jpg"
+  },
+  {
+    "id": "iron_arms_2",
+    "name": "渗炭强刃",
+    "description": "推广铁兵甲作坊技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 2,
+    "route": "iron_arms",
+    "cost": 1000,
+    "inspiration": 80,
+    "inspirationCap": 0.8,
+    "upkeep": 1.6,
+    "effects": {
+      "production": 0.012,
+      "production.iron_arms": 0.15
+    },
+    "prerequisite": "iron_arms_1",
+    "image": "assets/technology/bloomery.jpg"
+  },
+  {
+    "id": "iron_arms_3",
+    "name": "淬火精锻",
+    "description": "推广铁兵甲作坊技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 3,
+    "route": "iron_arms",
+    "cost": 10000,
+    "inspiration": 800,
+    "inspirationCap": 0.9,
+    "upkeep": 3.2,
+    "effects": {
+      "production": 0.012,
+      "production.iron_arms": 0.15
+    },
+    "prerequisite": "iron_arms_2",
+    "image": "assets/technology/bloomery.jpg"
+  },
+  {
+    "id": "chariots_1",
+    "name": "辐轮制车",
+    "description": "推广车辆制造技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 1,
+    "route": "chariots",
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "effects": {
+      "production": 0.012,
+      "production.chariots": 0.15
+    }
+  },
+  {
+    "id": "chariots_2",
+    "name": "轮舆合度",
+    "description": "推广车辆制造技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 2,
+    "route": "chariots",
+    "cost": 1000,
+    "inspiration": 80,
+    "inspirationCap": 0.8,
+    "upkeep": 1.6,
+    "effects": {
+      "production": 0.012,
+      "production.chariots": 0.15
+    },
+    "prerequisite": "chariots_1"
+  },
+  {
+    "id": "chariots_3",
+    "name": "车具规制",
+    "description": "推广车辆制造技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 3,
+    "route": "chariots",
+    "cost": 10000,
+    "inspiration": 800,
+    "inspirationCap": 0.9,
+    "upkeep": 3.2,
+    "effects": {
+      "production": 0.012,
+      "production.chariots": 0.15
+    },
+    "prerequisite": "chariots_2"
+  },
+  {
+    "id": "warhorses_1",
+    "name": "驯马习驾",
+    "description": "推广战马训练场技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 1,
+    "route": "warhorses",
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "effects": {
+      "production": 0.012,
+      "production.warhorses": 0.15
+    }
+  },
+  {
+    "id": "warhorses_2",
+    "name": "习乘调御",
+    "description": "推广战马训练场技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 2,
+    "route": "warhorses",
+    "cost": 1000,
+    "inspiration": 80,
+    "inspirationCap": 0.8,
+    "upkeep": 1.6,
+    "effects": {
+      "production": 0.012,
+      "production.warhorses": 0.15
+    },
+    "prerequisite": "warhorses_1"
+  },
+  {
+    "id": "warhorses_3",
+    "name": "军马合训",
+    "description": "推广战马训练场技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 3,
+    "route": "warhorses",
+    "cost": 10000,
+    "inspiration": 800,
+    "inspirationCap": 0.9,
+    "upkeep": 3.2,
+    "effects": {
+      "production": 0.012,
+      "production.warhorses": 0.15
+    },
+    "prerequisite": "warhorses_2"
+  },
+  {
+    "id": "clothing_1",
+    "name": "裁布缝衣",
+    "description": "推广制衣所技艺，形成更成熟的组织与生产能力。",
+    "category": "civil",
+    "tier": 1,
+    "route": "clothing",
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "effects": {
+      "production": 0.012,
+      "production.clothing": 0.15
+    }
+  },
+  {
+    "id": "clothing_2",
+    "name": "量裁成制",
+    "description": "推广制衣所技艺，形成更成熟的组织与生产能力。",
+    "category": "civil",
+    "tier": 2,
+    "route": "clothing",
+    "cost": 1000,
+    "inspiration": 80,
+    "inspirationCap": 0.8,
+    "upkeep": 1.6,
+    "effects": {
+      "production": 0.012,
+      "production.clothing": 0.15
+    },
+    "prerequisite": "clothing_1"
+  },
+  {
+    "id": "clothing_3",
+    "name": "成衣分作",
+    "description": "推广制衣所技艺，形成更成熟的组织与生产能力。",
+    "category": "civil",
+    "tier": 3,
+    "route": "clothing",
+    "cost": 10000,
+    "inspiration": 800,
+    "inspirationCap": 0.9,
+    "upkeep": 3.2,
+    "effects": {
+      "production": 0.012,
+      "production.clothing": 0.15
+    },
+    "prerequisite": "clothing_2"
+  },
+  {
+    "id": "lacquer_1",
+    "name": "木胎髹漆",
+    "description": "推广漆器厂技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 1,
+    "route": "lacquer",
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "effects": {
+      "production": 0.012,
+      "production.lacquer": 0.15
+    }
+  },
+  {
+    "id": "lacquer_2",
+    "name": "朱黑彩绘",
+    "description": "推广漆器厂技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 2,
+    "route": "lacquer",
+    "cost": 1000,
+    "inspiration": 80,
+    "inspirationCap": 0.8,
+    "upkeep": 1.6,
+    "effects": {
+      "production": 0.012,
+      "production.lacquer": 0.15
+    },
+    "prerequisite": "lacquer_1"
+  },
+  {
+    "id": "lacquer_3",
+    "name": "针刻漆饰",
+    "description": "推广漆器厂技艺，形成更成熟的组织与生产能力。",
+    "category": "craft",
+    "tier": 3,
+    "route": "lacquer",
+    "cost": 10000,
+    "inspiration": 800,
+    "inspirationCap": 0.9,
+    "upkeep": 3.2,
+    "effects": {
+      "production": 0.012,
+      "production.lacquer": 0.15
+    },
+    "prerequisite": "lacquer_2"
+  },
+  {
+    "id": "luxury_clothing_1",
+    "name": "丝帛裁衣",
+    "description": "推广高级制衣所技艺，形成更成熟的组织与生产能力。",
+    "category": "civil",
+    "tier": 1,
+    "route": "luxury_clothing",
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "effects": {
+      "production": 0.012,
+      "production.luxury_clothing": 0.15
+    }
+  },
+  {
+    "id": "luxury_clothing_2",
+    "name": "缘饰成服",
+    "description": "推广高级制衣所技艺，形成更成熟的组织与生产能力。",
+    "category": "civil",
+    "tier": 2,
+    "route": "luxury_clothing",
+    "cost": 1000,
+    "inspiration": 80,
+    "inspirationCap": 0.8,
+    "upkeep": 1.6,
+    "effects": {
+      "production": 0.012,
+      "production.luxury_clothing": 0.15
+    },
+    "prerequisite": "luxury_clothing_1"
+  },
+  {
+    "id": "luxury_clothing_3",
+    "name": "锦绣华服",
+    "description": "推广高级制衣所技艺，形成更成熟的组织与生产能力。",
+    "category": "civil",
+    "tier": 3,
+    "route": "luxury_clothing",
+    "cost": 10000,
+    "inspiration": 800,
+    "inspirationCap": 0.9,
+    "upkeep": 3.2,
+    "effects": {
+      "production": 0.012,
+      "production.luxury_clothing": 0.15
+    },
+    "prerequisite": "luxury_clothing_2"
+  },
+  {
+    "id": "bamboo_1",
+    "name": "刊木成牍",
+    "description": "推广简牍作坊技艺，形成更成熟的组织与生产能力。",
+    "category": "civil",
+    "tier": 1,
+    "route": "bamboo",
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "effects": {
+      "production": 0.012,
+      "production.bamboo": 0.15,
+      "research_efficiency": 0.04
+    }
+  },
+  {
+    "id": "bamboo_2",
+    "name": "薄简精削",
+    "description": "推广简牍作坊技艺，形成更成熟的组织与生产能力。",
+    "category": "civil",
+    "tier": 2,
+    "route": "bamboo",
+    "cost": 1000,
+    "inspiration": 80,
+    "inspirationCap": 0.8,
+    "upkeep": 1.6,
+    "effects": {
+      "production": 0.012,
+      "production.bamboo": 0.15,
+      "research_efficiency": 0.04
+    },
+    "prerequisite": "bamboo_1"
+  },
+  {
+    "id": "bamboo_3",
+    "name": "编联成册",
+    "description": "推广简牍作坊技艺，形成更成熟的组织与生产能力。",
+    "category": "civil",
+    "tier": 3,
+    "route": "bamboo",
+    "cost": 10000,
+    "inspiration": 800,
+    "inspirationCap": 0.9,
+    "upkeep": 3.2,
+    "effects": {
+      "production": 0.012,
+      "production.bamboo": 0.15,
+      "research_efficiency": 0.04
+    },
+    "prerequisite": "bamboo_2"
+  },
+  {
+    "id": "academy_1",
+    "name": "礼乐讲习",
+    "description": "推广学府技艺，形成更成熟的组织与生产能力。",
+    "category": "civil",
+    "tier": 1,
+    "route": "academy",
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "effects": {
+      "production": 0.012,
+      "production.academy": 0.15,
+      "research_scale": 2,
+      "research_efficiency": 0.05
+    }
+  },
+  {
+    "id": "academy_2",
+    "name": "分业授徒",
+    "description": "推广学府技艺，形成更成熟的组织与生产能力。",
+    "category": "civil",
+    "tier": 2,
+    "route": "academy",
+    "cost": 1000,
+    "inspiration": 80,
+    "inspirationCap": 0.8,
+    "upkeep": 1.6,
+    "effects": {
+      "production": 0.012,
+      "production.academy": 0.15,
+      "research_scale": 4,
+      "research_efficiency": 0.05
+    },
+    "prerequisite": "academy_1"
+  },
+  {
+    "id": "academy_3",
+    "name": "学宫论辩",
+    "description": "推广学府技艺，形成更成熟的组织与生产能力。",
+    "category": "civil",
+    "tier": 3,
+    "route": "academy",
+    "cost": 10000,
+    "inspiration": 800,
+    "inspirationCap": 0.9,
+    "upkeep": 3.2,
+    "effects": {
+      "production": 0.012,
+      "production.academy": 0.15,
+      "research_scale": 6,
+      "research_efficiency": 0.05
+    },
+    "prerequisite": "academy_2"
+  },
+  {
+    "id": "infantry_1",
+    "name": "行伍操练",
+    "description": "推广步兵技艺，形成更成熟的组织与生产能力。",
+    "category": "military",
+    "tier": 1,
+    "route": "infantry",
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "effects": {
+      "army.attack": 0.02,
+      "army.units": 0,
+      "army.cadre_ratio": 0.05
+    }
+  },
+  {
+    "id": "infantry_2",
+    "name": "列阵协战",
+    "description": "推广步兵技艺，形成更成熟的组织与生产能力。",
+    "category": "military",
+    "tier": 2,
+    "route": "infantry",
+    "cost": 1000,
+    "inspiration": 80,
+    "inspirationCap": 0.8,
+    "upkeep": 1.6,
+    "effects": {
+      "army.attack": 0.02,
+      "army.units": 1,
+      "army.cadre_ratio": 0.05
+    },
+    "prerequisite": "infantry_1"
+  },
+  {
+    "id": "infantry_3",
+    "name": "精卒成军",
+    "description": "推广步兵技艺，形成更成熟的组织与生产能力。",
+    "category": "military",
+    "tier": 3,
+    "route": "infantry",
+    "cost": 10000,
+    "inspiration": 800,
+    "inspirationCap": 0.9,
+    "upkeep": 3.2,
+    "effects": {
+      "army.attack": 0.02,
+      "army.units": 1,
+      "army.cadre_ratio": 0.05
+    },
+    "prerequisite": "infantry_2"
+  },
+  {
+    "id": "crossbow_1",
+    "name": "张弩习射",
+    "description": "推广弩兵技艺，形成更成熟的组织与生产能力。",
+    "category": "military",
+    "tier": 1,
+    "route": "crossbow",
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "effects": {
+      "army.attack": 0.02
+    }
+  },
+  {
+    "id": "crossbow_2",
+    "name": "弩阵齐发",
+    "description": "推广弩兵技艺，形成更成熟的组织与生产能力。",
+    "category": "military",
+    "tier": 2,
+    "route": "crossbow",
+    "cost": 1000,
+    "inspiration": 80,
+    "inspirationCap": 0.8,
+    "upkeep": 1.6,
+    "effects": {
+      "army.attack": 0.02
+    },
+    "prerequisite": "crossbow_1"
+  },
+  {
+    "id": "crossbow_3",
+    "name": "分列迭射",
+    "description": "推广弩兵技艺，形成更成熟的组织与生产能力。",
+    "category": "military",
+    "tier": 3,
+    "route": "crossbow",
+    "cost": 10000,
+    "inspiration": 800,
+    "inspirationCap": 0.9,
+    "upkeep": 3.2,
+    "effects": {
+      "army.attack": 0.02
+    },
+    "prerequisite": "crossbow_2"
+  },
+  {
+    "id": "cavalry_1",
+    "name": "乘骑习战",
+    "description": "推广骑兵技艺，形成更成熟的组织与生产能力。",
+    "category": "military",
+    "tier": 1,
+    "route": "cavalry",
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "effects": {
+      "army.attack": 0.02,
+      "army.speed": 0.05
+    }
+  },
+  {
+    "id": "cavalry_2",
+    "name": "骑射游击",
+    "description": "推广骑兵技艺，形成更成熟的组织与生产能力。",
+    "category": "military",
+    "tier": 2,
+    "route": "cavalry",
+    "cost": 1000,
+    "inspiration": 80,
+    "inspirationCap": 0.8,
+    "upkeep": 1.6,
+    "effects": {
+      "army.attack": 0.02,
+      "army.speed": 0.05
+    },
+    "prerequisite": "cavalry_1"
+  },
+  {
+    "id": "cavalry_3",
+    "name": "奔袭合围",
+    "description": "推广骑兵技艺，形成更成熟的组织与生产能力。",
+    "category": "military",
+    "tier": 3,
+    "route": "cavalry",
+    "cost": 10000,
+    "inspiration": 800,
+    "inspirationCap": 0.9,
+    "upkeep": 3.2,
+    "effects": {
+      "army.attack": 0.02,
+      "army.speed": 0.05
+    },
+    "prerequisite": "cavalry_2"
+  },
+  {
+    "id": "chariot_1",
+    "name": "御车习战",
+    "description": "推广战车技艺，形成更成熟的组织与生产能力。",
+    "category": "military",
+    "tier": 1,
+    "route": "chariot",
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "effects": {
+      "army.attack": 0.02
+    }
+  },
+  {
+    "id": "chariot_2",
+    "name": "车徒协同",
+    "description": "推广战车技艺，形成更成熟的组织与生产能力。",
+    "category": "military",
+    "tier": 2,
+    "route": "chariot",
+    "cost": 1000,
+    "inspiration": 80,
+    "inspirationCap": 0.8,
+    "upkeep": 1.6,
+    "effects": {
+      "army.attack": 0.02
+    },
+    "prerequisite": "chariot_1"
+  },
+  {
+    "id": "chariot_3",
+    "name": "车阵合击",
+    "description": "推广战车技艺，形成更成熟的组织与生产能力。",
+    "category": "military",
+    "tier": 3,
+    "route": "chariot",
+    "cost": 10000,
+    "inspiration": 800,
+    "inspirationCap": 0.9,
+    "upkeep": 3.2,
+    "effects": {
+      "army.attack": 0.02
+    },
+    "prerequisite": "chariot_2"
+  },
+  {
+    "id": "siege_1",
+    "name": "营垒进逼",
+    "description": "推广攻城技艺，形成更成熟的组织与生产能力。",
+    "category": "military",
+    "tier": 1,
+    "route": "siege",
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "effects": {
+      "army.attack": 0.02,
+      "army.offense": 0.1
+    }
+  },
+  {
+    "id": "siege_2",
+    "name": "梯冲并进",
+    "description": "推广攻城技艺，形成更成熟的组织与生产能力。",
+    "category": "military",
+    "tier": 2,
+    "route": "siege",
+    "cost": 1000,
+    "inspiration": 80,
+    "inspirationCap": 0.8,
+    "upkeep": 1.6,
+    "effects": {
+      "army.attack": 0.02,
+      "army.offense": 0.1
+    },
+    "prerequisite": "siege_1"
+  },
+  {
+    "id": "siege_3",
+    "name": "穴隧奇攻",
+    "description": "推广攻城技艺，形成更成熟的组织与生产能力。",
+    "category": "military",
+    "tier": 3,
+    "route": "siege",
+    "cost": 10000,
+    "inspiration": 800,
+    "inspirationCap": 0.9,
+    "upkeep": 3.2,
+    "effects": {
+      "army.attack": 0.02,
+      "army.offense": 0.1
+    },
+    "prerequisite": "siege_2"
+  },
+  {
+    "id": "defense_1",
+    "name": "城堞守备",
+    "description": "推广守城技艺，形成更成熟的组织与生产能力。",
+    "category": "military",
+    "tier": 1,
+    "route": "defense",
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "effects": {
+      "army.attack": 0.02,
+      "army.defense": 0.08
+    }
+  },
+  {
+    "id": "defense_2",
+    "name": "分段协守",
+    "description": "推广守城技艺，形成更成熟的组织与生产能力。",
+    "category": "military",
+    "tier": 2,
+    "route": "defense",
+    "cost": 1000,
+    "inspiration": 80,
+    "inspirationCap": 0.8,
+    "upkeep": 1.6,
+    "effects": {
+      "army.attack": 0.02,
+      "army.defense": 0.08
+    },
+    "prerequisite": "defense_1"
+  },
+  {
+    "id": "defense_3",
+    "name": "内外应援",
+    "description": "推广守城技艺，形成更成熟的组织与生产能力。",
+    "category": "military",
+    "tier": 3,
+    "route": "defense",
+    "cost": 10000,
+    "inspiration": 800,
+    "inspirationCap": 0.9,
+    "upkeep": 3.2,
+    "effects": {
+      "army.attack": 0.02,
+      "army.defense": 0.08
+    },
+    "prerequisite": "defense_2"
+  }
+]

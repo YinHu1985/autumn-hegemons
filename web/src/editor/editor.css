@@ -1,0 +1,184 @@
+.content-studio {
+  font-family: "Songti SC", serif;
+  color: #354433;
+}
+.studio-header {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  margin-bottom: 20px;
+}
+.studio-header small {
+  color: #9a7b45;
+  font-size: 11px;
+}
+.studio-header h1 {
+  font-size: 34px;
+  margin: 6px 0;
+}
+.studio-header p {
+  font-size: 13px;
+  color: #807255;
+}
+.studio-tabs {
+  display: flex;
+  gap: 5px;
+  border-bottom: 2px solid #988057;
+  padding-bottom: 8px;
+}
+.studio-tabs button {
+  flex: 1;
+  border-radius: 2px;
+  font-size: 16px;
+  background: #e9dec4;
+  border-color: #c0ad83;
+}
+.studio-tabs .active {
+  background: #3c5541;
+  color: #f8e9c0;
+}
+.studio-tabs small {
+  display: block;
+  font-size: 10px;
+  opacity: 0.7;
+  margin-top: 4px;
+}
+.studio-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  border: 1px solid #b6a47c;
+  background: #f4ecda;
+  min-height: 500px;
+  height: 60vh;
+}
+.studio-index {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px;
+  overflow: auto;
+  border-right: 1px solid #c4b38d;
+  background: #e3d7ba;
+}
+.studio-index input {
+  padding: 8px;
+  border: 1px solid #b5a078;
+  background: #f8efda;
+  font-family: inherit;
+}
+.studio-index button {
+  text-align: left;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 1px;
+  padding: 8px;
+  font-size: 13px;
+}
+.studio-index button.active {
+  background: #f6ebcf;
+  border-color: #aa8e58;
+}
+.studio-index small {
+  display: block;
+  font-size: 10px;
+  opacity: 0.6;
+  margin-top: 3px;
+}
+.studio-editor {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+.studio-tools {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.studio-tools strong {
+  margin-right: auto;
+  font-size: 19px;
+}
+.studio-tools button {
+  font-size: 11px;
+  border-radius: 1px;
+  padding: 6px 10px;
+}
+.definition-form {
+  overflow: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  padding: 5px;
+}
+.definition-form label > span {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+.definition-form small {
+  margin-left: 8px;
+  color: #918061;
+  font-size: 10px;
+}
+.definition-form input,
+.definition-form textarea {
+  width: 100%;
+  font-family: ui-monospace, monospace;
+  padding: 8px;
+  border: 1px solid #bead88;
+  background: #fffcf3;
+  font-size: 12px;
+}
+.definition-form .wide {
+  grid-column: 1/-1;
+}
+.definition-form textarea {
+  min-height: 125px;
+  resize: vertical;
+}
+.json-editor {
+  width: 100%;
+  flex: 1;
+  min-height: 200px;
+  font-family: ui-monospace, monospace;
+  padding: 16px;
+  background: #24382e;
+  color: #eddfb9;
+  border: 0;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.studio-footer {
+  padding-top: 15px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.studio-footer button,
+.studio-footer label {
+  font-size: 12px;
+  border-radius: 1px;
+}
+.studio-footer p {
+  width: 100%;
+  font-size: 12px;
+  background: #e1d3b4;
+  padding: 12px;
+  color: #765630;
+}
+@media (max-width: 700px) {
+  .studio-layout {
+    grid-template-columns: 140px 1fr;
+  }
+  .studio-tabs {
+    flex-wrap: wrap;
+  }
+  .definition-form {
+    grid-template-columns: 1fr;
+  }
+  .studio-header p {
+    display: none;
+  }
+}

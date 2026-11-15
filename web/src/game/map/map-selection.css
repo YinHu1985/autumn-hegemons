@@ -1,0 +1,84 @@
+.government-window[hidden],
+.province-window[hidden] {
+  display: none !important;
+}
+.map-location-prompt {
+  position: absolute;
+  z-index: 17;
+  top: calc(var(--strategy-header-height, 96px) + 18px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(670px, calc(100% - 48px));
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 15px 19px;
+  color: #f2e6c7;
+  background: linear-gradient(115deg, #213b2ef5, #334d3cf5);
+  border: 1px solid #c8ae72;
+  box-shadow:
+    0 6px 24px #15291e88,
+    inset 0 0 0 3px #bca87522;
+}
+.map-location-prompt:focus {
+  outline: none;
+}
+.map-location-prompt small {
+  color: #c6b789;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+}
+.map-location-prompt h2 {
+  font:
+    23px Daoli,
+    serif;
+  margin: 5px 0 7px;
+}
+.map-location-prompt p {
+  margin: 0;
+  line-height: 1.65;
+  font-size: 12px;
+}
+.map-location-prompt button {
+  flex-shrink: 0;
+  padding: 7px 10px;
+  color: #f5e5bd;
+  border: 1px solid #c0a970;
+  background: #142d20;
+  font-size: 12px;
+}
+.map-location-prompt kbd {
+  margin-left: 5px;
+  opacity: 0.65;
+  font-size: 10px;
+}
+.map-location-prompt .map-selection-error {
+  color: #ffc28e;
+  margin-top: 7px;
+}
+.destination-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px 15px;
+  align-items: center;
+  margin: 10px 0;
+}
+.destination-picker > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+}
+.destination-picker > button {
+  margin-left: auto;
+}
+@media (max-width: 760px) {
+  .map-location-prompt {
+    left: 12px;
+    transform: none;
+    width: calc(100% - 24px);
+    padding: 12px;
+    gap: 10px;
+  }
+}

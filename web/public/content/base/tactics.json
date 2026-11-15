@@ -1,0 +1,86 @@
+{
+  "visibility": {
+    "enabled": true,
+    "baseRange": 4,
+    "cavalryRange": 5,
+    "concealmentRange": 1,
+    "concealmentTerrains": ["forest", "hill"],
+    "blockingTerrains": ["forest", "hill"]
+  },
+  "baseInitiative": 100,
+  "actionThreshold": 100,
+  "trainingInitiativeBonus": 0.1,
+  "moraleInitiativeBonus": 0.1,
+  "presentation": {
+    "clockUnitsPerSecond": 0.65,
+    "moveStepMs": 220,
+    "attackMs": 650,
+    "pauseMs": 320
+  },
+  "baseActionPoints": 2,
+  "cavalryActionPoints": 3,
+  "meleeCost": 1,
+  "shootCost": 1,
+  "plainMoveCost": 1,
+  "roughMoveCost": 2,
+  "meleeDamageRate": 0.16,
+  "rangedDamageRate": 0.16,
+  "counterDamageRate": 0.035,
+  "rangedMeleeMultiplier": 0.55,
+  "guardDefenseMultiplier": 1.35,
+  "waitMoraleRecovery": 2,
+  "strategies": [
+    {
+      "id": "fire",
+      "name": "火攻",
+      "description": "对附近敌军施放火攻，造成伤亡与士气损失。",
+      "effect": "fire",
+      "actionPoints": 2,
+      "range": 2,
+      "successChance": 0.6,
+      "damageRate": 0.12,
+      "moraleChange": 10
+    },
+    {
+      "id": "doubt",
+      "name": "疑兵",
+      "description": "扰乱敌军，使其下一次行动无法出击。",
+      "effect": "doubt",
+      "actionPoints": 2,
+      "range": 3,
+      "successChance": 0.5,
+      "duration": 1
+    },
+    {
+      "id": "provoke",
+      "name": "挑衅",
+      "description": "诱使敌军下一次行动追击施计部队，仍受贴身牵制。",
+      "effect": "provoke",
+      "actionPoints": 1,
+      "range": 3,
+      "successChance": 0.6,
+      "duration": 1
+    },
+    {
+      "id": "rally",
+      "name": "鼓舞",
+      "description": "恢复附近友军士气，每支部队每次行动只能施计一次。",
+      "effect": "rally",
+      "actionPoints": 1,
+      "range": 2,
+      "successChance": 1,
+      "moraleChange": 12
+    },
+    {
+      "id": "fireArrow",
+      "name": "火矢",
+      "description": "远程部队射出火矢，命中造成正常射击伤害，并有概率引燃。",
+      "effect": "fireArrow",
+      "actionPoints": 2,
+      "range": 3,
+      "successChance": 0.35,
+      "damageRate": 0.08,
+      "moraleChange": 8
+    }
+  ]
+}

@@ -1,0 +1,304 @@
+.window-body {
+  padding: 20px;
+  overflow: auto;
+  flex: 1;
+  min-height: 0;
+}
+.window-body h2,
+.window-body h3 {
+  font-family: Daoli, serif;
+  font-weight: normal;
+}
+.window-body h2 {
+  font-size: 24px;
+  margin: 0 0 14px;
+}
+.window-body h3 {
+  font-size: 20px;
+  margin: 12px 0;
+}
+.window-body p {
+  line-height: 1.7;
+}
+.window-body button {
+  background: #e3d5b4;
+  border-color: #b69c6b;
+  padding: 7px 12px;
+  font-size: 12px;
+}
+.window-body button.primary {
+  background: #34513c;
+  color: #fceac0;
+}
+.window-body input,
+.window-body select {
+  font-family: inherit;
+  background: #faf3df;
+  border: 1px solid #b7a176;
+  padding: 6px;
+  color: #3c422f;
+}
+.window-body input[type="range"] {
+  padding: 0;
+  accent-color: #496441;
+}
+.window-body progress {
+  width: 100%;
+  height: 7px;
+  accent-color: #6c8353;
+}
+.window-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.window-body th {
+  text-align: left;
+  background: #d8c9a6;
+  color: #665432;
+  padding: 9px;
+}
+.window-body td {
+  padding: 9px;
+  border-bottom: 1px solid #c7b88f;
+}
+.window-body label {
+  font-size: 12px;
+}
+.window-body .muted,
+.window-body small {
+  color: #806d4b;
+}
+.window-body .button-row {
+  margin: 10px 0;
+}
+.window-body .panel {
+  background: #f4ecd6;
+  border: 1px solid #bba67a;
+  border-radius: 0;
+  padding: 15px;
+  box-shadow: none;
+}
+.window-body .panel-message {
+  padding: 8px 12px;
+  border: 1px solid #bca46f;
+  background: #e4d4b0;
+}
+
+.window-body:has(.research-panel) {
+  background: #263d31;
+}
+.window-body .research-panel small {
+  color: #baad88;
+}
+.window-body .research-panel .research-detail small {
+  color: #806d4b;
+}
+.window-body .research-panel .research-toolbar button {
+  background: #304e3a;
+  color: #e9d5a4;
+}
+.window-body .research-panel .research-toolbar .active {
+  background: #9d7f48;
+  color: #fff4d1;
+}
+.window-body .research-panel .research-empty {
+  color: #c2bb9b;
+}
+.window-body .research-panel .research-detail {
+  color: #29392e;
+}
+.window-body .research-panel h2 {
+  color: #efddb0;
+}
+.window-body .research-panel .research-fineprint {
+  color: #bbb89d;
+}
+.window-body .research-detail .research-fineprint {
+  color: #70634b;
+}
+.feature-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  border-bottom: 1px solid #b9a475;
+  padding-bottom: 12px;
+  margin-bottom: 15px;
+}
+.feature-heading h2 {
+  margin: 3px 0;
+}
+.feature-heading small {
+  font-size: 10px;
+  letter-spacing: 0.13em;
+}
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+  margin: 14px 0;
+}
+.stat-grid > div {
+  background: #314c3b;
+  color: #eee0b8;
+  padding: 14px;
+  border: 1px solid #8c845c;
+}
+.window-body .stat-grid small {
+  display: block;
+  color: #cabb91;
+  font-size: 10px;
+}
+.stat-grid strong {
+  display: block;
+  font-size: 20px;
+  margin-top: 8px;
+}
+.budget-row {
+  display: grid;
+  grid-template-columns: 180px 1fr 50px 120px;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid #c4b289;
+}
+.budget-row > div small {
+  display: block;
+  font-size: 10px;
+  margin-top: 5px;
+}
+.event-card {
+  border: 1px solid #b79d6d;
+  background: #e3d5b3;
+  padding: 18px;
+  margin-bottom: 15px;
+}
+.event-options {
+  display: grid;
+  gap: 8px;
+}
+.event-options button {
+  text-align: left;
+}
+.event-options small {
+  display: block;
+  margin-top: 4px;
+}
+.chronicle-list {
+  max-height: 400px;
+  overflow: auto;
+}
+.chronicle-list article {
+  border-bottom: 1px solid #c3af83;
+  padding: 8px;
+}
+.warning {
+  color: #9b4b30;
+  background: #e9d0a5;
+  padding: 12px;
+}
+@media (max-width: 650px) {
+  .budget-row {
+    grid-template-columns: 1fr 1fr;
+  }
+  .budget-row > small {
+    text-align: right;
+  }
+}
+
+/* Windows sit above the permanent map; only the system menu uses a modal shade. */
+.government-window {
+  position: absolute;
+  z-index: 16;
+  top: calc(var(--strategy-header-height, 96px) + 16px);
+  left: 16px;
+  width: min(900px, calc(100vw - 48px));
+  height: min(790px, calc(100dvh - var(--strategy-header-height, 96px) - 48px));
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #b69b64;
+  outline: none;
+  background: #eee5cc url("../../public/assets/ui/paper-fibers.svg");
+  box-shadow:
+    0 14px 45px #12241c88,
+    0 0 0 3px #29423180;
+}
+.government-research {
+  width: min(1120px, calc(100vw - 48px));
+}
+.government-military {
+  width: min(1000px, calc(100vw - 48px));
+}
+.government-ideas {
+  width: min(1010px, calc(100vw - 48px));
+}
+.government-events {
+  left: auto;
+  right: 18px;
+  width: min(650px, calc(100vw - 36px));
+  height: min(720px, calc(100dvh - var(--strategy-header-height, 96px) - 48px));
+}
+.government-battles {
+  width: min(1100px, calc(100vw - 48px));
+}
+.government-window.tactical-window {
+  width: calc(100vw - 32px);
+  height: calc(100dvh - var(--strategy-header-height, 96px) - 32px);
+  max-height: none;
+}
+.window-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 16px;
+  min-height: 64px;
+  flex-shrink: 0;
+  border-bottom: 3px double #a58b59;
+  background: linear-gradient(100deg, #294333, #1d3328);
+  color: #f1dfb2;
+}
+.window-heading small {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: #bbaa83;
+}
+.window-heading h2 {
+  font-family: Daoli, serif;
+  font-size: 25px;
+  font-weight: normal;
+  letter-spacing: 0.1em;
+  margin: 2px 0 0;
+}
+.window-heading .window-hint {
+  margin-left: auto;
+  font-size: 10px;
+  color: #b6b597;
+}
+.window-heading > button {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid #8e805866;
+  background: #182d2380;
+  color: #ecd6a4;
+  font-size: 22px;
+}
+.window-heading > button:hover:not(:disabled) {
+  background: #66503a;
+}
+@media (max-width: 720px) {
+  .government-window {
+    left: 8px;
+    right: 8px;
+    width: calc(100vw - 16px);
+    top: calc(var(--strategy-header-height, 96px) + 8px);
+    height: calc(100dvh - var(--strategy-header-height, 96px) - 20px);
+  }
+  .window-body {
+    padding: 12px;
+  }
+  .window-heading {
+    padding: 8px 12px;
+  }
+}

@@ -1,0 +1,1188 @@
+[
+  {
+    "id": "goldworks",
+    "name": "黄金作坊",
+    "route": "gold",
+    "stage": 0,
+    "description": "将本地物产转化为国家可用产出。",
+    "levels": [
+      {
+        "cost": 22,
+        "days": 45,
+        "upkeep": 3,
+        "inputs": {},
+        "outputs": {
+          "gold": 5
+        },
+        "technology": "gold_1",
+        "modifiers": {}
+      },
+      {
+        "cost": 65,
+        "days": 75,
+        "upkeep": 7,
+        "inputs": {},
+        "outputs": {
+          "gold": 10.5
+        },
+        "technology": "gold_2",
+        "modifiers": {}
+      },
+      {
+        "cost": 180,
+        "days": 120,
+        "upkeep": 16,
+        "inputs": {},
+        "outputs": {
+          "gold": 20
+        },
+        "technology": "gold_3",
+        "modifiers": {}
+      }
+    ],
+    "specialty": "gold"
+  },
+  {
+    "id": "copperworks",
+    "name": "铜冶作坊",
+    "route": "copper",
+    "stage": 0,
+    "description": "将本地物产转化为国家可用产出。",
+    "levels": [
+      {
+        "cost": 22,
+        "days": 45,
+        "upkeep": 3,
+        "inputs": {},
+        "outputs": {
+          "copper": 8
+        },
+        "technology": "copper_1",
+        "modifiers": {}
+      },
+      {
+        "cost": 65,
+        "days": 75,
+        "upkeep": 7,
+        "inputs": {},
+        "outputs": {
+          "copper": 16.8
+        },
+        "technology": "copper_2",
+        "modifiers": {}
+      },
+      {
+        "cost": 180,
+        "days": 120,
+        "upkeep": 16,
+        "inputs": {},
+        "outputs": {
+          "copper": 32
+        },
+        "technology": "copper_3",
+        "modifiers": {}
+      }
+    ],
+    "specialty": "copper"
+  },
+  {
+    "id": "ironworks",
+    "name": "铁冶作坊",
+    "route": "iron",
+    "stage": 0,
+    "description": "将本地物产转化为国家可用产出。",
+    "levels": [
+      {
+        "cost": 22,
+        "days": 45,
+        "upkeep": 3,
+        "inputs": {},
+        "outputs": {
+          "iron": 2
+        },
+        "technology": "iron_1",
+        "modifiers": {}
+      },
+      {
+        "cost": 65,
+        "days": 75,
+        "upkeep": 7,
+        "inputs": {},
+        "outputs": {
+          "iron": 8
+        },
+        "technology": "iron_2",
+        "modifiers": {}
+      },
+      {
+        "cost": 180,
+        "days": 120,
+        "upkeep": 16,
+        "inputs": {},
+        "outputs": {
+          "iron": 24
+        },
+        "technology": "iron_3",
+        "modifiers": {}
+      }
+    ],
+    "specialty": "iron"
+  },
+  {
+    "id": "lumberyard",
+    "name": "木材作坊",
+    "route": "wood",
+    "stage": 0,
+    "description": "将本地物产转化为国家可用产出。",
+    "levels": [
+      {
+        "cost": 22,
+        "days": 45,
+        "upkeep": 3,
+        "inputs": {},
+        "outputs": {
+          "wood": 10
+        },
+        "technology": "wood_1",
+        "modifiers": {}
+      },
+      {
+        "cost": 65,
+        "days": 75,
+        "upkeep": 7,
+        "inputs": {},
+        "outputs": {
+          "wood": 21.0
+        },
+        "technology": "wood_2",
+        "modifiers": {}
+      },
+      {
+        "cost": 180,
+        "days": 120,
+        "upkeep": 16,
+        "inputs": {},
+        "outputs": {
+          "wood": 40
+        },
+        "technology": "wood_3",
+        "modifiers": {}
+      }
+    ],
+    "specialty": "wood"
+  },
+  {
+    "id": "tannery",
+    "name": "制革作坊",
+    "route": "leather",
+    "stage": 0,
+    "description": "将本地物产转化为国家可用产出。",
+    "levels": [
+      {
+        "cost": 22,
+        "days": 45,
+        "upkeep": 3,
+        "inputs": {},
+        "outputs": {
+          "leather": 9
+        },
+        "technology": "leather_1",
+        "modifiers": {}
+      },
+      {
+        "cost": 65,
+        "days": 75,
+        "upkeep": 7,
+        "inputs": {},
+        "outputs": {
+          "leather": 18.9
+        },
+        "technology": "leather_2",
+        "modifiers": {}
+      },
+      {
+        "cost": 180,
+        "days": 120,
+        "upkeep": 16,
+        "inputs": {},
+        "outputs": {
+          "leather": 36
+        },
+        "technology": "leather_3",
+        "modifiers": {}
+      }
+    ],
+    "specialty": "cattle"
+  },
+  {
+    "id": "hempworks",
+    "name": "麻纺作坊",
+    "route": "hemp",
+    "stage": 0,
+    "description": "将本地物产转化为国家可用产出。",
+    "levels": [
+      {
+        "cost": 22,
+        "days": 45,
+        "upkeep": 3,
+        "inputs": {},
+        "outputs": {
+          "cloth": 7,
+          "grain": 6
+        },
+        "technology": "hemp_1",
+        "modifiers": {}
+      },
+      {
+        "cost": 65,
+        "days": 75,
+        "upkeep": 7,
+        "inputs": {},
+        "outputs": {
+          "cloth": 14.7,
+          "grain": 12.6
+        },
+        "technology": "hemp_2",
+        "modifiers": {}
+      },
+      {
+        "cost": 180,
+        "days": 120,
+        "upkeep": 16,
+        "inputs": {},
+        "outputs": {
+          "cloth": 28,
+          "grain": 24
+        },
+        "technology": "hemp_3",
+        "modifiers": {}
+      }
+    ],
+    "specialty": "hemp"
+  },
+  {
+    "id": "silkworks",
+    "name": "丝绸作坊",
+    "route": "silk",
+    "stage": 0,
+    "description": "将本地物产转化为国家可用产出。",
+    "levels": [
+      {
+        "cost": 22,
+        "days": 45,
+        "upkeep": 3,
+        "inputs": {},
+        "outputs": {
+          "silk": 5,
+          "grain": 10
+        },
+        "technology": "silk_1",
+        "modifiers": {}
+      },
+      {
+        "cost": 65,
+        "days": 75,
+        "upkeep": 7,
+        "inputs": {},
+        "outputs": {
+          "silk": 10.5,
+          "grain": 21.0
+        },
+        "technology": "silk_2",
+        "modifiers": {}
+      },
+      {
+        "cost": 180,
+        "days": 120,
+        "upkeep": 16,
+        "inputs": {},
+        "outputs": {
+          "silk": 20,
+          "grain": 40
+        },
+        "technology": "silk_3",
+        "modifiers": {}
+      }
+    ],
+    "specialty": "silk"
+  },
+  {
+    "id": "jadeworks",
+    "name": "琢玉作坊",
+    "route": "jade",
+    "stage": 0,
+    "description": "将本地物产转化为国家可用产出。",
+    "levels": [
+      {
+        "cost": 22,
+        "days": 45,
+        "upkeep": 3,
+        "inputs": {},
+        "outputs": {
+          "jade": 4,
+          "grain": 10
+        },
+        "technology": "jade_1",
+        "modifiers": {}
+      },
+      {
+        "cost": 65,
+        "days": 75,
+        "upkeep": 7,
+        "inputs": {},
+        "outputs": {
+          "jade": 8.4,
+          "grain": 21.0
+        },
+        "technology": "jade_2",
+        "modifiers": {}
+      },
+      {
+        "cost": 180,
+        "days": 120,
+        "upkeep": 16,
+        "inputs": {},
+        "outputs": {
+          "jade": 16,
+          "grain": 40
+        },
+        "technology": "jade_3",
+        "modifiers": {}
+      }
+    ],
+    "specialty": "jade"
+  },
+  {
+    "id": "potteryworks",
+    "name": "陶器作坊",
+    "route": "pottery",
+    "stage": 0,
+    "description": "将本地物产转化为国家可用产出。",
+    "levels": [
+      {
+        "cost": 22,
+        "days": 45,
+        "upkeep": 3,
+        "inputs": {},
+        "outputs": {
+          "pottery": 7,
+          "grain": 6
+        },
+        "technology": "pottery_1",
+        "modifiers": {}
+      },
+      {
+        "cost": 65,
+        "days": 75,
+        "upkeep": 7,
+        "inputs": {},
+        "outputs": {
+          "pottery": 14.7,
+          "grain": 12.6
+        },
+        "technology": "pottery_2",
+        "modifiers": {}
+      },
+      {
+        "cost": 180,
+        "days": 120,
+        "upkeep": 16,
+        "inputs": {},
+        "outputs": {
+          "pottery": 28,
+          "grain": 24
+        },
+        "technology": "pottery_3",
+        "modifiers": {}
+      }
+    ],
+    "specialty": "pottery"
+  },
+  {
+    "id": "warehouse",
+    "name": "仓库",
+    "route": "agriculture",
+    "stage": 0,
+    "description": "将本地物产转化为国家可用产出。",
+    "levels": [
+      {
+        "cost": 22,
+        "days": 45,
+        "upkeep": 3,
+        "inputs": {},
+        "outputs": {
+          "grain": 18
+        },
+        "technology": "agriculture_1",
+        "modifiers": {}
+      },
+      {
+        "cost": 65,
+        "days": 75,
+        "upkeep": 7,
+        "inputs": {},
+        "outputs": {
+          "grain": 37.8
+        },
+        "technology": "agriculture_2",
+        "modifiers": {}
+      },
+      {
+        "cost": 180,
+        "days": 120,
+        "upkeep": 16,
+        "inputs": {},
+        "outputs": {
+          "grain": 72
+        },
+        "technology": "agriculture_3",
+        "modifiers": {}
+      }
+    ],
+    "specialties": [
+      "grain",
+      "fish"
+    ]
+  },
+  {
+    "id": "pasture",
+    "name": "牧场",
+    "route": "horse",
+    "stage": 0,
+    "description": "将本地物产转化为国家可用产出。",
+    "levels": [
+      {
+        "cost": 22,
+        "days": 45,
+        "upkeep": 3,
+        "inputs": {},
+        "outputs": {
+          "horses": 8
+        },
+        "technology": "horse_1",
+        "modifiers": {}
+      },
+      {
+        "cost": 65,
+        "days": 75,
+        "upkeep": 7,
+        "inputs": {},
+        "outputs": {
+          "horses": 16.8
+        },
+        "technology": "horse_2",
+        "modifiers": {}
+      },
+      {
+        "cost": 180,
+        "days": 120,
+        "upkeep": 16,
+        "inputs": {},
+        "outputs": {
+          "horses": 32
+        },
+        "technology": "horse_3",
+        "modifiers": {}
+      }
+    ],
+    "specialty": "horse"
+  },
+  {
+    "id": "saltworks",
+    "name": "盐业作坊",
+    "route": "salt",
+    "stage": 0,
+    "description": "将本地物产转化为国家可用产出。",
+    "levels": [
+      {
+        "cost": 22,
+        "days": 45,
+        "upkeep": 3,
+        "inputs": {},
+        "outputs": {
+          "salt": 6,
+          "grain": 18
+        },
+        "technology": "salt_1",
+        "modifiers": {}
+      },
+      {
+        "cost": 65,
+        "days": 75,
+        "upkeep": 7,
+        "inputs": {},
+        "outputs": {
+          "salt": 12.6,
+          "grain": 37.8
+        },
+        "technology": "salt_2",
+        "modifiers": {}
+      },
+      {
+        "cost": 180,
+        "days": 120,
+        "upkeep": 16,
+        "inputs": {},
+        "outputs": {
+          "salt": 24,
+          "grain": 72
+        },
+        "technology": "salt_3",
+        "modifiers": {}
+      }
+    ],
+    "specialty": "salt"
+  },
+  {
+    "id": "armory",
+    "name": "革甲作坊",
+    "route": "leather_armor",
+    "stage": 1,
+    "description": "由全国资源额度供应的城市产业。",
+    "levels": [
+      {
+        "cost": 22,
+        "days": 45,
+        "upkeep": 3,
+        "inputs": {
+          "leather": 5
+        },
+        "outputs": {
+          "leather_armor": 4
+        },
+        "technology": "leather_armor_1",
+        "modifiers": {}
+      },
+      {
+        "cost": 65,
+        "days": 75,
+        "upkeep": 7,
+        "inputs": {
+          "leather": 10.5
+        },
+        "outputs": {
+          "leather_armor": 8.4
+        },
+        "technology": "leather_armor_2",
+        "modifiers": {}
+      },
+      {
+        "cost": 180,
+        "days": 120,
+        "upkeep": 16,
+        "inputs": {
+          "leather": 20
+        },
+        "outputs": {
+          "leather_armor": 16
+        },
+        "technology": "leather_armor_3",
+        "modifiers": {}
+      }
+    ]
+  },
+  {
+    "id": "bowyer",
+    "name": "弓箭作坊",
+    "route": "bows",
+    "stage": 1,
+    "description": "由全国资源额度供应的城市产业。",
+    "levels": [
+      {
+        "cost": 22,
+        "days": 45,
+        "upkeep": 3,
+        "inputs": {
+          "wood": 5
+        },
+        "outputs": {
+          "bows": 4
+        },
+        "technology": "bows_1",
+        "modifiers": {}
+      },
+      {
+        "cost": 65,
+        "days": 75,
+        "upkeep": 7,
+        "inputs": {
+          "wood": 10.5
+        },
+        "outputs": {
+          "bows": 8.4
+        },
+        "technology": "bows_2",
+        "modifiers": {}
+      },
+      {
+        "cost": 180,
+        "days": 120,
+        "upkeep": 16,
+        "inputs": {
+          "wood": 20
+        },
+        "outputs": {
+          "bows": 16
+        },
+        "technology": "bows_3",
+        "modifiers": {}
+      }
+    ]
+  },
+  {
+    "id": "bronze_armory",
+    "name": "铜兵甲作坊",
+    "route": "bronze_arms",
+    "stage": 1,
+    "description": "由全国资源额度供应的城市产业。",
+    "levels": [
+      {
+        "cost": 22,
+        "days": 45,
+        "upkeep": 3,
+        "inputs": {
+          "copper": 5
+        },
+        "outputs": {
+          "bronze_arms": 4
+        },
+        "technology": "bronze_arms_1",
+        "modifiers": {}
+      },
+      {
+        "cost": 65,
+        "days": 75,
+        "upkeep": 7,
+        "inputs": {
+          "copper": 10.5
+        },
+        "outputs": {
+          "bronze_arms": 8.4
+        },
+        "technology": "bronze_arms_2",
+        "modifiers": {}
+      },
+      {
+        "cost": 180,
+        "days": 120,
+        "upkeep": 16,
+        "inputs": {
+          "copper": 20
+        },
+        "outputs": {
+          "bronze_arms": 16
+        },
+        "technology": "bronze_arms_3",
+        "modifiers": {}
+      }
+    ]
+  },
+  {
+    "id": "iron_armory",
+    "name": "铁兵甲作坊",
+    "route": "iron_arms",
+    "stage": 1,
+    "description": "由全国资源额度供应的城市产业。",
+    "levels": [
+      {
+        "cost": 22,
+        "days": 45,
+        "upkeep": 3,
+        "inputs": {
+          "iron": 4
+        },
+        "outputs": {
+          "iron_arms": 4
+        },
+        "technology": "iron_arms_1",
+        "modifiers": {}
+      },
+      {
+        "cost": 65,
+        "days": 75,
+        "upkeep": 7,
+        "inputs": {
+          "iron": 8.4
+        },
+        "outputs": {
+          "iron_arms": 8.4
+        },
+        "technology": "iron_arms_2",
+        "modifiers": {}
+      },
+      {
+        "cost": 180,
+        "days": 120,
+        "upkeep": 16,
+        "inputs": {
+          "iron": 16
+        },
+        "outputs": {
+          "iron_arms": 16
+        },
+        "technology": "iron_arms_3",
+        "modifiers": {}
+      }
+    ]
+  },
+  {
+    "id": "chariotworks",
+    "name": "车辆作坊",
+    "route": "chariots",
+    "stage": 1,
+    "description": "由全国资源额度供应的城市产业。",
+    "levels": [
+      {
+        "cost": 22,
+        "days": 45,
+        "upkeep": 3,
+        "inputs": {
+          "wood": 6
+        },
+        "outputs": {
+          "chariots": 3
+        },
+        "technology": "chariots_1",
+        "modifiers": {}
+      },
+      {
+        "cost": 65,
+        "days": 75,
+        "upkeep": 7,
+        "inputs": {
+          "wood": 12.6
+        },
+        "outputs": {
+          "chariots": 6.3
+        },
+        "technology": "chariots_2",
+        "modifiers": {}
+      },
+      {
+        "cost": 180,
+        "days": 120,
+        "upkeep": 16,
+        "inputs": {
+          "wood": 24
+        },
+        "outputs": {
+          "chariots": 12
+        },
+        "technology": "chariots_3",
+        "modifiers": {}
+      }
+    ]
+  },
+  {
+    "id": "horse_training",
+    "name": "战马训练场",
+    "route": "warhorses",
+    "stage": 1,
+    "description": "由全国资源额度供应的城市产业。",
+    "levels": [
+      {
+        "cost": 22,
+        "days": 45,
+        "upkeep": 3,
+        "inputs": {
+          "horses": 5
+        },
+        "outputs": {
+          "warhorses": 4
+        },
+        "technology": "warhorses_1",
+        "modifiers": {}
+      },
+      {
+        "cost": 65,
+        "days": 75,
+        "upkeep": 7,
+        "inputs": {
+          "horses": 10.5
+        },
+        "outputs": {
+          "warhorses": 8.4
+        },
+        "technology": "warhorses_2",
+        "modifiers": {}
+      },
+      {
+        "cost": 180,
+        "days": 120,
+        "upkeep": 16,
+        "inputs": {
+          "horses": 20
+        },
+        "outputs": {
+          "warhorses": 16
+        },
+        "technology": "warhorses_3",
+        "modifiers": {}
+      }
+    ]
+  },
+  {
+    "id": "clothier",
+    "name": "制衣所",
+    "route": "clothing",
+    "stage": 1,
+    "description": "由全国资源额度供应的城市产业。",
+    "levels": [
+      {
+        "cost": 22,
+        "days": 45,
+        "upkeep": 3,
+        "inputs": {
+          "cloth": 5
+        },
+        "outputs": {
+          "grain": 20
+        },
+        "technology": "clothing_1",
+        "modifiers": {}
+      },
+      {
+        "cost": 65,
+        "days": 75,
+        "upkeep": 7,
+        "inputs": {
+          "cloth": 10.5
+        },
+        "outputs": {
+          "grain": 42.0
+        },
+        "technology": "clothing_2",
+        "modifiers": {}
+      },
+      {
+        "cost": 180,
+        "days": 120,
+        "upkeep": 16,
+        "inputs": {
+          "cloth": 20
+        },
+        "outputs": {
+          "grain": 80
+        },
+        "technology": "clothing_3",
+        "modifiers": {}
+      }
+    ]
+  },
+  {
+    "id": "lacquerworks",
+    "name": "漆器作坊",
+    "route": "lacquer",
+    "stage": 1,
+    "description": "由全国资源额度供应的城市产业。",
+    "levels": [
+      {
+        "cost": 22,
+        "days": 45,
+        "upkeep": 3,
+        "inputs": {
+          "wood": 5
+        },
+        "outputs": {
+          "grain": 18
+        },
+        "technology": "lacquer_1",
+        "modifiers": {}
+      },
+      {
+        "cost": 65,
+        "days": 75,
+        "upkeep": 7,
+        "inputs": {
+          "wood": 10.5
+        },
+        "outputs": {
+          "grain": 37.8
+        },
+        "technology": "lacquer_2",
+        "modifiers": {}
+      },
+      {
+        "cost": 180,
+        "days": 120,
+        "upkeep": 16,
+        "inputs": {
+          "wood": 20
+        },
+        "outputs": {
+          "grain": 72
+        },
+        "technology": "lacquer_3",
+        "modifiers": {}
+      }
+    ]
+  },
+  {
+    "id": "luxury_clothier",
+    "name": "锦衣作坊",
+    "route": "luxury_clothing",
+    "stage": 1,
+    "description": "由全国资源额度供应的城市产业。",
+    "levels": [
+      {
+        "cost": 22,
+        "days": 45,
+        "upkeep": 3,
+        "inputs": {
+          "cloth": 3,
+          "silk": 4
+        },
+        "outputs": {
+          "grain": 32
+        },
+        "technology": "luxury_clothing_1",
+        "modifiers": {}
+      },
+      {
+        "cost": 65,
+        "days": 75,
+        "upkeep": 7,
+        "inputs": {
+          "cloth": 6.3,
+          "silk": 8.4
+        },
+        "outputs": {
+          "grain": 67.2
+        },
+        "technology": "luxury_clothing_2",
+        "modifiers": {}
+      },
+      {
+        "cost": 180,
+        "days": 120,
+        "upkeep": 16,
+        "inputs": {
+          "cloth": 12,
+          "silk": 16
+        },
+        "outputs": {
+          "grain": 128
+        },
+        "technology": "luxury_clothing_3",
+        "modifiers": {}
+      }
+    ]
+  },
+  {
+    "id": "bamboo_workshop",
+    "name": "简牍作坊",
+    "route": "bamboo",
+    "stage": 1,
+    "description": "由全国资源额度供应的城市产业。",
+    "levels": [
+      {
+        "cost": 22,
+        "days": 45,
+        "upkeep": 3,
+        "inputs": {
+          "wood": 4
+        },
+        "outputs": {},
+        "technology": "bamboo_1",
+        "modifiers": {
+          "research_efficiency": 0.1
+        }
+      },
+      {
+        "cost": 65,
+        "days": 75,
+        "upkeep": 7,
+        "inputs": {
+          "wood": 8.4
+        },
+        "outputs": {},
+        "technology": "bamboo_2",
+        "modifiers": {
+          "research_efficiency": 0.21
+        }
+      },
+      {
+        "cost": 180,
+        "days": 120,
+        "upkeep": 16,
+        "inputs": {
+          "wood": 16
+        },
+        "outputs": {},
+        "technology": "bamboo_3",
+        "modifiers": {
+          "research_efficiency": 0.4
+        }
+      }
+    ]
+  },
+  {
+    "id": "academy",
+    "name": "学府",
+    "route": "academy",
+    "stage": 1,
+    "description": "由全国资源额度供应的城市产业。",
+    "levels": [
+      {
+        "cost": 22,
+        "days": 45,
+        "upkeep": 3,
+        "inputs": {
+          "jade": 2
+        },
+        "outputs": {},
+        "technology": "academy_1",
+        "modifiers": {
+          "research_scale": 5,
+          "research_efficiency": 0.1
+        }
+      },
+      {
+        "cost": 65,
+        "days": 75,
+        "upkeep": 7,
+        "inputs": {
+          "jade": 4.2
+        },
+        "outputs": {},
+        "technology": "academy_2",
+        "modifiers": {
+          "research_scale": 10.5,
+          "research_efficiency": 0.21
+        }
+      },
+      {
+        "cost": 180,
+        "days": 120,
+        "upkeep": 16,
+        "inputs": {
+          "jade": 8
+        },
+        "outputs": {},
+        "technology": "academy_3",
+        "modifiers": {
+          "research_scale": 20,
+          "research_efficiency": 0.4
+        }
+      }
+    ]
+  },
+  {
+    "id": "market",
+    "name": "市场",
+    "stage": 0,
+    "description": "增加折粮赋入。",
+    "levels": [
+      {
+        "cost": 25,
+        "days": 50,
+        "upkeep": 2,
+        "inputs": {},
+        "outputs": {
+          "grain": 8
+        },
+        "modifiers": {}
+      },
+      {
+        "cost": 100,
+        "days": 70,
+        "upkeep": 4,
+        "inputs": {},
+        "outputs": {
+          "grain": 16
+        },
+        "modifiers": {}
+      },
+      {
+        "cost": 225,
+        "days": 90,
+        "upkeep": 6,
+        "inputs": {},
+        "outputs": {
+          "grain": 24
+        },
+        "modifiers": {}
+      }
+    ]
+  },
+  {
+    "id": "garrison",
+    "name": "驻所",
+    "stage": 0,
+    "description": "组织地方兵役与补员。",
+    "levels": [
+      {
+        "cost": 25,
+        "days": 50,
+        "upkeep": 2,
+        "inputs": {},
+        "outputs": {},
+        "modifiers": {
+          "manpower": 0.06
+        }
+      },
+      {
+        "cost": 100,
+        "days": 70,
+        "upkeep": 4,
+        "inputs": {},
+        "outputs": {},
+        "modifiers": {
+          "manpower": 0.12
+        },
+        "technology": "infantry_1"
+      },
+      {
+        "cost": 225,
+        "days": 90,
+        "upkeep": 6,
+        "inputs": {},
+        "outputs": {},
+        "modifiers": {
+          "manpower": 0.18
+        },
+        "technology": "infantry_2"
+      }
+    ]
+  },
+  {
+    "id": "walls",
+    "name": "城墙",
+    "stage": 0,
+    "description": "提供城郊会战的防御阵地，守方获得城防加成。",
+    "levels": [
+      {
+        "cost": 25,
+        "days": 50,
+        "upkeep": 2,
+        "inputs": {},
+        "outputs": {},
+        "modifiers": {
+          "fortification": 1
+        }
+      },
+      {
+        "cost": 100,
+        "days": 70,
+        "upkeep": 4,
+        "inputs": {},
+        "outputs": {},
+        "modifiers": {
+          "fortification": 2
+        },
+        "technology": "defense_1"
+      },
+      {
+        "cost": 225,
+        "days": 90,
+        "upkeep": 6,
+        "inputs": {},
+        "outputs": {},
+        "modifiers": {
+          "fortification": 3
+        },
+        "technology": "defense_2"
+      }
+    ]
+  }
+]

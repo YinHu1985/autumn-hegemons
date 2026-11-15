@@ -1,0 +1,74 @@
+.tactical-map-shell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #d9cba9 url("../../public/assets/ui/paper-fibers.svg");
+}
+.tactical-map-viewport {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  touch-action: none;
+  overscroll-behavior: contain;
+  user-select: none;
+  cursor: grab;
+  outline: none;
+  box-shadow: inset 0 0 30px #70593522;
+}
+.tactical-map-viewport:active,
+.tactical-map-viewport:active .tactical-tile {
+  cursor: grabbing;
+}
+.tactical-map-viewport:focus-visible {
+  box-shadow: inset 0 0 0 2px #b39962;
+}
+.tactical-camera-plane {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 0 0;
+  will-change: transform;
+  box-shadow: 0 3px 18px #4c4b3640;
+}
+.tactical-camera-controls {
+  position: absolute;
+  z-index: 10;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 6px;
+  max-width: calc(100% - 20px);
+  white-space: nowrap;
+  border: 1px solid #b29c68;
+  background: #253d32ef;
+  color: #f2e3b9;
+  box-shadow: 0 2px 8px #182b2444;
+}
+.window-body .tactical-camera-controls button {
+  flex-shrink: 0;
+  min-height: 26px;
+  padding: 3px 8px;
+  font-size: 11px;
+  background: #38523e;
+  color: #f2e3b9;
+  border-color: #8c7a4e;
+}
+.tactical-camera-controls output {
+  width: 40px;
+  text-align: center;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+.tactical-camera-controls > span {
+  margin-left: 5px;
+  font-size: 10px;
+  color: #c6c5a7;
+}
+@media (max-width: 760px) {
+  .tactical-camera-controls > span {
+    display: none;
+  }
+}
