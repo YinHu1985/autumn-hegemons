@@ -85,7 +85,7 @@ function setup(options = {}) {
 const settle = () => new Promise((resolve) => setImmediate(resolve));
 const namedError = (name) => Object.assign(new Error(name), { name });
 
-test("首次交互前不下载或播放音乐，解锁后主题循环且使用 Pages 资源前缀", async () => {
+test("播放器首次交互前不创建音频元素，解锁后主题循环且使用 Pages 资源前缀", async () => {
   const { player, audios } = setup();
   player.setScene("title");
   assert.equal(player.getSnapshot().status, "locked");
@@ -98,6 +98,24 @@ test("首次交互前不下载或播放音乐，解锁后主题循环且使用 P
   assert.equal(audios[0].volume, 0.3);
   assert.equal(player.getSnapshot().status, "playing");
   assert.equal(player.getSnapshot().title, "theme title");
+  player.dispose();
+});
+
+test("启动时预下载的乐曲复用 Blob URL，仍等待首次交互后播放", async () => {
+  const sources = [];
+  const { player, audios } = setup({
+    resolveSource: (url) => {
+      sources.push(url);
+      return "blob:preloaded-theme";
+    },
+  });
+  player.setScene("title");
+  assert.equal(audios.length, 0);
+  player.unlock();
+  await settle();
+  assert.deepEqual(sources, ["/autumn-hegemons/assets/audio/theme.mp3"]);
+  assert.equal(audios[0].src, "blob:preloaded-theme");
+  assert.equal(audios[0].playCalls, 1);
   player.dispose();
 });
 

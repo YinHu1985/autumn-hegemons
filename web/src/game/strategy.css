@@ -1,7 +1,6 @@
 @font-face {
   font-family: Daoli;
-  src: url("../../public/assets/fonts/AlimamaDaoLiTi-Regular.woff2")
-    format("woff2");
+  src: url("/assets/fonts/AlimamaDaoLiTi-Regular.woff2") format("woff2");
   font-display: swap;
 }
 :root {
@@ -42,7 +41,7 @@ main.game-main {
 }
 .parchment {
   border: 1px solid #ad9569;
-  background: #ece3ca url("../../public/assets/ui/paper-fibers.svg");
+  background: #ece3ca url("/assets/ui/paper-fibers.svg");
   box-shadow: 0 4px 20px #14251b55;
 }
 .province-window {

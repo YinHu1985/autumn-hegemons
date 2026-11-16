@@ -14,7 +14,7 @@
     {
       "id": "courtyard",
       "title": "江山闲赋",
-      "src": "assets/audio/strategy-courtyard.wav"
+      "src": "assets/audio/strategy-courtyard.mp3"
     },
     {
       "id": "jade_river",
@@ -39,7 +39,7 @@
     {
       "id": "battle_banners",
       "title": "旌旗动地",
-      "src": "assets/audio/battle-banners.wav"
+      "src": "assets/audio/battle-banners.mp3"
     }
   ]
 }

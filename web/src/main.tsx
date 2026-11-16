@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
-import { loadBaseContent } from "./definitions/load";
 import {
   CONTENT_FILES,
   type Content,
@@ -13,6 +12,8 @@ import { Game } from "./game/Game";
 import { SystemMenu } from "./game/SystemMenu";
 import { Editor } from "./editor/Editor";
 import { MusicProvider } from "./game/music/MusicProvider";
+import { LoadingScreen } from "./game/loading/LoadingScreen";
+import { useStartup } from "./game/loading/useStartup";
 import {
   createSave,
   downloadJSON,
@@ -27,6 +28,7 @@ const textsOf = (content: Content) =>
     CONTENT_FILES.map((k) => [k, JSON.stringify(content[k], null, 2)]),
   ) as unknown as ContentTexts;
 function App() {
+  const startup = useStartup();
   const [session, setSession] = useState(0);
   const [content, setContent] = useState<Content | null>(null);
   const [baseContent, setBaseContent] = useState<Content | null>(null);
@@ -36,26 +38,24 @@ function App() {
   const [view, setView] = useState<"game" | "editor">("game");
   const [menu, setMenu] = useState(true);
   const [started, setStarted] = useState(false);
-  const [error, setError] = useState("");
   const [notice, setNotice] = useState("");
   const [hasSave, setHasSave] = useState(false);
   const lastAutomaticSave = useRef<string | null>(null);
   useEffect(() => {
-    loadBaseContent()
-      .then((r) => {
-        setContent(r.content);
-        setBaseContent(r.content);
-        setScenarios(r.scenarios);
-        setTexts(r.texts);
-        setWorld(createWorld(r.content));
-        try {
-          setHasSave(!!loadGame());
-        } catch {
-          setNotice("旧存档无法读取，可建立新局。");
-        }
-      })
-      .catch((e) => setError(String(e)));
-  }, []);
+    const r = startup.content;
+    if (r) {
+      setContent(r.content);
+      setBaseContent(r.content);
+      setScenarios(r.scenarios);
+      setTexts(r.texts);
+      setWorld(createWorld(r.content));
+      try {
+        setHasSave(!!loadGame());
+      } catch {
+        setNotice("旧存档无法读取，可建立新局。");
+      }
+    }
+  }, [startup.content]);
   useEffect(() => {
     if (!content || !world || menu || world.date.day !== 1) return;
     const key = `${session}:${world.date.year}:${world.date.month}`;
@@ -115,21 +115,11 @@ function App() {
     setView("game");
     setNotice("");
   };
-  if (error)
-    return (
-      <main>
-        <h1>内容加载失败</h1>
-        <p role="alert">{error}</p>
-      </main>
-    );
-  if (!content || !world || !texts)
-    return (
-      <div className="loading-screen">
-        春秋风云 <small>正在展开天下舆图…</small>
-      </div>
-    );
+  if (!startup.ready || !content || !world || !texts)
+    return <LoadingScreen {...startup} />;
   return (
     <MusicProvider
+      resolveAudio={startup.resolveAudio}
       scene={
         view === "editor"
           ? null

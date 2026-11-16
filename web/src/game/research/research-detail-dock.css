@@ -6,7 +6,7 @@
   min-width: 0;
   overflow: hidden;
   border-top: 3px double #a58c60;
-  background: #eee3c8 url("../../../public/assets/ui/paper-fibers.svg");
+  background: #eee3c8 url("/assets/ui/paper-fibers.svg");
   color: #354332;
 }
 .tech-detail-dock > section {

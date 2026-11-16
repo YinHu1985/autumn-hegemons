@@ -1,18 +1,3 @@
-.loading-screen {
-  height: 100vh;
-  background: #24382a;
-  color: #e8d6a2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: 60px;
-  font-family: serif;
-}
-.loading-screen small {
-  font-size: 14px;
-  margin: 25px;
-}
 .game-menu-shade {
   position: fixed;
   inset: 0;
@@ -24,7 +9,7 @@
   backdrop-filter: blur(1.5px);
 }
 .game-menu {
-  background: #e9dfc4 url("../../public/assets/ui/paper-fibers.svg");
+  background: #e9dfc4 url("/assets/ui/paper-fibers.svg");
   border: 3px double #bba16d;
   box-shadow:
     0 20px 90px #0009,
@@ -186,7 +171,7 @@
 .menu-art {
   background:
     linear-gradient(#1d302c28, #11261df0),
-    url("../../public/assets/cities/north.png") center/cover;
+    url("/assets/cities/north.webp") center/cover;
   display: flex;
   align-items: center;
   flex-direction: column;

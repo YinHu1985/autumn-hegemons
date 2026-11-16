@@ -1,0 +1,317 @@
+{
+  "version": 1,
+  "assets": [
+    {
+      "path": "assets/audio/Chronicles_of_the_Crimson_Empire.mp3",
+      "kind": "audio",
+      "bytes": 744611,
+      "hash": "2325dc8df28c9e50"
+    },
+    {
+      "path": "assets/audio/Crimson_Banners_of_the_Jade_Empire.mp3",
+      "kind": "audio",
+      "bytes": 744611,
+      "hash": "ac5a8748a8cf6358"
+    },
+    {
+      "path": "assets/audio/Jade_River_Reflections.mp3",
+      "kind": "audio",
+      "bytes": 744611,
+      "hash": "2de3b0eaf4428b69"
+    },
+    {
+      "path": "assets/audio/battle-banners.mp3",
+      "kind": "audio",
+      "bytes": 565843,
+      "hash": "2666665488efed70"
+    },
+    {
+      "path": "assets/audio/jiashen-wei-zhi.mp3",
+      "kind": "audio",
+      "bytes": 1423766,
+      "hash": "96ced4d8da0bc537"
+    },
+    {
+      "path": "assets/audio/strategy-courtyard.mp3",
+      "kind": "audio",
+      "bytes": 715489,
+      "hash": "887b7d687323d6b1"
+    },
+    {
+      "path": "assets/battle/forest.svg",
+      "kind": "image",
+      "bytes": 438,
+      "hash": "dd11f37f3367a5be"
+    },
+    {
+      "path": "assets/battle/fort.svg",
+      "kind": "image",
+      "bytes": 351,
+      "hash": "0ef8a0595cddefce"
+    },
+    {
+      "path": "assets/battle/hill.svg",
+      "kind": "image",
+      "bytes": 377,
+      "hash": "568fcb837b32aded"
+    },
+    {
+      "path": "assets/battle/plain.svg",
+      "kind": "image",
+      "bytes": 326,
+      "hash": "5fbf481978eed3bb"
+    },
+    {
+      "path": "assets/battle/river.svg",
+      "kind": "image",
+      "bytes": 338,
+      "hash": "88565c3ae2e7bcbd"
+    },
+    {
+      "path": "assets/central-city.webp",
+      "kind": "image",
+      "bytes": 664548,
+      "hash": "0d135ae6df661b80"
+    },
+    {
+      "path": "assets/cities/jiangnan.webp",
+      "kind": "image",
+      "bytes": 621138,
+      "hash": "2002d6deef03a4f5"
+    },
+    {
+      "path": "assets/cities/north.webp",
+      "kind": "image",
+      "bytes": 637616,
+      "hash": "30fc748b054a5641"
+    },
+    {
+      "path": "assets/cities/northwest.webp",
+      "kind": "image",
+      "bytes": 665162,
+      "hash": "eaa90ebd13b6c99a"
+    },
+    {
+      "path": "assets/cities/southwest.webp",
+      "kind": "image",
+      "bytes": 687802,
+      "hash": "9cb947bfdee5e1cc"
+    },
+    {
+      "path": "assets/fonts/AlimamaDaoLiTi-Regular.woff2",
+      "kind": "font",
+      "bytes": 2624584,
+      "hash": "85a8afa1a7503418"
+    },
+    {
+      "path": "assets/fonts/AlimamaDaoLiTi-official-license.json",
+      "kind": "data",
+      "bytes": 14984,
+      "hash": "88e53a520088f734"
+    },
+    {
+      "path": "assets/ideas/dingzhu_xingshu.png",
+      "kind": "image",
+      "bytes": 34236,
+      "hash": "2246dbc5fc4f6fc8"
+    },
+    {
+      "path": "assets/ideas/fenjun_lixian.png",
+      "kind": "image",
+      "bytes": 37397,
+      "hash": "f8dc17d1ce925a64"
+    },
+    {
+      "path": "assets/ideas/gengzhan_zhidu.png",
+      "kind": "image",
+      "bytes": 35459,
+      "hash": "6dd07c5eddb9e9da"
+    },
+    {
+      "path": "assets/ideas/gongcheng_zhiji.png",
+      "kind": "image",
+      "bytes": 34818,
+      "hash": "005e71356ccd7666"
+    },
+    {
+      "path": "assets/ideas/guisheng_zhongji.png",
+      "kind": "image",
+      "bytes": 31262,
+      "hash": "0fc36e3cf7158f4b"
+    },
+    {
+      "path": "assets/ideas/jianai_jiaoli.png",
+      "kind": "image",
+      "bytes": 35212,
+      "hash": "0d0b6e901fa9e678"
+    },
+    {
+      "path": "assets/ideas/junmin_tonggeng.png",
+      "kind": "image",
+      "bytes": 36240,
+      "hash": "5e488ae71a8524b5"
+    },
+    {
+      "path": "assets/ideas/mojia_houxue.png",
+      "kind": "image",
+      "bytes": 36760,
+      "hash": "328faec3b1c33469"
+    },
+    {
+      "path": "assets/ideas/neisheng_waiwang.png",
+      "kind": "image",
+      "bytes": 34017,
+      "hash": "ec9b010f1b9a3c49"
+    },
+    {
+      "path": "assets/ideas/shangbing_famou.png",
+      "kind": "image",
+      "bytes": 34688,
+      "hash": "125e3254bcda586d"
+    },
+    {
+      "path": "assets/ideas/shouyu_zhiqi.png",
+      "kind": "image",
+      "bytes": 34215,
+      "hash": "73c8f53ff89bb650"
+    },
+    {
+      "path": "assets/ideas/sitian_keshui.png",
+      "kind": "image",
+      "bytes": 34337,
+      "hash": "09549c484a1d2748"
+    },
+    {
+      "path": "assets/ideas/tianren_heyi.png",
+      "kind": "image",
+      "bytes": 37306,
+      "hash": "b9f18c471a3601e1"
+    },
+    {
+      "path": "assets/ideas/wuwei_erzhi.png",
+      "kind": "image",
+      "bytes": 35794,
+      "hash": "3e0fdb3c7f096244"
+    },
+    {
+      "path": "assets/ideas/youjiao_wulei.png",
+      "kind": "image",
+      "bytes": 34703,
+      "hash": "6fe6c5324d147ecf"
+    },
+    {
+      "path": "assets/ideas/zhiye_jundui.png",
+      "kind": "image",
+      "bytes": 31676,
+      "hash": "d87246028b286b74"
+    },
+    {
+      "path": "assets/ideas/zhongyong_zhidao.png",
+      "kind": "image",
+      "bytes": 30167,
+      "hash": "a26e5a32b892e43a"
+    },
+    {
+      "path": "assets/ideas/zhongzhi_suozai.png",
+      "kind": "image",
+      "bytes": 32885,
+      "hash": "2250b7f7458e9e18"
+    },
+    {
+      "path": "assets/portraits/gongsunlong.png",
+      "kind": "image",
+      "bytes": 21295,
+      "hash": "7f412382d9626f72"
+    },
+    {
+      "path": "assets/portraits/lvbuwei.png",
+      "kind": "image",
+      "bytes": 25221,
+      "hash": "417392f4c0445497"
+    },
+    {
+      "path": "assets/portraits/scholar.svg",
+      "kind": "image",
+      "bytes": 1332,
+      "hash": "792f39aa6dfdf03f"
+    },
+    {
+      "path": "assets/portraits/wuzixu.png",
+      "kind": "image",
+      "bytes": 23941,
+      "hash": "1808d8d1f750e6c7"
+    },
+    {
+      "path": "assets/portraits/xunzi.png",
+      "kind": "image",
+      "bytes": 19811,
+      "hash": "8a3b3031876fc06d"
+    },
+    {
+      "path": "assets/strategic-map.svg",
+      "kind": "image",
+      "bytes": 188346,
+      "hash": "3ca4ef5b4179af66"
+    },
+    {
+      "path": "assets/technology/bloomery.jpg",
+      "kind": "image",
+      "bytes": 128763,
+      "hash": "c317a2736294e988"
+    },
+    {
+      "path": "assets/technology/bronze_foundry.jpg",
+      "kind": "image",
+      "bytes": 119948,
+      "hash": "18d042c2a60e126e"
+    },
+    {
+      "path": "assets/ui/cloud-brocade.svg",
+      "kind": "image",
+      "bytes": 1192,
+      "hash": "890e5285b6f595c8"
+    },
+    {
+      "path": "assets/ui/frame-corner.svg",
+      "kind": "image",
+      "bytes": 844,
+      "hash": "b9f79d9815973a80"
+    },
+    {
+      "path": "assets/ui/fret-strip.svg",
+      "kind": "image",
+      "bytes": 600,
+      "hash": "32f07d7746d26b05"
+    },
+    {
+      "path": "assets/ui/paper-fibers.svg",
+      "kind": "image",
+      "bytes": 1399,
+      "hash": "150ee095ba728ee3"
+    },
+    {
+      "path": "map/catalogue.json",
+      "kind": "data",
+      "bytes": 3989,
+      "hash": "fb2faf17b2072511"
+    },
+    {
+      "path": "map/territories-legacy.json",
+      "kind": "data",
+      "bytes": 36733,
+      "hash": "1873e50abd559396"
+    },
+    {
+      "path": "map/territories.json",
+      "kind": "data",
+      "bytes": 73071,
+      "hash": "4b3052b058e37470"
+    },
+    {
+      "path": "music.json",
+      "kind": "data",
+      "bytes": 1050,
+      "hash": "e02f3cd255d313f4"
+    }
+  ]
+}

@@ -19,7 +19,25 @@ npm run build -- --mode pages
 npm run preview -- --mode pages
 ```
 
-Pages 构建前缀为 `/autumn-hegemons/`。根目录的 GitHub Actions 工作流构建 `web/` 并发布 `web/dist`；需先建立远端仓库，Pages 来源选择 GitHub Actions。仓库更名时修改 `vite.config.ts` 的 `base`。
+Pages 构建前缀为 `/autumn-hegemons/`。根目录的 GitHub Actions 工作流构建 `web/` 并发布 `web/dist`。仓库更名时修改 `vite.config.ts` 的 `base`。
+
+### GitHub Pages 首次配置与排错
+
+仓库中有工作流不等于已经启用 Pages。首次部署前，在仓库的 [Settings → Pages](https://github.com/YinHu1985/autumn-hegemons/settings/pages) 中，将 **Build and deployment → Source** 设为 **GitHub Actions**。本项目已有工作流，不需要再选择模板。然后进入 [Preview on GitHub Pages](https://github.com/YinHu1985/autumn-hegemons/actions/workflows/pages.yml)，重新运行失败任务或手动运行工作流；后续推送 `main` 会自动发布。操作步骤见 [GitHub 官方说明](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publishing-with-a-custom-github-actions-workflow)。
+
+`configure-pages` 的 `Get Pages site failed / Not Found` 表示读取仓库 Pages 站点配置失败，首先检查上述来源是否已设置；若已设置，再确认仓库 Pages 可用性及运行权限。这发生在 Pages API 配置阶段，与浏览器资源路径或 Vite 页面代码无关。工作流已声明 `pages: write`、`id-token: write`。
+
+2026-11-16 排查记录：[失败运行 43813155371](https://github.com/YinHu1985/autumn-hegemons/actions/runs/43813155371) 已成功安装依赖并构建，13:53（上海时间）读取 Pages 配置返回 404；该次日志确认已有 `Pages: write` 权限。排查时远端 Pages API 已返回成功，且 `build_type` 为 `workflow`。据此推断失败时配置尚未启用或尚未生效；目前无需再次调整来源，由维护者重跑工作流验证即可。本次仅做诊断，未推送代码、修改远端设置或重跑发布。
+
+不要只添加 `enablement: true` 来掩盖此错误：[configure-pages v5 的输入说明](https://github.com/actions/configure-pages/blob/v5/action.yml) 明确要求使用 `GITHUB_TOKEN` 以外的令牌才能自动启用站点。当前流程使用默认令牌，由仓库维护者完成一次 Pages 设置即可，无需新增长期凭据。
+
+## 启动加载与素材
+
+启动时先显示全屏加载页，游戏定义与图片、音乐、字库、地图数据并行加载；下载完成后进入选国菜单。进度按实际读取的字节和已完成文件计数，媒体最多同时下载四项，每个请求含响应体最多等待 45 秒。失败可以重试，已下载成功的文件保留；只有非规则资源可以由玩家选择暂缺并继续，游戏定义失败必须重试成功。
+
+`scripts/build-preload.mjs` 扫描 `public/assets/`、`public/map/` 和 `public/music.json`，生成 `public/preload.json`。启动开发服务、正式构建都会自动生成；开发服务运行期间增删素材可另执行 `npm run preload:build`。添加素材不需要修改加载器代码，中文文件名也可用。下载地址与实际显示地址一致，重新访问时由 HTTP 缓存验证更新；音乐在当前会话中复用完整下载的 Blob，避免播放时重新请求整首曲目。进入游戏后另行导入的 Mod 素材仍按需加载。
+
+城景采用保持原尺寸的 WebP，背景音乐采用 MP3，公共资源使用 `/assets/...` 引用并由 Vite 加入 Pages 前缀，避免同一素材同时进入公共目录和带散列的打包产物。压缩参数、来源和体积对照见 [素材审计](../docs/asset-audit.md)。
 
 ## 剧本与地图
 
@@ -33,7 +51,7 @@ Pages 构建前缀为 `/autumn-hegemons/`。根目录的 GitHub Actions 工作�
 
 入口主题采用三国项目的《江山闲赋》，战斗界面循环《旌旗动地》。大地图依次播放《江山闲赋》、A 的三首音乐和 B 的《甲申未至》，播完循环；退出战斗后恢复大地图播放。首次点击或按键后开始播放，系统菜单提供音乐开关、音量和下一首；页面进入后台或打开内容工坊时暂停。音乐偏好只保存在本机，不进入战局存档，也不影响模拟时间。
 
-`public/music.json` 定义曲名、资源路径、主主题、战斗曲与大地图播放顺序，`public/assets/audio/` 保存从旧项目原样复制的六首音频，总计约 11.08 MiB。路径相对于站点根，由构建的 `BASE_URL` 解析，因此支持 GitHub Pages 的 `/autumn-hegemons/` 前缀。换曲或调整顺序修改此 JSON 即可；资源须使用站内相对路径。
+`public/music.json` 定义曲名、资源路径、主主题、战斗曲与大地图播放顺序，`public/assets/audio/` 保存来自旧项目的六首音乐，总计约 4.71 MiB；其中两首 WAV 转为 MP3，其余四首保持原文件。路径相对于站点根，由构建的 `BASE_URL` 解析，因此支持 GitHub Pages 的 `/autumn-hegemons/` 前缀。换曲或调整顺序修改此 JSON 即可；资源须使用站内相对路径。
 
 ## 科研界面
 
@@ -96,9 +114,10 @@ npm run map:build
 | `src/game` | 游戏窗口容器、政令面板和手动战场；使用规则命令／查询 |
 | `src/game/hud` | 顶部资源／功能／系统入口及右侧信息列表 |
 | `src/game/map` | 地图相机、辖区、城名排布、军团旗、小地图与地图工具；不修改模拟规则 |
+| `src/game/loading` | 启动加载状态、进度界面与失败恢复；不参与游戏规则 |
 | `scripts` / `map-source` | 离线地图生成与可编辑地图源数据 |
 | `src/editor` | 内容草稿、表单、JSON 与试玩 |
-| `src/platform` | 浏览器存档、文件导入导出 |
+| `src/platform` | 浏览器存档、文件导入导出、资源预加载与音乐播放 |
 | `tests` | 核心规则与跨系统不变量 |
 
 战术的 `tactical-timeline.ts` 管理连续时钟、主动性与顺序查询；`tactical-turns.ts` 管理单部队结束与逐步自动命令；`tactical-board.ts` 提供六邻寻路，真实移动会再逐格检查接敌；`tactical-field.ts` 提供共享地形和基本单位状态。`tactical-visibility.ts` 统一双方视野，`tactical-events.ts` 分别记录双方实际观察到的战报。展示层 `game/tactical-view.ts` 投影可见部队、兵力、行动预测与动画路段，UI 读取动作记录播放动画，不在 React 中计算伤亡或主动性。

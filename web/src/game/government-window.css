@@ -219,7 +219,7 @@
   flex-direction: column;
   border: 2px solid #b69b64;
   outline: none;
-  background: #eee5cc url("../../public/assets/ui/paper-fibers.svg");
+  background: #eee5cc url("/assets/ui/paper-fibers.svg");
   box-shadow:
     0 14px 45px #12241c88,
     0 0 0 3px #29423180;

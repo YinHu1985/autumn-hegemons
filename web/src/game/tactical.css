@@ -22,7 +22,7 @@
   display: flex;
   flex-direction: column;
   color: #344738;
-  background: #d9cba9 url("../../public/assets/ui/paper-fibers.svg");
+  background: #d9cba9 url("/assets/ui/paper-fibers.svg");
 }
 .tactical-heading {
   display: flex;
@@ -135,7 +135,7 @@
   position: relative;
   width: 100%;
   height: 100%;
-  background: #9ca56a url("../../public/assets/battle/plain.svg");
+  background: #9ca56a url("/assets/battle/plain.svg");
   background-size: 100px 100px;
 }
 .window-body .tactical-tile {
@@ -162,13 +162,13 @@
   opacity: 1;
 }
 .window-body .tactical-tile.tile-plain {
-  background-image: url("../../public/assets/battle/plain.svg");
+  background-image: url("/assets/battle/plain.svg");
 }
 .window-body .tactical-tile.tile-forest {
-  background-image: url("../../public/assets/battle/forest.svg");
+  background-image: url("/assets/battle/forest.svg");
 }
 .window-body .tactical-tile.tile-hill {
-  background-image: url("../../public/assets/battle/hill.svg");
+  background-image: url("/assets/battle/hill.svg");
 }
 .tactical-tile.tile-fogged::after {
   content: "";
@@ -474,7 +474,7 @@
   box-shadow:
     0 5px 16px #182b2460,
     inset 0 0 0 1px #fff6d333;
-  background: #e5d9bdf5 url("../../public/assets/ui/paper-fibers.svg");
+  background: #e5d9bdf5 url("/assets/ui/paper-fibers.svg");
   overflow: hidden;
 }
 .tactical-float:focus-within {

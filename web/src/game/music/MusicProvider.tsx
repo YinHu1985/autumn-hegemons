@@ -27,14 +27,17 @@ const MusicContext = createContext<MusicControls | null>(null);
 /** One application-lifetime player; window changes and simulation ticks never recreate it. */
 export function MusicProvider({
   scene,
+  resolveAudio,
   children,
 }: {
   scene: MusicScene | null;
+  resolveAudio?: (absoluteUrl: string) => string;
   children: ReactNode;
 }) {
   const player = useRef<Player | null>(null);
   const host = useRef<HTMLDivElement>(null);
   const sceneRef = useRef(scene);
+  const resolveAudioRef = useRef(resolveAudio);
   sceneRef.current = scene;
   const [snapshot, setSnapshot] = useState<Snapshot | null>(null);
   const [unavailable, setUnavailable] = useState(false);
@@ -60,6 +63,7 @@ export function MusicProvider({
         const engine = createMusicPlayer({
           manifest,
           baseUrl,
+          resolveSource: resolveAudioRef.current,
           preferences: readMusicPreferences(manifest.defaultVolume),
           createAudio: () => {
             const audio = document.createElement("audio");

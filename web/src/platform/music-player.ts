@@ -16,6 +16,8 @@ interface Options {
   baseUrl: string;
   preferences?: MusicPreferences;
   createAudio?: () => HTMLAudioElement;
+  /** Startup may supply a downloaded Blob URL for a public audio URL. */
+  resolveSource?: (absoluteUrl: string) => string;
   onChange?: () => void;
 }
 
@@ -35,6 +37,7 @@ export function createMusicPlayer({
   baseUrl,
   preferences,
   createAudio = () => new Audio(),
+  resolveSource = (url) => url,
   onChange,
 }: Options) {
   const tracks = new Map(manifest.tracks.map((track) => [track.id, track]));
@@ -124,7 +127,9 @@ export function createMusicPlayer({
     if (!track) return null;
     const audio = createAudio();
     audio.preload = "none";
-    audio.src = `${baseUrl.replace(/\/?$/, "/")}${track.src.replace(/^\/+/, "")}`;
+    audio.src = resolveSource(
+      `${baseUrl.replace(/\/?$/, "/")}${track.src.replace(/^\/+/, "")}`,
+    );
     audio.volume = volume;
     const listeners: Record<string, EventListener> = {
       playing: () => {

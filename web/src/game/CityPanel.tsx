@@ -62,7 +62,7 @@ export function CityPanel({
     <aside className="city-inspector parchment" aria-label="城镇详情">
       <div className="city-scene">
         <img
-          src={`${import.meta.env.BASE_URL}assets/${scene ? `cities/${scene}.png` : "central-city.png"}`}
+          src={`${import.meta.env.BASE_URL}assets/${scene ? `cities/${scene}.webp` : "central-city.webp"}`}
           alt="城邑风景"
         />
         <span>

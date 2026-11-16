@@ -25,10 +25,11 @@ const manifest = JSON.parse(
   await readFile(new URL("../public/music.json", import.meta.url), "utf8"),
 );
 
-// SHA-256 of the original A/B/C assets, checked when copying on 2026-11-15.
+// SHA-256 of the shipped A/B/C tracks. The two C WAV tracks were transcoded
+// to MP3 on 2026-11-16; see docs/asset-audit.md for source and encoding details.
 // This test needs only this repository; it never reads the reference projects.
-const originalHashes = {
-  courtyard: "315b22ed593f4f2dcedd8678cb1a73ad188703417bf67aca0328ace70a1b918b",
+const shippedHashes = {
+  courtyard: "887b7d687323d6b1947178373e2780bfd4eb5d83ad70d0109a88da3729348d11",
   jade_river:
     "2de3b0eaf4428b6951068e17d3db0677ccce7367e4589e222a2364d4f8d47c91",
   crimson_chronicles:
@@ -37,10 +38,10 @@ const originalHashes = {
     "ac5a8748a8cf6358d0f961a6ca7e43dbf91bfcd5ddbfa94190d6cb9f28599d4a",
   jiashen: "96ced4d8da0bc5379bc3912efa8f90a8659b6ae92d626eeea7f60c82458538ca",
   battle_banners:
-    "8b5a7bd605738daab4a280c6c33b71a5ace3cc54ca7bb877069d7f3596e959de",
+    "2666665488efed70f65042c9b9618aa3eb5515ae0548adaa203604b741fe45b4",
 };
 
-test("六首本地音乐保持参考原文件，菜单主题来自大地图且战斗曲独立", async () => {
+test("六首本地音乐保持选曲与已验证音频，菜单主题来自大地图且战斗曲独立", async () => {
   const data = parseMusicManifest(manifest);
   assert.equal(data.mainTheme, "courtyard");
   assert.equal(data.battle, "battle_banners");
@@ -48,7 +49,7 @@ test("六首本地音乐保持参考原文件，菜单主题来自大地图且�
   assert.ok(!data.strategy.includes(data.battle));
   assert.deepEqual(
     data.tracks.map((track) => track.id).sort(),
-    Object.keys(originalHashes).sort(),
+    Object.keys(shippedHashes).sort(),
   );
   let totalBytes = 0;
   for (const track of data.tracks) {
@@ -58,11 +59,11 @@ test("六首本地音乐保持参考原文件，菜单主题来自大地图且�
     totalBytes += bytes.length;
     assert.equal(
       createHash("sha256").update(bytes).digest("hex"),
-      originalHashes[track.id],
+      shippedHashes[track.id],
       track.id,
     );
   }
-  assert.equal(totalBytes, 11_618_303);
+  assert.equal(totalBytes, 4_938_931);
 });
 
 test("音乐定义拒绝不存在的场景引用、重复曲目 ID 和重复播放列表", () => {

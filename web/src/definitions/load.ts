@@ -3,13 +3,13 @@ import { validateContent } from "./validate";
 import type { Content, ContentTexts, Scenario } from "./types";
 import { parseScenarioCatalogue } from "./scenarios";
 
-export async function loadBaseContent(): Promise<{
+export async function loadBaseContent(signal?: AbortSignal): Promise<{
   content: Content;
   texts: ContentTexts;
   scenarios: Scenario[];
 }> {
   const root = `${import.meta.env.BASE_URL}content/base/`;
-  const manifestResponse = await fetch(`${root}manifest.json`);
+  const manifestResponse = await fetch(`${root}manifest.json`, { signal });
   if (!manifestResponse.ok)
     throw new Error(`无法读取内容清单：${manifestResponse.status}`);
   const manifest = (await manifestResponse.json()) as Record<string, unknown>;
@@ -20,7 +20,7 @@ export async function loadBaseContent(): Promise<{
       const file = manifest[name];
       if (typeof file !== "string" || !/^[a-z0-9_-]+\.json$/i.test(file))
         throw new Error(`内容清单中的 ${name} 文件名无效`);
-      const response = await fetch(root + file);
+      const response = await fetch(root + file, { signal });
       if (!response.ok) throw new Error(`无法读取 ${file}：${response.status}`);
       return [name, await response.text()] as const;
     }),
@@ -29,7 +29,7 @@ export async function loadBaseContent(): Promise<{
   const common = Object.fromEntries(
     entries.map(([name, value]) => [name, JSON.parse(value)]),
   );
-  const catalogueResponse = await fetch(`${root}scenarios.json`);
+  const catalogueResponse = await fetch(`${root}scenarios.json`, { signal });
   if (!catalogueResponse.ok)
     throw new Error(`无法读取剧本目录：${catalogueResponse.status}`);
   const catalogue = parseScenarioCatalogue(await catalogueResponse.json());
@@ -37,7 +37,7 @@ export async function loadBaseContent(): Promise<{
     catalogue.entries.map(async (entry) => {
       let raw = common.scenario;
       if (entry.file !== manifest.scenario) {
-        const response = await fetch(root + entry.file);
+        const response = await fetch(root + entry.file, { signal });
         if (!response.ok)
           throw new Error(`无法读取剧本 ${entry.file}：${response.status}`);
         raw = await response.json();
