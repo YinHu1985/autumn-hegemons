@@ -2,10 +2,11 @@
 .government-window {
   position: absolute;
   z-index: 16;
-  top: calc(var(--strategy-header-height, 96px) + 16px);
-  left: 16px;
-  width: min(1240px, calc(100vw - 32px));
-  height: min(860px, calc(100dvh - var(--strategy-header-height, 96px) - 32px));
+  /* All topbar pages share one frame, centred in the area below the HUD. */
+  inset: calc(var(--strategy-header-height, 96px) + 16px) 16px 16px;
+  margin: auto;
+  width: min(1760px, calc(100% - 32px));
+  height: min(860px, calc(100% - var(--strategy-header-height, 96px) - 32px));
   display: flex;
   flex-direction: column;
   border: 1px solid var(--ui-gold);
@@ -16,31 +17,6 @@
 }
 .government-window[hidden] {
   display: none;
-}
-.government-economy {
-  width: min(1280px, calc(100vw - 32px));
-}
-.government-military {
-  width: min(1320px, calc(100vw - 32px));
-}
-.government-ideas {
-  width: min(1360px, calc(100vw - 32px));
-}
-.government-diplomacy {
-  width: min(1280px, calc(100vw - 32px));
-}
-.government-battles {
-  width: min(1160px, calc(100vw - 32px));
-}
-.government-events {
-  left: auto;
-  right: 16px;
-  width: min(780px, calc(100vw - 32px));
-}
-.government-window.tactical-window {
-  width: calc(100vw - 32px);
-  height: calc(100dvh - var(--strategy-header-height, 96px) - 32px);
-  max-height: none;
 }
 .window-heading {
   flex-shrink: 0;

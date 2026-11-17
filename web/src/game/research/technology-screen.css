@@ -1,9 +1,4 @@
 /* Fixed panes: teams at left, compact routes above a persistent dossier. */
-.government-window.government-research {
-  width: min(1760px, calc(100vw - 32px));
-  height: calc(100dvh - var(--strategy-header-height, 96px) - 28px);
-  top: calc(var(--strategy-header-height, 96px) + 12px);
-}
 .government-research > .window-heading {
   min-height: 48px;
   padding: 6px 14px;
@@ -320,10 +315,6 @@
   }
 }
 @media (max-width: 720px) {
-  .government-window.government-research {
-    left: 8px;
-    width: calc(100vw - 16px);
-  }
   .technology-summary {
     gap: 4px 12px;
   }

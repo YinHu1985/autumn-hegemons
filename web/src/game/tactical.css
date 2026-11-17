@@ -1,8 +1,8 @@
 .government-window.tactical-window {
-  left: 8px;
-  top: calc(var(--strategy-header-height, 96px) + 8px);
-  width: calc(100vw - 16px);
-  height: calc(100dvh - var(--strategy-header-height, 96px) - 16px);
+  inset: calc(var(--strategy-header-height, 96px) + 8px) 8px 8px;
+  margin: 0;
+  width: auto;
+  height: auto;
   max-height: none;
 }
 .government-window.tactical-window > .window-heading {
