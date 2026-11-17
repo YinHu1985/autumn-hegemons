@@ -2,13 +2,14 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  color: var(--ui-ink);
 }
 .city-scene {
-  height: 128px;
+  height: 136px;
   flex-shrink: 0;
   position: relative;
   overflow: hidden;
-  border-bottom: 2px solid #a18c62;
+  border-bottom: 1px solid var(--ui-gold);
 }
 .city-scene img {
   width: 100%;
@@ -16,187 +17,227 @@
   object-fit: cover;
   object-position: center 48%;
 }
-.city-scene:after {
+.city-scene::after {
   content: "";
   position: absolute;
-  inset: 20% 0 0;
-  background: linear-gradient(transparent, #14271fe8);
+  inset: 0;
+  background: linear-gradient(transparent 20%, #14271fe8);
 }
 .city-scene span,
 .city-scene strong {
   position: absolute;
-  left: 14px;
+  left: 16px;
   z-index: 1;
   color: #f6e7bd;
-  text-shadow: 0 2px 3px #000;
+  text-shadow: 0 2px 3px #0008;
 }
 .city-scene span {
-  font-size: 10px;
-  bottom: 38px;
+  font-size: 11px;
+  bottom: 44px;
 }
 .city-scene strong {
   font-family: Daoli, serif;
-  font-size: 28px;
-  bottom: 8px;
+  font-size: 32px;
+  font-weight: normal;
+  bottom: 10px;
 }
 .inspector-content {
-  padding: 12px;
+  padding: 14px;
   display: flex;
   flex-direction: column;
   min-height: 0;
   flex: 1;
+  overflow: hidden;
 }
 .inspector-title {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+.inspector-title > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 .inspector-title small {
-  font-size: 10px;
-  color: #8d7149;
-}
-.inspector-title h2 {
-  font-size: 22px;
-  font-family: Daoli, serif;
-  font-weight: normal;
-  margin: 3px 0;
+  font-size: 11px;
+  color: var(--ui-muted);
 }
 .inspector-title > span {
-  background: #3a5842;
-  color: #f2e5bc;
+  border: 1px solid var(--ui-line);
+  background: var(--ui-paper-raised);
   padding: 4px 8px;
   font-size: 11px;
 }
 .city-specialty {
-  font-size: 11px;
-  color: #816b44;
-  margin: 4px 0 8px;
+  font-size: 12px;
+  color: var(--ui-ink);
 }
 .inspector-facts {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background: #3a5441;
+  background: var(--ui-pine);
   color: #f5ebcf;
+  flex-shrink: 0;
 }
 .inspector-facts > div {
-  padding: 8px;
-  border-right: 1px solid #71836a;
+  padding: 10px 12px;
+}
+.inspector-facts > div + div {
+  border-left: 1px solid #dac5912b;
 }
 .inspector-facts span {
   display: block;
-  font-size: 10px;
+  font-size: 11px;
   color: #c6bd94;
 }
 .inspector-facts strong {
   display: block;
-  font-size: 17px;
-  margin-top: 3px;
+  font:
+    20px Georgia,
+    serif;
+  margin-top: 5px;
 }
 .governance-track {
   height: 3px;
-  background: #b4a67f;
-  margin-bottom: 9px;
+  background: var(--ui-paper-recessed);
+  flex-shrink: 0;
 }
 .governance-track i {
   display: block;
   height: 100%;
-  background: #b19b58;
-}
-.expand-city {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 12px;
-  padding: 7px;
-  background: #e1d2ad;
-  border-color: #ac9463;
-}
-.expand-city small {
-  font-size: 10px;
-  color: #7a643e;
-}
-.construction-note {
-  font-size: 11px;
-  background: #ddc797;
-  padding: 8px;
-  margin: 7px 0;
-}
-.construction-note strong {
-  display: block;
-  font-size: 10px;
-  margin-top: 3px;
+  background: var(--ui-gold);
 }
 .inspector-tabs {
   display: flex;
-  margin-top: 10px;
-  border-bottom: 2px solid #a38b5c;
+  gap: 4px;
+  margin-top: 14px;
+  border-bottom: 1px solid var(--ui-line);
+  flex-shrink: 0;
 }
 .inspector-tabs button {
+  flex: 1;
   border: 0;
+  border-bottom: 2px solid transparent;
   background: transparent;
   font-size: 12px;
-  padding: 6px 10px;
+  padding: 9px 6px;
+  color: var(--ui-muted);
 }
 .inspector-tabs button.active {
-  background: #a18b61;
-  color: #fff5d8;
+  border-bottom-color: var(--ui-pine);
+  color: var(--ui-pine);
+  background: #d7dcc263;
+  font-weight: 600;
 }
 .city-building-scroll {
   overflow: auto;
-  min-height: 60px;
+  min-height: 50px;
   flex: 1;
+  padding: 3px 2px 8px;
+  scrollbar-width: thin;
 }
 .city-building {
-  border-bottom: 1px solid #c8b78f;
-  padding: 9px 1px;
+  border-bottom: 1px solid #bcaa8066;
+  padding: 12px 2px;
 }
 .city-building > div {
   display: flex;
   justify-content: space-between;
-  font-size: 12px;
+  gap: 10px;
+  align-items: center;
+  font-size: 13px;
 }
 .city-building > div span {
   font-size: 9px;
-  color: #a38a51;
+  letter-spacing: 2px;
+  color: #93773c;
 }
 .city-building p {
-  font-size: 10px;
-  margin: 5px 0;
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 6px 0 4px;
   color: #52634e;
 }
 .city-building small {
-  font-size: 9px;
-  color: #8d7a54;
+  font-size: 11px;
+  color: var(--ui-muted);
 }
 .construction-list {
   display: grid;
-  gap: 5px;
-  padding-top: 6px;
+  gap: 7px;
+  padding-top: 8px;
 }
 .construction-list button {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 8px;
   text-align: left;
-  background: #eadfc0;
-  padding: 8px;
+  background: var(--ui-paper-raised);
+  padding: 10px;
   font-size: 12px;
+  border-color: var(--ui-line);
 }
 .construction-list small {
   display: block;
-  font-size: 10px;
-  color: #876d45;
+  font-size: 11px;
+  color: var(--ui-muted);
   margin-top: 5px;
 }
 .construction-list em {
   font-style: normal;
   font-size: 11px;
-  color: #90764d;
+  color: var(--ui-muted);
+  white-space: nowrap;
 }
-.panel-message,
+.city-orders {
+  flex-shrink: 0;
+  border-top: 1px solid var(--ui-line);
+  margin-top: 4px;
+  padding-top: 10px;
+}
+.city-orders .expand-city {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  min-height: 38px;
+  padding: 8px 10px;
+}
+.expand-city small {
+  font-size: 11px;
+  color: inherit;
+  opacity: 0.75;
+}
+.construction-note {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  font-size: 11px;
+  background: var(--ui-paper-recessed);
+  padding: 9px 10px;
+  margin: 8px 0 0;
+}
+.construction-note strong {
+  font-weight: normal;
+  white-space: nowrap;
+  color: var(--ui-muted);
+}
+.city-orders .panel-message,
 .foreign-note {
   font-size: 11px;
   line-height: 1.6;
-  color: #865233;
-  margin: 7px 0 0;
+  color: var(--ui-muted);
+  margin: 8px 0 0;
+}
+.city-empty {
+  font-size: 12px;
+  color: var(--ui-muted);
+  line-height: 1.8;
+  margin: 18px 5px;
 }

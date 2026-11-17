@@ -1,231 +1,172 @@
-.military-panel select,
-.battle-panel select {
-  padding: 7px;
-  background: #f1e6c9;
-  border: 1px solid #ab966b;
-  color: #273a30;
+/* Campaign overview and shared formation pickers; field combat has its own styles. */
+.battle-panel {
+  color: var(--ui-ink);
 }
-.military-stats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 12px 0;
-}
-.military-stats > span {
-  background: #243c32;
-  color: #e5dab9;
-  padding: 8px 12px;
-  font-size: 12px;
-}
-.military-stats b {
-  display: block;
-  font-size: 17px;
-  margin-top: 4px;
-}
-.military-columns {
+.battle-overview {
   display: grid;
-  grid-template-columns: 190px minmax(0, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border: 1px solid var(--ui-line);
+  background: var(--ui-paper-recessed);
+  margin-bottom: 14px;
 }
-.army-list {
+.battle-overview > div {
+  padding: 12px 18px;
+  border-right: 1px solid var(--ui-line);
   display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.army-list button {
-  text-align: left;
-  border-radius: 2px;
-}
-.army-list button.active {
-  background: #d8c69c;
-  border-left: 4px solid #8e422d;
-}
-.army-list strong,
-.army-list span,
-.army-list small {
-  display: block;
-}
-.army-list span {
-  margin: 5px 0;
-  font-size: 12px;
-}
-.army-list small {
-  font-size: 11px;
-}
-.regiment-list {
-  margin: 14px 0;
-}
-.regiment {
-  display: grid;
-  grid-template-columns: 1fr 1fr auto;
-  gap: 8px;
-  border-bottom: 1px solid #baa77e;
-  padding: 10px 0;
-  align-items: center;
-}
-.regiment small,
-.regiment span {
-  display: block;
-  font-size: 12px;
-}
-.regiment progress {
-  height: 6px;
-  width: 100%;
-  accent-color: #4e7051;
-}
-.regiment button {
-  padding: 5px 8px;
-}
-.army-orders {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  align-items: center;
-  background: #e0d3b3;
-  padding: 12px;
-  margin: 8px 0;
-}
-.army-orders p {
-  width: 100%;
-  margin: 2px 0;
-  font-size: 12px;
-}
-.army-orders small {
-  font-size: 11px;
-}
-.military-warning {
-  color: #a03d2d !important;
-}
-.equipment-ledger {
-  margin: 16px 0;
-}
-.campaign-list {
-  display: grid;
+  align-items: baseline;
+  justify-content: space-between;
   gap: 12px;
 }
-.battle-panel.feature-panel > .feature-heading {
-  padding-bottom: 6px;
-  margin-bottom: 6px;
+.battle-overview > div:last-child {
+  border: 0;
 }
-.battle-panel.feature-panel > .feature-heading h2 {
-  font-size: 22px;
-  margin: 2px 0;
-}
-.battle-panel.feature-panel > p:not(.panel-message) {
-  margin: 6px 0;
+.battle-overview small {
   font-size: 12px;
-  line-height: 1.5;
+  color: var(--ui-muted);
 }
-.campaign-card {
-  padding: 12px;
-  border: 1px solid #b7a277;
-  background: #e5d8b7;
+.battle-overview strong {
+  font:
+    24px Georgia,
+    serif;
+  color: var(--ui-pine);
 }
-.campaign-card h3 {
-  margin: 0;
+.battle-overview-ready {
+  background: #e7cf9f;
 }
-.campaign-card p {
-  font-size: 13px;
+.battle-overview-ready strong {
+  color: var(--ui-danger);
+}
+.battle-panel > .ui-note {
+  margin: 0 0 16px;
+  font-size: 12px;
 }
 .campaign-tabs {
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin: 8px 0;
+  gap: 5px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--ui-line);
+  margin-bottom: 16px;
 }
 .campaign-tabs button {
   min-width: 120px;
+  background: transparent;
+  border-color: transparent;
 }
 .campaign-tabs b {
-  margin-left: 7px;
+  margin-left: 9px;
+  font-size: 11px;
+  opacity: 0.7;
+  font-variant-numeric: tabular-nums;
 }
 .campaign-tabs button.active {
-  background: #294b3d;
-  border-color: #1e3d30;
-  color: #f5e7bd;
+  background: var(--ui-pine);
+  border-color: var(--ui-pine);
+  color: var(--ui-cream);
+}
+.campaign-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
+  gap: 16px;
+  align-items: start;
+}
+.campaign-card {
+  padding: 18px;
+  border: 1px solid var(--ui-line);
+  background: var(--ui-paper-raised);
+  min-width: 0;
 }
 .campaign-card.attack-campaign {
-  border-left: 4px solid #9d5439;
+  border-top: 3px solid #a76548;
 }
 .campaign-card.defense-campaign {
-  border-left: 4px solid #456e70;
+  border-top: 3px solid #56736c;
 }
 .campaign-card.campaign-ready {
-  box-shadow: inset 0 0 0 1px #a78036;
-  background: #ebdbb3;
+  box-shadow: inset 0 0 0 1px var(--ui-gold);
+  background: #f4e7c8;
 }
 .campaign-card .feature-heading {
-  margin-bottom: 7px;
-  padding-bottom: 7px;
-  gap: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--ui-line);
 }
 .campaign-card .feature-heading h3 {
-  margin: 0;
+  font-size: 24px;
+  margin: 4px 0 0;
 }
 .campaign-card .feature-heading small {
-  display: block;
-  margin-bottom: 2px;
-  color: #746241;
+  color: var(--ui-muted);
   font-size: 11px;
 }
 .campaign-phase {
-  background: #d3c39c;
-  padding: 6px 9px;
+  padding: 5px 8px;
+  border: 1px solid var(--ui-line);
+  color: var(--ui-muted);
+  font-size: 10px;
   white-space: nowrap;
-  font-size: 11px;
-  border: 1px solid #b9a375;
 }
 .campaign-phase.ready {
-  color: #fff0c8;
-  background: #8b4931;
-  border-color: #79402b;
+  color: var(--ui-cream);
+  background: var(--ui-danger);
+  border-color: var(--ui-danger);
+}
+.campaign-phase.queued {
+  background: var(--ui-paper-recessed);
 }
 .campaign-progress-heading {
   display: flex;
   justify-content: space-between;
   gap: 10px;
-  font-size: 12px;
-  color: #5c5138;
+  font-size: 11px;
+  color: var(--ui-muted);
+}
+.campaign-progress-heading strong {
+  color: var(--ui-ink);
+  font-weight: normal;
 }
 .campaign-progress-track {
   position: relative;
-  margin: 7px 0;
-  height: 9px;
-  background: #bcaf8e;
+  margin: 8px 0;
+  height: 7px;
+  background: #c7b892;
 }
 .campaign-progress-track progress {
   display: block;
   width: 100%;
-  height: 9px;
+  height: 7px;
   border: 0;
-  accent-color: #657a52;
+  accent-color: var(--ui-success);
 }
 .campaign-progress-track progress::-webkit-progress-bar {
-  background: #c2b38e;
+  background: #c7b892;
 }
 .campaign-progress-track progress::-webkit-progress-value {
-  background: #667c50;
+  background: var(--ui-success);
 }
 .campaign-progress-track i {
   position: absolute;
-  top: -3px;
+  top: -2px;
   width: 2px;
-  height: 15px;
-  background: #78572f;
+  height: 11px;
+  background: #8b683c;
 }
 .campaign-note,
 .campaign-card .campaign-note {
-  color: #74613f;
-  font-size: 12px;
-  line-height: 1.65;
-  margin: 6px 0;
+  color: var(--ui-muted);
+  font-size: 11px;
+  line-height: 1.7;
+  margin: 9px 0;
 }
 .campaign-forces {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 40px minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) 36px minmax(0, 1fr);
   align-items: center;
-  margin-top: 10px;
   gap: 12px;
+  margin-top: 20px;
 }
 .campaign-forces section {
   display: flex;
@@ -236,46 +177,47 @@
   text-align: right;
 }
 .campaign-forces .force-label {
-  color: #875037;
+  color: #9c5c43;
   font-size: 12px;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 .campaign-forces section:last-child .force-label {
-  color: #3e6367;
+  color: #4c7068;
 }
 .campaign-forces strong {
-  font-family: Georgia, "Noto Serif SC", serif;
-  font-size: 23px;
-  color: #3e4738;
+  font:
+    25px Georgia,
+    "Songti SC",
+    serif;
+  color: var(--ui-ink);
 }
 .campaign-forces small,
 .campaign-forces section > span:last-child {
   font-size: 11px;
-  color: #736244;
+  color: var(--ui-muted);
   line-height: 1.5;
 }
 .campaign-versus {
   text-align: center;
   font-size: 12px;
-  color: #978258;
+  color: var(--ui-muted);
 }
 .campaign-strength {
   display: flex;
   height: 4px;
-  background: #57777a;
-  margin-top: 12px;
+  background: #66837a;
+  margin-top: 14px;
 }
 .campaign-strength i {
-  background: #ab6446;
+  background: #b07554;
 }
 .defense-plan {
-  border-top: 1px solid #c4b18a;
-  margin-top: 12px;
-  padding-top: 10px;
+  border-top: 1px solid var(--ui-line);
+  margin-top: 16px;
+  padding-top: 12px;
 }
 .defense-plan summary {
-  cursor: pointer;
-  color: #385954;
+  color: var(--ui-pine);
   font-size: 13px;
 }
 .army-picker {
@@ -283,33 +225,33 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 6px;
   min-width: 0;
-  padding: 9px;
+  padding: 8px;
   margin: 10px 0;
-  border: 1px solid #b8a47d;
+  border: 1px solid var(--ui-line);
 }
 .army-picker legend {
   font-size: 11px;
   padding: 0 5px;
-  color: #74613f;
+  color: var(--ui-muted);
 }
 .army-picker label {
   display: flex;
   align-items: flex-start;
   gap: 7px;
   padding: 8px;
-  background: #f1e6c76b;
+  background: var(--ui-paper);
   cursor: pointer;
   font-size: 12px;
 }
 .army-picker label:has(input:checked) {
-  background: #b9c1a56b;
+  background: #d2d8b9;
 }
 .army-picker label.unavailable {
-  color: #82765d;
+  color: var(--ui-muted);
 }
 .army-picker input {
   flex-shrink: 0;
-  accent-color: #456752;
+  accent-color: var(--ui-success);
   margin: 2px 0 0;
 }
 .army-picker strong,
@@ -322,137 +264,50 @@
   line-height: 1.6;
 }
 .campaign-footer {
-  margin-top: 12px;
-  border-top: 1px solid #baa680;
-  padding-top: 6px;
+  margin-top: 16px;
+  padding-top: 10px;
+  border-top: 1px solid var(--ui-line);
 }
-.window-body .campaign-card .campaign-actions {
-  margin: 8px 0 12px;
+.campaign-actions {
+  margin: 14px 0 0;
 }
 .campaign-actions .withdraw-order {
   margin-left: auto;
-  color: #8b4e36;
 }
-.army-availability {
-  font-size: 12px;
-  line-height: 1.7;
-  color: #6d5c3d;
-  border-left: 2px solid #9e8658;
-  padding-left: 9px;
-  margin: 12px 0;
+.campaign-empty {
+  grid-column: 1 / -1;
+  min-height: 260px;
+  display: grid;
+  place-content: center;
 }
-.attack-orders {
-  padding: 14px;
-  margin-top: 16px;
-  border: 1px solid #b4a079;
-  background: #dfd1ac;
+.campaign-empty strong {
+  display: block;
+  font: 25px var(--ui-font-display);
+  color: var(--ui-pine);
 }
-.attack-orders .feature-heading span {
-  font-size: 11px;
-  color: #77613f;
-}
-.destination-field {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+.campaign-empty p {
+  max-width: 520px;
   font-size: 12px;
 }
-.destination-field select {
-  flex: 1;
-  min-width: 0;
+.campaign-history {
+  border-top: 1px solid var(--ui-line);
+  margin-top: 20px;
+  padding-top: 12px;
 }
-.attack-orders > button {
-  margin-top: 8px;
-}
-.attack-orders .military-warning {
-  font-size: 12px;
-  line-height: 1.6;
-}
-.battle-panel > p {
+.campaign-history summary {
   font-size: 13px;
-  line-height: 1.6;
 }
 .battle-log {
-  max-height: 150px;
+  max-height: 240px;
   overflow: auto;
   font-size: 12px;
-  color: #78613b;
+  color: var(--ui-muted);
 }
 .battle-log p {
-  margin: 4px 0;
+  margin: 0;
+  padding: 8px 0;
+  border-bottom: 1px solid #bcaa8066;
 }
-.empty-panel {
-  padding: 35px;
-  text-align: center;
-  background: #e4d9bc;
-  color: #776340;
-}
-.panel-message {
-  color: #9c4d32;
-  min-height: 20px;
-  font-size: 13px;
-}
-@media (max-width: 700px) {
-  .army-picker {
-    grid-template-columns: 1fr;
-  }
-  .campaign-progress-heading {
-    flex-wrap: wrap;
-  }
-  .military-columns {
-    grid-template-columns: 1fr;
-  }
-  .army-list {
-    flex-direction: row;
-    overflow: auto;
-  }
-  .army-list button {
-    min-width: 150px;
-  }
-  .regiment {
-    grid-template-columns: 1fr auto;
-  }
-  .regiment > div:nth-child(2) {
-    grid-column: 1;
-  }
-  .regiment button {
-    grid-column: 2;
-    grid-row: 1/3;
-  }
-}
-
-.regiment-actions {
-  display: flex;
-  gap: 4px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-}
-.regiment-actions select {
-  max-width: 120px;
-  font-size: 11px;
-  padding: 4px;
-}
-.regiment-actions button {
-  font-size: 11px;
-}
-.chronicle {
-  list-style: none;
-  padding: 0;
-}
-.chronicle li {
-  padding: 10px 0;
-  border-bottom: 1px solid #c4b38d;
-  display: flex;
-  gap: 20px;
-  font-size: 12px;
-}
-.chronicle time {
-  color: #92784c;
-  white-space: nowrap;
-}
-.empty-state {
-  padding: 25px;
-  border: 1px dashed #ab9468;
-  background: #e3d6b6;
-  color: #7c6948;
+.military-warning {
+  color: var(--ui-danger) !important;
 }

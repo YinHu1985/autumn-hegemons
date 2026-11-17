@@ -470,11 +470,11 @@
   display: flex;
   flex-direction: column;
   max-height: calc(100% - 24px);
-  border: 2px solid #a58b55;
+  border: 1px solid var(--ui-gold);
   box-shadow:
     0 5px 16px #182b2460,
     inset 0 0 0 1px #fff6d333;
-  background: #e5d9bdf5 url("/assets/ui/paper-fibers.svg");
+  background: var(--ui-paper) url("/assets/ui/paper-fibers.svg");
   overflow: hidden;
 }
 .tactical-float:focus-within {
@@ -484,12 +484,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 30px;
-  padding: 3px 7px 3px 10px;
+  min-height: 38px;
+  padding: 4px 7px 4px 12px;
   flex-shrink: 0;
-  border-bottom: 2px solid #b19863;
-  background: #294334;
-  color: #f1dfb2;
+  border-bottom: 3px double var(--ui-gold);
+  background: var(--ui-header);
+  color: var(--ui-cream);
   cursor: grab;
   touch-action: none;
   user-select: none;
@@ -501,16 +501,8 @@
   font-size: 13px;
   letter-spacing: 0.12em;
 }
-.window-body .tactical-float-heading button {
-  width: 24px;
-  height: 23px;
-  padding: 0;
-  min-height: 0;
-  border: 1px solid #ac96615c;
-  color: #e4d6ad;
-  background: #173026;
-  font-size: 18px;
-  line-height: 1;
+.tactical-float-heading .ui-close {
+  --ui-close-size: 26px;
 }
 .window-body .tactical-float-note {
   flex-shrink: 0;
@@ -523,7 +515,7 @@
 .tactical-orders-panel {
   left: 12px;
   bottom: 12px;
-  width: 200px;
+  width: 244px;
 }
 .tactical-command-actor {
   flex-shrink: 0;
@@ -555,11 +547,11 @@
   grid-template-columns: 23px minmax(0, 1fr);
   align-items: center;
   gap: 1px 4px;
-  min-height: 43px;
-  padding: 4px;
-  border: 1px solid #a89569;
-  background: linear-gradient(#eee2c1, #dfcfab);
-  color: #354a37;
+  min-height: 48px;
+  padding: 6px;
+  border: 1px solid var(--ui-line);
+  background: var(--ui-control);
+  color: var(--ui-ink);
   text-align: left;
 }
 .tactical-order > span {
@@ -576,12 +568,12 @@
     serif;
 }
 .tactical-order strong {
-  font-size: 11px;
+  font-size: 12px;
 }
 .window-body .tactical-order small {
   grid-column: 2;
-  font-size: 8px;
-  line-height: 1.2;
+  font-size: 10px;
+  line-height: 1.4;
   color: #7c6a49;
   white-space: nowrap;
   overflow: hidden;
@@ -603,7 +595,7 @@
   line-height: 1.75;
 }
 .tactical-timeline {
-  width: 237px;
+  width: 260px;
   right: 12px;
   bottom: 12px;
 }
@@ -700,7 +692,7 @@
 }
 .timeline-unit-label > strong {
   display: block;
-  font-size: 11px;
+  font-size: 12px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -708,7 +700,7 @@
 .window-body .timeline-unit-label > small {
   display: block;
   color: #827050;
-  font-size: 8px;
+  font-size: 10px;
   margin: 2px 0 4px;
 }
 .timeline-meter {

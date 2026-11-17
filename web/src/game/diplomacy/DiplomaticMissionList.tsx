@@ -16,12 +16,17 @@ export function DiplomaticMissionList({
   const missions = world.diplomacy.missions.filter(
     (mission) => mission.nationId === nationId,
   );
-  if (!missions.length) return null;
   return (
     <section className="diplomatic-missions" aria-label="本国出使任务">
-      <h3>
-        使节在途 <small>{missions.length} 项</small>
-      </h3>
+      <header className="ui-section-heading">
+        <h3>使节在途</h3>
+        <span className="ui-badge">{missions.length} 项</span>
+      </header>
+      {!missions.length && (
+        <p className="diplomatic-empty">
+          尚无使节在外。选定国家与人选后，可在上方安排出使。
+        </p>
+      )}
       {missions.map((mission) => {
         const target = content.scenario.nations.find(
           (nation) => nation.id === mission.targetNationId,
@@ -47,6 +52,7 @@ export function DiplomaticMissionList({
               value={elapsed}
             />
             <button
+              className="danger"
               title="召回使者，已付粮食不退还"
               onClick={() =>
                 run(() => cancelDiplomaticMission(world, nationId, mission.id))

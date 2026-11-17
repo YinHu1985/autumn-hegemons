@@ -115,30 +115,34 @@ export function DiplomacyPanel({
           {content.diplomacy.yearlyDrift} 点。仅关系险恶（低于
           −100）时可以进攻相邻城邑。
         </p>
-        <DiplomaticActions
-          key={selected.id}
-          content={content}
-          world={world}
-          nationId={nationId}
-          targetId={selected.id}
-          run={run}
-          onTalents={onTalents}
-        />
-        <p className="diplomacy-feedback" role="status">
-          {message}
-        </p>
-        <DiplomaticMissionList
-          content={content}
-          world={world}
-          nationId={nationId}
-          run={run}
-        />
-        <NationRelations
-          content={content}
-          world={world}
-          nationId={selected.id}
-          onSelect={setSelectedId}
-        />
+        <div className="diplomacy-workspace">
+          <div className="diplomacy-business">
+            <DiplomaticActions
+              key={selected.id}
+              content={content}
+              world={world}
+              nationId={nationId}
+              targetId={selected.id}
+              run={run}
+              onTalents={onTalents}
+            />
+            <p className="diplomacy-feedback" role="status">
+              {message}
+            </p>
+            <DiplomaticMissionList
+              content={content}
+              world={world}
+              nationId={nationId}
+              run={run}
+            />
+          </div>
+          <NationRelations
+            content={content}
+            world={world}
+            nationId={selected.id}
+            onSelect={setSelectedId}
+          />
+        </div>
       </div>
     </section>
   );

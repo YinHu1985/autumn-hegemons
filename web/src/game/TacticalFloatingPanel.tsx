@@ -79,7 +79,12 @@ export function TacticalFloatingPanel({
         }}
       >
         <strong>{title}</strong>
-        <button type="button" onClick={onClose} aria-label={`关闭${title}`}>
+        <button
+          className="ui-close"
+          type="button"
+          onClick={onClose}
+          aria-label={`关闭${title}`}
+        >
           ×
         </button>
       </header>

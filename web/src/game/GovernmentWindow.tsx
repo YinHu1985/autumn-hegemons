@@ -9,7 +9,7 @@ import { BattlePanel } from "./BattlePanel";
 import { EconomyPanel } from "./EconomyPanel";
 import { EventsPanel } from "./EventsPanel";
 import { DiplomacyPanel } from "./DiplomacyPanel";
-import { PAGE_TITLES, type GamePage } from "./hud/navigation";
+import { PAGE_TITLES, PRIMARY_PAGES, type GamePage } from "./hud/navigation";
 import type { RequestMapLocation } from "./map/useMapLocationSelection";
 import "./government-window.css";
 
@@ -57,7 +57,10 @@ export function GovernmentWindow({
       className={`government-window government-${page} ${locked ? "tactical-window" : ""}`}
     >
       <header className="window-heading">
-        <div>
+        <span className="window-emblem" aria-hidden="true">
+          {PRIMARY_PAGES.find((entry) => entry.id === page)?.glyph ?? "史"}
+        </span>
+        <div className="window-heading-title">
           <small>
             {nation?.name}国 · {page === "events" ? "国史与奏报" : "国家政令"}
           </small>
@@ -66,7 +69,13 @@ export function GovernmentWindow({
         <span className="window-hint">
           {locked ? "决战进行中 · 世界暂停" : "Esc 关闭"}
         </span>
-        <button disabled={locked} aria-label="关闭面板" onClick={onClose}>
+        <button
+          className="ui-close"
+          disabled={locked}
+          aria-label="关闭面板"
+          title="关闭面板 · Esc"
+          onClick={onClose}
+        >
           ×
         </button>
       </header>

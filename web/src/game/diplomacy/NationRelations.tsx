@@ -20,7 +20,10 @@ export function NationRelations({
   )?.name;
   return (
     <section className="nation-relations" aria-label={`${name}国与列国关系`}>
-      <h3>{name}与列国</h3>
+      <header className="ui-section-heading">
+        <h3>{name}与列国</h3>
+      </header>
+      <p className="ui-note">选择国家，查阅其邦交。</p>
       <div className="nation-relations-grid">
         {content.scenario.nations
           .filter((nation) => nation.id !== nationId)

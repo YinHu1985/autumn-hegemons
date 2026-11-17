@@ -38,14 +38,20 @@ export function DiplomaticActions({
   );
   if (targetId === nationId)
     return (
-      <p className="diplomatic-note">
+      <p className="diplomatic-note ui-empty">
         本国与列国的往来列于下方，选择其他国家安排出使。
       </p>
     );
   if (!exists)
-    return <p className="diplomatic-note">该国已无城邑，不能安排出使。</p>;
+    return (
+      <p className="diplomatic-note ui-empty">该国已无城邑，不能安排出使。</p>
+    );
   return (
     <section className="diplomatic-actions" aria-label="安排外交任务">
+      <header className="ui-section-heading">
+        <h3>安排出使</h3>
+        <span className="ui-badge">使者 {envoys.length} 人待命</span>
+      </header>
       <div className="envoy-assignment">
         <label>
           出使人选
@@ -63,8 +69,11 @@ export function DiplomaticActions({
             ))}
           </select>
         </label>
-        <span>一位使者同时执行一项任务</span>
-        {onTalents && <button onClick={onTalents}>任命使者</button>}
+        {onTalents && (
+          <button className="quiet" onClick={onTalents}>
+            任命使者
+          </button>
+        )}
       </div>
       {!envoys.length && !underway && (
         <p className="diplomatic-note">
@@ -102,7 +111,7 @@ export function DiplomaticActions({
                 </small>
               </div>
               <button
-                className={action.relationChange > 0 ? "primary" : ""}
+                className={action.relationChange > 0 ? "primary" : "danger"}
                 disabled={disabled}
                 title={!affordable ? "国库粮食不足" : undefined}
                 onClick={() =>
@@ -126,7 +135,7 @@ export function DiplomaticActions({
         })}
       </div>
       <p className="diplomatic-note">
-        派遣时支付粮食，任务完成时改变关系；召回不退还已付粮食。
+        每位使者同时执行一项任务。派遣时支付粮食，完成时改变关系；召回不退还粮食。
       </p>
     </section>
   );

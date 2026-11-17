@@ -18,6 +18,8 @@ import {
   terrainNames,
 } from "../simulation/settlements";
 import { hasTechnology } from "../simulation/research";
+import { diplomaticRelation } from "../simulation/diplomacy";
+import { relationDescription } from "./diplomacy/presentation";
 interface Props {
   content: Content;
   world: WorldState;
@@ -77,15 +79,13 @@ export function CityPanel({
         <div className="inspector-title">
           <div>
             <small>{own ? "领内城邑" : "列国城邑"}</small>
-            <h2>{cityStart.name}</h2>
+            <span className="city-specialty">
+              {content.specialties.find((s) => s.id === cityStart.specialty)
+                ?.name ?? cityStart.specialty}
+            </span>
           </div>
           <span>规模 {city.scale}</span>
         </div>
-        <p className="city-specialty">
-          特产 ·{" "}
-          {content.specialties.find((s) => s.id === cityStart.specialty)
-            ?.name ?? cityStart.specialty}
-        </p>
         <div className="inspector-facts">
           <div>
             <span>治理效率</span>
@@ -101,36 +101,10 @@ export function CityPanel({
         <div className="governance-track">
           <i style={{ width: `${city.governance * 100}%` }} />
         </div>
-        {own && (
-          <button
-            className="expand-city"
-            disabled={
-              !!city.construction ||
-              city.scale >= 7 ||
-              nation.treasury < quote.cost
-            }
-            onClick={() => run(() => startExpansion(content, world, city.id))}
-          >
-            扩建城邑{" "}
-            <small>
-              {quote.cost} 粮 · {quote.days} 日
-            </small>
-          </button>
-        )}
-        {city.construction && (
-          <p className="construction-note">
-            ⚒{" "}
-            {city.construction.buildingId === "__expand"
-              ? "扩建城邑"
-              : content.buildings.find(
-                  (b) => b.id === city.construction?.buildingId,
-                )?.name}
-            <strong>尚需 {city.construction.remainingDays} 日</strong>
-          </p>
-        )}
         <div className="inspector-tabs">
           <button
             className={tab === "buildings" ? "active" : ""}
+            aria-pressed={tab === "buildings" || !own}
             onClick={() => setTab("buildings")}
           >
             城内设施
@@ -138,6 +112,7 @@ export function CityPanel({
           {own && (
             <button
               className={tab === "construction" ? "active" : ""}
+              aria-pressed={tab === "construction"}
               onClick={() => setTab("construction")}
             >
               营建工程
@@ -147,6 +122,11 @@ export function CityPanel({
         <div className="city-building-scroll">
           {tab === "buildings" || !own ? (
             <div className="inspector-list">
+              {!Object.keys(city.buildings).length && (
+                <p className="city-empty">
+                  城内尚无设施{own ? "，可前往营建工程安排修建。" : "。"}
+                </p>
+              )}
               {Object.entries(city.buildings).map(([id, state]) => {
                 const b = content.buildings.find((b) => b.id === id)!;
                 const level = b.levels[state.level - 1];
@@ -229,16 +209,55 @@ export function CityPanel({
             </div>
           )}
         </div>
-        {message && (
-          <p className="panel-message" role="status">
-            {message}
-          </p>
-        )}
-        {!own && (
-          <p className="foreign-note">
-            与该国处于战争状态。可在军府选择军团，向此城进军。
-          </p>
-        )}
+        <footer className="city-orders">
+          {own && (
+            <button
+              className="expand-city primary"
+              disabled={
+                !!city.construction ||
+                city.scale >= 7 ||
+                nation.treasury < quote.cost
+              }
+              onClick={() => run(() => startExpansion(content, world, city.id))}
+            >
+              <span>{city.scale >= 7 ? "已达规模上限" : "扩建城邑"}</span>
+              <small>
+                {quote.cost} 粮 · {quote.days} 日
+              </small>
+            </button>
+          )}
+          {city.construction && (
+            <p className="construction-note">
+              ⚒{" "}
+              {city.construction.buildingId === "__expand"
+                ? "扩建城邑"
+                : content.buildings.find(
+                    (b) => b.id === city.construction?.buildingId,
+                  )?.name}
+              <strong>尚需 {city.construction.remainingDays} 日</strong>
+            </p>
+          )}
+          {message && (
+            <p className="panel-message" role="status">
+              {message}
+            </p>
+          )}
+          {!own && (
+            <p className="foreign-note">
+              与该国关系：
+              {relationDescription(content, world, playerNationId, city.owner)}
+              。
+              {diplomaticRelation(
+                content,
+                world,
+                playerNationId,
+                city.owner,
+              ) === "hostile"
+                ? "可在军府查看相邻城邑的出兵条件。"
+                : "可前往外交窗口安排使节往来。"}
+            </p>
+          )}
+        </footer>
       </div>
     </aside>
   );

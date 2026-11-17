@@ -5,115 +5,101 @@
   display: grid;
   place-items: center;
   padding: 24px;
-  background: #101c166e;
-  backdrop-filter: blur(1.5px);
+  background: #101c1699;
+  backdrop-filter: blur(2px);
 }
 .game-menu {
-  background: #e9dfc4 url("/assets/ui/paper-fibers.svg");
-  border: 3px double #bba16d;
+  background: var(--ui-paper) url("/assets/ui/paper-fibers.svg");
+  border: 1px solid var(--ui-gold);
   box-shadow:
     0 20px 90px #0009,
-    inset 0 0 0 1px #fff0ca;
-  color: #344435;
+    0 0 0 3px #243b2ed9;
+  color: var(--ui-ink);
   font-family: Georgia, "Songti SC", serif;
   max-height: calc(100dvh - 48px);
-  overflow: auto;
-}
-.game-menu-pause {
-  width: min(390px, calc(100vw - 32px));
-}
-.game-menu-setup {
-  width: min(1180px, calc(100vw - 48px));
-  display: grid;
-  grid-template-columns: 320px minmax(0, 1fr);
-  height: min(960px, calc(100dvh - 48px));
   overflow: hidden;
 }
-.game-menu-setup .menu-content {
-  overflow-y: auto;
-  min-width: 0;
-  min-height: 0;
-  padding: 22px 28px;
+.game-menu-pause {
+  width: 440px;
 }
-.game-menu-setup .system-menu-heading {
-  margin-bottom: 14px;
-  padding-bottom: 12px;
-}
-.game-menu-setup .system-load-actions {
-  grid-template-columns: repeat(3, 1fr);
-}
-.game-menu-setup .system-editor-entry {
-  grid-column: auto;
-}
-.game-menu-setup .menu-hint {
-  margin-top: 12px;
-  padding-top: 10px;
-}
-.game-menu-setup .music-settings {
-  margin-top: 14px;
-  padding-top: 10px;
+.game-menu-setup {
+  width: min(1380px, calc(100vw - 64px));
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  height: min(920px, calc(100dvh - 48px));
 }
 .menu-content {
-  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  max-height: calc(100dvh - 48px);
 }
 .system-menu-heading {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  margin-bottom: 24px;
-  padding-bottom: 17px;
-  border-bottom: 1px solid #ae966c;
+  padding: 14px 22px;
+  border-bottom: 1px solid var(--ui-gold);
+  background: linear-gradient(110deg, var(--ui-pine), #1d3428);
+  color: #f2e1b5;
+  flex-shrink: 0;
 }
 .system-menu-heading small {
   display: block;
-  color: #88724e;
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  margin-bottom: 6px;
+  color: #c2b38a;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  margin-bottom: 4px;
 }
 .system-menu-heading h2 {
   font-family: Daoli, "Songti SC", serif;
-  font-size: 31px;
+  font-size: 27px;
   font-weight: normal;
   margin: 0;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
 }
 .game-menu button {
-  border-radius: 2px;
+  border-radius: 1px;
   font-family: inherit;
 }
-.game-menu .system-menu-close {
-  flex: 0 0 30px;
-  height: 30px;
-  padding: 0;
-  font-size: 23px;
-  line-height: 1;
-  color: #e7d7ad;
-  background: #3b5040;
-  border: 1px solid #9a8457;
-}
-.game-menu .system-menu-close:hover {
-  background: #6f4231;
-}
 .game-menu .system-menu-primary {
-  width: 100%;
-  padding: 12px;
-  background: linear-gradient(#405e48, #2b4535);
-  border: 1px solid #a28c59;
+  min-height: 40px;
+  padding: 10px 18px;
+  font-size: 14px;
+  border: 1px solid var(--ui-gold);
   color: #ffefc7;
-  font-size: 15px;
+  background: linear-gradient(#405e48, var(--ui-pine));
   box-shadow: inset 0 0 0 1px #ffffff12;
 }
-.game-menu .system-menu-primary:hover {
+.game-menu .system-menu-primary:hover:not(:disabled) {
   background: #48664d;
   border-color: #d0af6d;
 }
+.system-pause-body {
+  padding: 22px;
+  overflow: auto;
+  min-height: 0;
+}
+.system-pause-body > .system-menu-primary {
+  width: 100%;
+}
 .system-menu-section-label {
-  font-size: 10px;
-  color: #87754f;
-  letter-spacing: 0.2em;
-  margin: 20px 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  color: var(--ui-muted);
+  letter-spacing: 0.12em;
+  margin: 20px 0 10px;
+}
+.system-menu-section-label::after {
+  content: "";
+  height: 1px;
+  background: var(--ui-line);
+  opacity: 0.5;
+  flex: 1;
 }
 .menu-actions {
   display: grid;
@@ -122,46 +108,71 @@
 }
 .menu-actions button,
 .system-menu-back {
-  padding: 11px 6px;
-  border: 1px solid #baa67b;
-  background: #dfd2b0;
-  color: #46513b;
-  font-size: 13px;
+  min-height: 36px;
+  padding: 8px 10px;
+  border: 1px solid var(--ui-line);
+  background: var(--ui-paper-raised);
+  color: var(--ui-ink);
+  font-size: 12px;
 }
-.menu-actions button:hover,
-.system-menu-back:hover {
-  background: #f2e6c7;
+.menu-actions button:hover:not(:disabled),
+.system-menu-back:hover:not(:disabled) {
+  background: #eee0bd;
   border-color: #8e7950;
 }
-.system-load-actions {
-  margin-top: 10px;
+.system-menu-workspace {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+  padding: 20px 24px 0;
+  overflow: hidden;
 }
-.system-editor-entry {
+.system-menu-footer {
+  flex-shrink: 0;
+  border-top: 1px solid var(--ui-line);
+  background: #e4d7b899;
+  padding: 16px 22px;
+}
+.setup-footer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 0.75fr);
+  gap: 12px 28px;
+  align-items: center;
+}
+.setup-footer .system-load-actions {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.setup-footer .system-menu-notice {
   grid-column: 1 / -1;
-}
-.system-menu-back {
-  width: 100%;
-  margin-top: 10px;
+  grid-row: 1;
 }
 .system-import-input {
   display: none;
 }
 .menu-hint {
-  border-top: 1px solid #b7a67b88;
-  padding-top: 17px;
-  margin: 24px 0 0;
-  color: #7c714f;
+  margin: 14px 0 0;
+  color: var(--ui-muted);
   font-size: 11px;
-  line-height: 1.9;
+  line-height: 1.8;
   text-align: center;
 }
 .menu-hint span {
+  display: block;
   font-size: 10px;
-  color: #938261;
+  opacity: 0.75;
+}
+.setup-footer .menu-hint {
+  text-align: left;
+  margin: 8px 0 0;
+}
+.setup-footer .menu-hint span {
+  display: inline;
+  margin-left: 12px;
 }
 .system-menu-notice {
-  margin: 15px 0 0;
-  padding: 9px;
+  margin: 0 0 12px;
+  padding: 8px 10px;
   background: #d3ddba;
   border-left: 2px solid #5a754d;
   font-size: 12px;
@@ -169,89 +180,64 @@
   line-height: 1.5;
 }
 .menu-art {
+  position: relative;
   background:
-    linear-gradient(#1d302c28, #11261df0),
+    linear-gradient(#1d302c20, #11261de8),
     url("/assets/cities/north.webp") center/cover;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  border-right: 1px solid var(--ui-gold);
+  padding: 24px;
   color: #f7e6bd;
   text-shadow: 0 3px 4px #000;
 }
 .menu-art > span {
-  font-size: 12px;
-  letter-spacing: 0.25em;
+  font-size: 11px;
+  letter-spacing: 0.2em;
 }
 .menu-art h1 {
   font-family: Daoli, serif;
-  font-size: 60px;
+  font-size: 56px;
   letter-spacing: 0.1em;
   white-space: nowrap;
   margin: 20px 0 0;
   font-weight: normal;
 }
 .menu-art p {
-  font-size: 15px;
-  letter-spacing: 0.1em;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.8;
+  letter-spacing: 0.07em;
 }
 .menu-art small {
   font-size: 11px;
-  margin-top: 50px;
+  margin-top: 40px;
   color: #d7c69f;
 }
-@media (min-width: 761px) and (max-width: 1000px) {
-  .game-menu-setup {
-    grid-template-columns: 270px minmax(0, 1fr);
-  }
-  .game-menu-setup .menu-content {
-    padding-inline: 20px;
-  }
-  .menu-art h1 {
-    font-size: 52px;
-  }
-  .menu-art p {
-    font-size: 13px;
-  }
-}
-@media (max-width: 760px) {
-  .game-menu-setup {
-    grid-template-columns: 1fr;
-    grid-template-rows: 100px minmax(0, 1fr);
-  }
-  .game-menu-setup .menu-art {
-    min-height: 100px;
-  }
-  .menu-art h1 {
-    font-size: 46px;
-    margin: 8px 0;
-  }
-  .menu-art > span,
-  .menu-art small,
-  .menu-art p {
-    display: none;
-  }
-  .menu-content {
-    padding: 22px;
-  }
+@media (max-height: 800px) {
   .game-menu-shade {
     padding: 16px;
   }
-}
-@media (max-height: 650px) {
+  .game-menu,
   .menu-content {
-    padding-top: 18px;
-    padding-bottom: 18px;
-  }
-  .system-menu-heading {
-    margin-bottom: 15px;
-    padding-bottom: 12px;
-  }
-  .menu-hint {
-    margin-top: 14px;
-    padding-top: 12px;
+    max-height: calc(100dvh - 32px);
   }
   .game-menu-setup {
-    min-height: 0;
+    height: calc(100dvh - 32px);
+    grid-template-columns: 260px minmax(0, 1fr);
+  }
+  .system-menu-heading {
+    padding-block: 10px;
+  }
+  .system-menu-workspace {
+    padding: 14px 18px 0;
+  }
+  .system-menu-footer {
+    padding: 10px 18px;
+  }
+  .menu-art h1 {
+    font-size: 48px;
   }
 }

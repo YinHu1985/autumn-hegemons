@@ -92,6 +92,7 @@ export function AttackOrders({
           </strong>
         </div>
         <button
+          className="quiet"
           disabled={!eligibleCityIds.length || !!world.military.activeBattleId}
           onClick={() =>
             onRequestMapLocation({
@@ -177,6 +178,7 @@ export function AttackOrders({
             </p>
           )}
           <button
+            className="primary"
             disabled={
               !selected.length ||
               !legalAttack ||
@@ -211,6 +213,7 @@ export function AttackOrders({
             </p>
           )}
           <button
+            className="primary"
             disabled={
               army.status !== "idle" ||
               !target ||

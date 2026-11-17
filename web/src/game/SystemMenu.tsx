@@ -134,7 +134,7 @@ export function SystemMenu({
             </div>
             {!initial && (
               <button
-                className="system-menu-close"
+                className="system-menu-close ui-close"
                 onClick={returnFromMenu}
                 aria-label={setup ? "返回系统菜单" : "关闭系统菜单"}
               >
@@ -142,81 +142,98 @@ export function SystemMenu({
               </button>
             )}
           </header>
-          {setup ? (
-            <>
+          <div
+            className={setup ? "system-menu-workspace" : "system-pause-body"}
+          >
+            {setup ? (
               <ScenarioSetup
                 scenarios={choices}
                 scenario={selectedScenario}
                 onScenario={(next) => setScenarioIndex(choices.indexOf(next))}
                 onStart={onStart}
               />
-              {initial ? (
-                <div className="menu-actions system-load-actions">
+            ) : (
+              <>
+                <button
+                  className="system-menu-primary primary"
+                  onClick={onClose}
+                >
+                  返回天下
+                </button>
+                <div className="system-menu-section-label">战局存档</div>
+                <div className="menu-actions">
+                  <button onClick={onSave}>保存进度</button>
                   <button disabled={!hasSave} onClick={onLoad}>
                     读取存档
                   </button>
+                  <button onClick={onExport}>导出存档</button>
                   <button onClick={() => importInput.current?.click()}>
                     导入存档
                   </button>
-                  <button className="system-editor-entry" onClick={onEditor}>
-                    内容工坊
-                  </button>
                 </div>
-              ) : (
-                <button
-                  className="system-menu-back"
-                  onClick={() => setSetup(false)}
-                >
-                  返回系统菜单
-                </button>
-              )}
-            </>
-          ) : (
-            <>
-              <button className="system-menu-primary" onClick={onClose}>
-                返回天下
-              </button>
-              <div className="system-menu-section-label">存档</div>
-              <div className="menu-actions">
-                <button onClick={onSave}>保存进度</button>
-                <button disabled={!hasSave} onClick={onLoad}>
-                  读取存档
-                </button>
-                <button onClick={onExport}>导出存档</button>
-                <button onClick={() => importInput.current?.click()}>
-                  导入存档
-                </button>
+                <div className="system-menu-section-label">新局与编修</div>
+                <div className="menu-actions">
+                  <button onClick={() => setSetup(true)}>新建战局</button>
+                  <button onClick={onEditor}>内容工坊</button>
+                </div>
+              </>
+            )}
+          </div>
+          <footer
+            className={`system-menu-footer ${setup ? "setup-footer" : ""}`}
+          >
+            {setup && (
+              <div className="setup-secondary-actions">
+                {initial ? (
+                  <div className="menu-actions system-load-actions">
+                    <button disabled={!hasSave} onClick={onLoad}>
+                      读取存档
+                    </button>
+                    <button onClick={() => importInput.current?.click()}>
+                      导入存档
+                    </button>
+                    <button className="system-editor-entry" onClick={onEditor}>
+                      内容工坊
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    className="system-menu-back quiet"
+                    onClick={() => setSetup(false)}
+                  >
+                    返回系统菜单
+                  </button>
+                )}
+                <p className="menu-hint">
+                  选择国家，开始你的春秋。
+                  <span>空格 暂停／继续 · Esc 返回</span>
+                </p>
               </div>
-              <div className="system-menu-section-label">其他</div>
-              <div className="menu-actions">
-                <button onClick={() => setSetup(true)}>新建战局</button>
-                <button onClick={onEditor}>内容工坊</button>
-              </div>
-            </>
-          )}
-          <input
-            ref={importInput}
-            className="system-import-input"
-            type="file"
-            aria-label="导入存档文件"
-            accept=".json"
-            onChange={(event) => {
-              const file = event.target.files?.[0];
-              if (file) onImport(file);
-              event.target.value = "";
-            }}
-          />
-          {notice && (
-            <p className="system-menu-notice" role="status">
-              {notice}
-            </p>
-          )}
-          <MusicSettings />
-          <p className="menu-hint">
-            {setup ? "选择国家，开始你的春秋。" : "天下已暂停 · 每月自动保存"}
-            <br />
-            <span>空格 暂停／继续　·　Esc 返回</span>
-          </p>
+            )}
+            <input
+              ref={importInput}
+              className="system-import-input"
+              type="file"
+              aria-label="导入存档文件"
+              accept=".json"
+              onChange={(event) => {
+                const file = event.target.files?.[0];
+                if (file) onImport(file);
+                event.target.value = "";
+              }}
+            />
+            {notice && (
+              <p className="system-menu-notice" role="status">
+                {notice}
+              </p>
+            )}
+            <MusicSettings />
+            {!setup && (
+              <p className="menu-hint">
+                天下已暂停 · 每月自动保存<span>空格 暂停／继续 · Esc 返回</span>
+              </p>
+            )}
+          </footer>
         </div>
       </section>
     </div>

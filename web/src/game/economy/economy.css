@@ -1,0 +1,181 @@
+.economy-feature {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  color: var(--ui-ink);
+}
+.economy-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  background: var(--ui-pine);
+  color: var(--ui-paper-raised);
+  border: 1px solid var(--ui-gold);
+  padding: 13px 0;
+}
+.economy-summary > div {
+  padding: 0 22px;
+  border-right: 1px solid #b49a6344;
+}
+.economy-summary > div:last-child {
+  border: 0;
+}
+.window-body .economy-summary small {
+  color: #d1c3a0;
+  font-size: 11px;
+}
+.economy-summary strong {
+  display: block;
+  margin: 6px 0;
+  font:
+    27px Georgia,
+    serif;
+  font-variant-numeric: tabular-nums;
+}
+.economy-summary span {
+  display: block;
+  font-size: 10px;
+  color: #b9b99d;
+}
+.economy-summary .is-short strong {
+  color: #e2b298;
+}
+.economy-workspace {
+  display: grid;
+  grid-template-columns: minmax(360px, 0.9fr) minmax(430px, 1.1fr);
+  gap: 18px;
+  align-items: start;
+}
+.economy-management {
+  display: grid;
+  gap: 16px;
+}
+.economy-budget-item {
+  padding: 12px 0 9px;
+  border-bottom: 1px solid var(--ui-line);
+}
+.economy-budget-item:last-of-type {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+.economy-budget-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.economy-budget-caption label {
+  font-weight: 600;
+  font-size: 13px;
+}
+.economy-budget-caption strong {
+  font:
+    21px Georgia,
+    serif;
+}
+.economy-budget-caption strong small {
+  margin-left: 3px;
+  font-size: 11px;
+}
+.economy-budget-item input {
+  width: 100%;
+  margin: 9px 0 6px;
+}
+.economy-budget-cost {
+  font-size: 11px;
+  color: var(--ui-muted);
+}
+.economy-operating {
+  display: block;
+  margin-top: 5px;
+  font-size: 10px;
+}
+.economy-shortfall {
+  padding: 10px 12px;
+  margin-bottom: 0;
+  background: #914e3a12;
+  border-left: 3px solid var(--ui-danger);
+  color: var(--ui-danger);
+  font-size: 12px;
+}
+.economy-reserve {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  margin: 14px 0 12px;
+}
+.economy-reserve strong {
+  font:
+    26px Georgia,
+    serif;
+}
+.economy-reserve span {
+  color: var(--ui-muted);
+  font-size: 12px;
+}
+.economy-manpower progress {
+  display: block;
+}
+.economy-manpower .ui-note {
+  margin-bottom: 0;
+}
+.economy-last-report {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  padding: 4px 3px;
+  color: var(--ui-muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+.economy-table-scroll {
+  max-height: 455px;
+  overflow-y: auto;
+  margin: 12px -16px 0;
+}
+.economy-supply .data-table {
+  font-variant-numeric: tabular-nums;
+}
+.economy-supply .data-table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--ui-paper-recessed);
+}
+.economy-supply .data-table th:not(:first-child),
+.economy-supply .data-table td:not(:first-child) {
+  text-align: right;
+}
+.economy-supply .data-table td:first-child,
+.economy-supply .data-table th:first-child {
+  padding-left: 16px;
+}
+.economy-supply .data-table td:last-child,
+.economy-supply .data-table th:last-child {
+  padding-right: 16px;
+}
+.economy-supply .data-table tbody tr:nth-child(even) {
+  background: #b49a630b;
+}
+.economy-supply .data-table .is-short {
+  color: var(--ui-danger);
+}
+.economy-sources {
+  margin-top: 14px;
+  border-top: 1px solid var(--ui-line);
+  padding-top: 12px;
+}
+.economy-sources summary {
+  cursor: pointer;
+  color: var(--ui-pine);
+  font-size: 12px;
+}
+.economy-source-scroll {
+  max-height: 260px;
+  overflow: auto;
+  margin: 12px -16px -16px;
+}
+@media (max-height: 800px) {
+  .economy-table-scroll {
+    max-height: 360px;
+  }
+}

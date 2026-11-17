@@ -1,0 +1,276 @@
+.talents-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  color: var(--ui-ink);
+}
+.talents-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 14px;
+}
+.talents-toolbar > div {
+  display: flex;
+  gap: 22px;
+  align-items: baseline;
+}
+.talents-toolbar strong {
+  font-size: 16px;
+  font-weight: 500;
+}
+.talents-toolbar span {
+  font-size: 12px;
+  color: var(--ui-muted);
+}
+.talents-filters {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--ui-line);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  flex-wrap: wrap;
+}
+.talents-filters button {
+  border-color: transparent;
+  background: transparent;
+  padding: 7px 12px;
+}
+.talents-filters button[aria-pressed="true"] {
+  background: var(--ui-pine);
+  border-color: var(--ui-pine);
+  color: #f0dfb6;
+}
+.talents-filters button small {
+  margin-left: 9px;
+  color: inherit;
+  opacity: 0.7;
+  font-variant-numeric: tabular-nums;
+}
+.talents-workspace {
+  display: grid;
+  grid-template-columns: 270px minmax(0, 1fr);
+  gap: 18px;
+  min-height: 0;
+  flex: 1;
+}
+.talent-roster {
+  overflow: auto;
+  border: 1px solid var(--ui-line);
+  background: var(--ui-paper-recessed);
+  padding: 6px;
+  min-height: 200px;
+}
+.talent-roster .talent-roster-entry {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+  background: transparent;
+  border: 1px solid transparent;
+  border-left: 3px solid transparent;
+  padding: 9px 8px;
+  box-shadow: none;
+}
+.talent-roster .talent-roster-entry:hover {
+  background: var(--ui-paper);
+  border-color: var(--ui-line);
+}
+.talent-roster .talent-roster-entry[aria-pressed="true"] {
+  background: var(--ui-paper-raised);
+  border-color: var(--ui-gold);
+  border-left-color: var(--ui-pine);
+}
+.talent-roster-entry img {
+  width: 40px;
+  height: 48px;
+  object-fit: cover;
+  border: 1px solid var(--ui-line);
+  flex-shrink: 0;
+}
+.talent-roster-entry > span {
+  flex: 1;
+  min-width: 0;
+}
+.talent-roster-entry strong {
+  display: block;
+  font-family: Daoli, serif;
+  font-size: 19px;
+  font-weight: normal;
+}
+.talent-roster-entry small {
+  display: block;
+  margin-top: 4px;
+  font-size: 10px;
+  color: var(--ui-muted);
+}
+.talent-roster-entry em {
+  font-size: 10px;
+  color: var(--ui-muted);
+  font-style: normal;
+}
+.talent-dossier {
+  min-width: 0;
+  overflow: auto;
+  padding-right: 4px;
+}
+.talent-dossier-identity {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 8px 0 18px;
+  border-bottom: 1px solid var(--ui-line);
+}
+.talent-dossier-identity > img {
+  width: 92px;
+  height: 112px;
+  object-fit: cover;
+  border: 1px solid var(--ui-gold);
+  outline: 3px double var(--ui-line);
+  outline-offset: 3px;
+  margin: 4px;
+}
+.talent-dossier-identity > div:nth-child(2) {
+  flex: 1;
+}
+.talent-dossier-identity h2 {
+  font-size: 32px;
+  margin: 11px 0 6px;
+}
+.talent-dossier-identity p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--ui-muted);
+}
+.talent-availability {
+  text-align: right;
+  max-width: 190px;
+}
+.talent-availability > span {
+  font-size: 13px;
+  color: var(--ui-pine);
+}
+.talent-availability > small {
+  display: block;
+  font-size: 11px;
+  color: var(--ui-muted);
+  margin-top: 7px;
+  line-height: 1.6;
+}
+.talent-abilities {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  margin: 24px 0;
+}
+.talent-abilities > div {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  align-items: baseline;
+}
+.talent-abilities span {
+  font-size: 12px;
+  color: var(--ui-muted);
+}
+.talent-abilities strong {
+  font:
+    26px Georgia,
+    serif;
+  color: var(--ui-pine);
+}
+.talent-abilities progress {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 5px;
+}
+.talent-appointment {
+  margin-top: 16px;
+}
+.talent-appointment > p {
+  font-size: 13px;
+}
+.talent-appointment .ui-section-heading h3,
+.talent-current-task .ui-section-heading h3 {
+  margin: 0;
+  font-size: 19px;
+}
+.talent-role-options {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 7px;
+  margin-top: 16px;
+}
+.talent-role-options .talent-role-option {
+  padding: 13px 8px;
+  border: 1px solid var(--ui-line);
+  background: var(--ui-paper-raised);
+  text-align: center;
+}
+.talent-role-option > strong {
+  font-size: 15px;
+  display: block;
+  font-weight: normal;
+}
+.talent-role-option > small {
+  display: block;
+  font-size: 10px;
+  color: var(--ui-muted);
+  margin-top: 6px;
+}
+.talent-role-options .talent-role-option[aria-pressed="true"] {
+  border-color: var(--ui-pine);
+  background: var(--ui-pine);
+  color: #f0dfb6;
+  opacity: 1;
+}
+.talent-role-option[aria-pressed="true"] > small {
+  color: #c6b78f;
+}
+.talent-appointment .ui-note {
+  margin-bottom: 0;
+  font-size: 11px;
+}
+.talent-appointment .ui-actions {
+  justify-content: flex-end;
+  gap: 14px;
+}
+.talent-current-task {
+  margin: 16px 0;
+}
+.talent-current-task p {
+  font-size: 12px;
+  color: var(--ui-muted);
+}
+.talent-current-task .ui-section-heading > span {
+  font-size: 12px;
+  color: var(--ui-muted);
+}
+.talent-rules {
+  border-top: 1px solid var(--ui-line);
+  margin-top: 20px;
+  padding-top: 12px;
+  color: var(--ui-muted);
+  font-size: 12px;
+}
+.talent-rules summary {
+  cursor: pointer;
+}
+.talent-rules p {
+  font-size: 11px;
+}
+.talent-dossier-empty {
+  align-content: center;
+}
+@media (max-width: 1350px) {
+  .talents-workspace {
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 16px;
+  }
+  .talent-abilities {
+    gap: 14px;
+  }
+}

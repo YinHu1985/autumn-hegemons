@@ -66,6 +66,41 @@ export function CampaignCard({
       ),
     );
 
+  const actions = (
+    <div className="ui-actions campaign-actions">
+      <button
+        className="primary"
+        disabled={!ready}
+        onClick={() =>
+          run(() => startManualBattle(content, world, battle.id, nationId))
+        }
+      >
+        亲自指挥
+      </button>
+      <button
+        disabled={!ready}
+        onClick={() =>
+          run(() => resolveBattleNow(content, world, battle.id, nationId))
+        }
+      >
+        自动决战
+      </button>
+      <button
+        className="danger withdraw-order"
+        title={
+          defending
+            ? "结束本次争夺，将城邑交给进攻方"
+            : "放弃当前战果，出征军团进入返程"
+        }
+        onClick={() =>
+          run(() => withdrawBattle(content, world, battle.id, nationId))
+        }
+      >
+        {defending ? "放弃城邑" : "撤军回国"}
+      </button>
+    </div>
+  );
+
   return (
     <article
       className={`campaign-card ${defending ? "defense-campaign" : "attack-campaign"} ${ready ? "campaign-ready" : ""}`}
@@ -123,37 +158,7 @@ export function CampaignCard({
             : `距决战还有 ${remaining} 日。防守方可在此期间编组迎战或放弃城邑。`}
       </p>
 
-      <div className="button-row campaign-actions">
-        <button
-          disabled={!ready}
-          onClick={() =>
-            run(() => startManualBattle(content, world, battle.id, nationId))
-          }
-        >
-          亲自指挥
-        </button>
-        <button
-          disabled={!ready}
-          onClick={() =>
-            run(() => resolveBattleNow(content, world, battle.id, nationId))
-          }
-        >
-          自动决战
-        </button>
-        <button
-          className="withdraw-order"
-          title={
-            defending
-              ? "结束本次争夺，将城邑交给进攻方"
-              : "放弃当前战果，出征军团进入返程"
-          }
-          onClick={() =>
-            run(() => withdrawBattle(content, world, battle.id, nationId))
-          }
-        >
-          {defending ? "放弃城邑" : "撤军回国"}
-        </button>
-      </div>
+      {ready && actions}
 
       <div className="campaign-forces">
         <section>
@@ -249,6 +254,7 @@ export function CampaignCard({
             ? "防守不加远征维护；战后立即回池，伤亡与既有疲劳保留。"
             : `远征维护 +${Math.round((content.warfare.expeditionUpkeepMultiplier - 1) * 100)}%；结束或撤军后 ${content.warfare.returnDays} 日回池。`}
         </p>
+        {!ready && actions}
       </div>
     </article>
   );

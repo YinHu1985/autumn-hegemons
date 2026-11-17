@@ -22,6 +22,7 @@ import {
   saveGame,
 } from "./platform/saves";
 import "./style.css";
+import "./ui/theme.css";
 import "./game/menu.css";
 const textsOf = (content: Content) =>
   Object.fromEntries(

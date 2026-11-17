@@ -379,7 +379,7 @@ export function TacticalBattle({
           {!finished && (
             <button
               type="button"
-              className="tactical-retreat"
+              className="tactical-retreat danger"
               disabled={playback.busy || playback.paused}
               onClick={() =>
                 playback.run((current) =>

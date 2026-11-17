@@ -4,11 +4,11 @@
   font-display: swap;
 }
 :root {
-  --pine: #263d33;
-  --paper: #eee5cd;
-  --gold: #b39b68;
-  --ink: #29352d;
-  --line: #beac84;
+  --pine: var(--ui-pine);
+  --paper: var(--ui-paper);
+  --gold: var(--ui-gold);
+  --ink: var(--ui-ink);
+  --line: var(--ui-line);
 }
 .shell-game {
   height: 100dvh;
@@ -16,7 +16,7 @@
   overflow: hidden;
   color: var(--ink);
   background: #273e31;
-  font-family: Georgia, "Songti SC", serif;
+  font-family: var(--ui-font-body);
 }
 main.game-main {
   max-width: none;
@@ -49,39 +49,28 @@ main.game-main {
   z-index: 12;
   top: calc(var(--strategy-header-height, 96px) + 16px);
   left: 16px;
-  width: 330px;
-  height: min(740px, calc(100dvh - var(--strategy-header-height, 96px) - 56px));
+  width: 366px;
+  height: min(860px, calc(100dvh - var(--strategy-header-height, 96px) - 32px));
   display: flex;
   flex-direction: column;
-  border: 1px solid #c4a876;
-  box-shadow:
-    0 12px 35px #13261c77,
-    0 0 0 3px #253c2f99;
-  background: #ece3ca;
+  border: 1px solid var(--ui-gold);
+  box-shadow: var(--ui-window-shadow);
+  background: var(--ui-paper);
 }
 .province-window-heading {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-shrink: 0;
-  min-height: 37px;
-  padding: 0 8px 0 14px;
-  background: linear-gradient(#344c3b, #233b2e);
-  color: #eeddad;
-  border-bottom: 1px solid #baa06a;
+  min-height: 46px;
+  padding: 6px 10px 6px 15px;
+  background: var(--ui-header);
+  color: var(--ui-cream);
+  border-bottom: 3px double var(--ui-gold);
 }
 .province-window-heading span {
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0.08em;
-}
-.province-window-heading button {
-  width: 28px;
-  height: 28px;
-  padding: 0;
-  border: 1px solid #a88f5866;
-  color: #efddb0;
-  background: #1b2e2480;
-  font-size: 20px;
 }
 .province-window .city-inspector {
   flex: 1;
@@ -90,7 +79,7 @@ main.game-main {
   box-shadow: none;
 }
 .province-window .city-scene {
-  height: 146px;
+  height: 160px;
 }
 .strategy-message {
   position: absolute;

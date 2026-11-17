@@ -171,7 +171,11 @@ export function MapView({
             alt="山川地理底图"
             draggable={false}
           />
-          <svg viewBox="0 0 1800 1500" className="map-overlay">
+        </div>
+        {/* Keep vector text out of the cached, CSS-scaled background layer.
+            SVG transforms rasterize labels at their final screen resolution. */}
+        <svg className="map-overlay">
+          <g transform={`translate(${tx} ${ty}) scale(${camera.zoom})`}>
             {geometry && (
               <TerritoryLayer
                 geometry={geometry}
@@ -220,8 +224,8 @@ export function MapView({
               onMilitary={onMilitary}
               onBattles={onBattles}
             />
-          </svg>
-        </div>
+          </g>
+        </svg>
       </div>
       <div className="alert-strip">
         {events > 0 && <button onClick={onEvents}>国事待议 · {events}</button>}

@@ -240,6 +240,7 @@ export function Game({ content, world, onWorld, onMenu, suspended }: Props) {
           <header className="province-window-heading">
             <span>城邑 · {cityStart.name}</span>
             <button
+              className="ui-close"
               aria-label="关闭省份窗口"
               onClick={() => setCityOpen(false)}
             >

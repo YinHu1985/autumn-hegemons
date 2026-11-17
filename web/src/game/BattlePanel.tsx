@@ -67,20 +67,32 @@ export function BattlePanel({
   const readyCount = ongoing.filter((entry) => entry.phase === "ready").length;
   return (
     <div className="battle-panel feature-panel">
-      <div className="feature-heading">
+      <div className="battle-overview" aria-label="当前战局">
         <div>
-          <small>军情 · 远征与迎敌</small>
-          <h2>诸军战报</h2>
+          <small>进行战役</small>
+          <strong>{ongoing.length}</strong>
         </div>
-        <span>
-          {ongoing.length} 场进行中
-          {readyCount > 0 ? ` · ${readyCount} 场待决战` : ""}
-        </span>
+        <div>
+          <small>本国防守</small>
+          <strong>
+            {ongoing.filter((entry) => entry.defenderId === nationId).length}
+          </strong>
+        </div>
+        <div>
+          <small>对外进攻</small>
+          <strong>
+            {ongoing.filter((entry) => entry.attackerId === nationId).length}
+          </strong>
+        </div>
+        <div className={readyCount ? "battle-overview-ready" : ""}>
+          <small>决战待命</small>
+          <strong>{readyCount}</strong>
+        </div>
       </div>
-      <p>
+      <p className="ui-note">
         每国依次应对进攻，后续战役最多先准备至{" "}
         {Math.round(content.warfare.queuedProgressCap * 100)}
-        %。准备完成后暂停世界进入决战，城邑归属由战果决定。
+        %。准备完成后暂停天下，在此选择指挥或托管。
       </p>
       <div className="campaign-tabs" aria-label="战役分类">
         {(
@@ -120,7 +132,7 @@ export function BattlePanel({
           />
         ))}
         {!visible.length && (
-          <div className="empty-panel">
+          <div className="ui-empty campaign-empty">
             <strong>
               {view === "defense"
                 ? "当前没有受到进攻"
@@ -134,12 +146,15 @@ export function BattlePanel({
           </div>
         )}
       </div>
-      <p className="panel-message" role="status">
-        {message}
-      </p>
-      <details>
+      {message && (
+        <p className="panel-message" role="status">
+          {message}
+        </p>
+      )}
+      <details className="campaign-history">
         <summary>战事记录</summary>
         <div className="battle-log">
+          {!world.military.log.length && <p>尚无战事记录。</p>}
           {world.military.log.map((line, i) => (
             <p key={i}>{line}</p>
           ))}
