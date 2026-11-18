@@ -239,39 +239,51 @@
   background: var(--ui-paper-raised);
   border-left: 1px solid var(--ui-line);
 }
-.ideas-dossier .research-detail {
-  position: static;
-  border: 0;
+.idea-dossier-content {
   padding: 17px;
-  background: transparent;
 }
-.ideas-dossier .research-art {
+.idea-dossier-art {
+  display: block;
+  width: 100%;
   height: 140px;
+  object-fit: cover;
   margin-bottom: 15px;
   border: 1px solid var(--ui-line);
 }
-.ideas-dossier .research-detail > h3 {
+.idea-dossier-content > h3 {
   margin: 7px 0 10px;
   font-size: 25px;
 }
-.ideas-dossier .research-detail > button.primary {
-  width: 100%;
+.idea-dossier-content > p {
+  color: var(--ui-muted);
+  line-height: 1.8;
 }
-.ideas-dossier .research-facts {
-  margin-bottom: 12px;
+.idea-dossier-effects {
+  margin: 18px 0;
 }
-.ideas-dossier .research-facts dd {
+.idea-dossier-effects h4 {
   font-size: 12px;
+  margin: 0 0 8px;
+  color: var(--ui-pine);
 }
-.ideas-dossier .research-select select {
-  width: 100%;
-  padding: 7px;
+.idea-dossier-effects ul {
+  margin: 0;
+  padding-left: 18px;
+  line-height: 1.8;
 }
-.ideas-dossier.is-known .research-detail > button.primary {
-  display: none;
+.idea-unlock-requirement {
+  padding: 11px;
+  border: 1px solid var(--ui-line);
+  background: var(--ui-paper-recessed);
 }
-.ideas-dossier .research-feedback:empty {
-  display: none;
+.idea-unlock-requirement > p {
+  font-size: 11px;
+  line-height: 1.7;
+  margin: 7px 0 0;
+  color: var(--ui-muted);
+}
+.idea-unlock-requirement strong {
+  color: var(--ui-ink);
 }
 .ideas-enact-action {
   padding: 0 17px 17px;

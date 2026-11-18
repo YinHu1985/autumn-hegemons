@@ -1,9 +1,12 @@
+import { applyCompletionEffects } from "./completion-effects";
 import { initializeMilitary } from "./military";
 import { createResearch, type ResearchState } from "./research";
 import { createMilitary, type MilitaryState } from "./military-state";
 import { createCivic, manpowerCapacity, type CivicState } from "./civic";
 import type { Content, DateValue } from "../definitions/types";
 import { createDiplomacy, type DiplomacyState } from "./diplomacy";
+import { createModifiers, type ModifierState } from "./modifier-state";
+import { tickEventsDay } from "./events";
 
 export interface BuildingState {
   level: number;
@@ -50,6 +53,7 @@ export interface WorldState {
   military: MilitaryState;
   civic: CivicState;
   diplomacy: DiplomacyState;
+  modifiers: ModifierState;
   nations: Record<string, NationState>;
   settlements: Record<string, SettlementState>;
 }
@@ -62,6 +66,7 @@ export function createWorld(content: Content): WorldState {
     military: createMilitary(content),
     civic: createCivic(content),
     diplomacy: createDiplomacy(content),
+    modifiers: createModifiers(),
     nations: Object.fromEntries(
       content.scenario.nations.map((nation) => [
         nation.id,
@@ -98,6 +103,17 @@ export function createWorld(content: Content): WorldState {
       ]),
     ),
   };
+  // Initial knowledge executes authored actions only when creating a new world.
+  for (const nation of Object.values(world.nations))
+    for (const technology of content.technologies)
+      if (world.research.nations[nation.id].unlocked.includes(technology.id))
+        applyCompletionEffects(
+          content,
+          world,
+          nation.id,
+          technology.completionEffects ?? [],
+          { kind: "technology", id: technology.id, name: technology.name },
+        );
   // Initial troops are recruited after the authored reserve is capped, exactly once.
   for (const nation of Object.values(world.nations))
     nation.manpower = Math.min(
@@ -105,6 +121,7 @@ export function createWorld(content: Content): WorldState {
       manpowerCapacity(content, world, nation.id),
     );
   initializeMilitary(world);
+  tickEventsDay(content, world);
   return world;
 }
 

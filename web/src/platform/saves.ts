@@ -2,7 +2,7 @@ import type { Content } from "../definitions/types";
 import { validateContent } from "../definitions/validate";
 import type { WorldState } from "../simulation/state";
 import { validateSavedWorld } from "./validate-save";
-export const SAVE_VERSION = 7;
+export const SAVE_VERSION = 10;
 export interface SaveGame {
   version: typeof SAVE_VERSION;
   savedAt: string;

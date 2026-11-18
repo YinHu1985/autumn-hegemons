@@ -17,6 +17,7 @@ function routeLabel(
   first: TechnologyDefinition,
 ) {
   return (
+    first.routeName ??
     content.buildings.find((building) => building.route === route)?.name ??
     content.goods.find((good) => good.id === route)?.name ??
     content.units.find((unit) => unit.id === route)?.name ??

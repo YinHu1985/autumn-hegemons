@@ -8,6 +8,8 @@ import { CityPanel } from "./CityPanel";
 import { GovernmentWindow } from "./GovernmentWindow";
 import { StrategyTopbar } from "./hud/StrategyTopbar";
 import { Outliner } from "./hud/Outliner";
+import { EventPopup } from "./events/EventPopup";
+import { useEventNotifications } from "./events/useEventNotifications";
 import type { GamePage } from "./hud/navigation";
 import { MapLocationPrompt } from "./map/MapLocationPrompt";
 import {
@@ -56,6 +58,17 @@ export function Game({ content, world, onWorld, onMenu, suspended }: Props) {
   const cities = Object.values(world.settlements);
   const gameOver = !cities.some((settlement) => settlement.owner === nationId);
   const victory = cities.every((settlement) => settlement.owner === nationId);
+  const notifications = useEventNotifications(
+    content,
+    world,
+    !!activeBattle ||
+      !!pendingBattle ||
+      suspended ||
+      selectingLocation ||
+      gameOver,
+    onWorld,
+  );
+  const reportOpen = notifications.visible;
 
   const openPage = (next: GamePage, toggle = false) => {
     if (activeBattle && next !== "battles") return;
@@ -108,13 +121,18 @@ export function Game({ content, world, onWorld, onMenu, suspended }: Props) {
     }
   }, [pendingBattle]);
   useEffect(() => {
+    if (reportOpen) setPlaying(false);
+    // Resolving or closing a report never resumes time on the player's behalf.
+  }, [reportOpen]);
+  useEffect(() => {
     if (
       !playing ||
       activeBattle ||
       pendingBattle ||
       gameOver ||
       suspended ||
-      selectingLocation
+      selectingLocation ||
+      reportOpen
     )
       return;
     const timer = window.setInterval(() => {
@@ -137,6 +155,7 @@ export function Game({ content, world, onWorld, onMenu, suspended }: Props) {
     gameOver,
     suspended,
     selectingLocation,
+    reportOpen,
   ]);
   useEffect(() => {
     const key = (event: KeyboardEvent) => {
@@ -144,12 +163,23 @@ export function Game({ content, world, onWorld, onMenu, suspended }: Props) {
         suspended ||
         event.defaultPrevented ||
         event.repeat ||
+        document.querySelector(":popover-open")
+      )
+        return;
+      if (event.key === "Escape" && reportOpen) {
+        event.preventDefault();
+        notifications.close();
+        return;
+      }
+      if (
         (event.target as HTMLElement).closest(
           "input,textarea,select,[contenteditable=true]",
         )
       )
         return;
       if (event.code === "Space") {
+        // Let a focused report button receive its native Space activation.
+        if (reportOpen) return;
         event.preventDefault();
         if (!activeBattle && !pendingBattle && !gameOver && !selectingLocation)
           setPlaying((value) => !value);
@@ -177,6 +207,8 @@ export function Game({ content, world, onWorld, onMenu, suspended }: Props) {
     onMenu,
     selectingLocation,
     locationSelection.cancel,
+    reportOpen,
+    notifications.close,
   ]);
 
   return (
@@ -191,25 +223,27 @@ export function Game({ content, world, onWorld, onMenu, suspended }: Props) {
         focusCityRequest={focusCityRequest}
         onSelect={openCity}
         onMilitary={() => openPage("military")}
-        onEvents={() => openPage("events")}
+        onEvents={() => notifications.open()}
         onBattles={() => openPage("battles")}
       />
       <StrategyTopbar
         content={content}
         world={world}
         page={page}
-        playing={playing && !suspended}
+        playing={playing && !suspended && !reportOpen}
         speed={speed}
         locked={!!activeBattle || gameOver}
-        timeBlocked={hasPendingBattle(world) || selectingLocation}
+        timeBlocked={hasPendingBattle(world) || selectingLocation || reportOpen}
         timeBlockedReason={
-          selectingLocation
-            ? "地图点选期间世界暂停，完成或取消选择后可继续"
-            : undefined
+          reportOpen
+            ? "阅览奏报期间世界暂停，处置或稍后处理后可继续"
+            : selectingLocation
+              ? "地图点选期间世界暂停，完成或取消选择后可继续"
+              : undefined
         }
         onPage={(next) => openPage(next, true)}
         onToggleTime={() => {
-          if (!selectingLocation) setPlaying((value) => !value);
+          if (!selectingLocation && !reportOpen) setPlaying((value) => !value);
         }}
         onSpeed={setSpeed}
         onMenu={openMenu}
@@ -264,6 +298,7 @@ export function Game({ content, world, onWorld, onMenu, suspended }: Props) {
           suspended={suspended}
           hidden={selectingLocation}
           page={page}
+          onOpenEvent={notifications.open}
           content={content}
           world={world}
           onWorld={onWorld}
@@ -271,6 +306,19 @@ export function Game({ content, world, onWorld, onMenu, suspended }: Props) {
           onNavigate={openPage}
           locked={!!activeBattle}
           onRequestMapLocation={requestMapLocation}
+        />
+      )}
+      {notifications.event && (
+        <EventPopup
+          content={content}
+          world={world}
+          event={notifications.event}
+          visible={reportOpen}
+          count={notifications.count}
+          index={notifications.index}
+          onClose={notifications.close}
+          onStep={notifications.step}
+          onResolved={notifications.resolve}
         />
       )}
       {locationSelection.request && (

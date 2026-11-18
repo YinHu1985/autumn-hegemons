@@ -1,4 +1,5 @@
 import type { Content } from "../definitions/types";
+import { emitEventFact } from "./events/state";
 import { copyWorld, type WorldState } from "./state";
 import { recordChronicle } from "./civic";
 import { changeRelation, type DiplomaticMission } from "./diplomacy";
@@ -147,6 +148,13 @@ export function tickDiplomacyDay(content: Content, world: WorldState): void {
       mission.targetNationId,
       `${nationName(mission.nationId)}国使者${action.name}，两国关系变为 ${value > 0 ? "+" : ""}${value}。`,
     );
+    emitEventFact(world, {
+      type: "diplomacy_completed",
+      nationId: mission.nationId,
+      relatedNationId: mission.targetNationId,
+      talentId: envoy.id,
+      subjectId: action.id,
+    });
   }
 }
 

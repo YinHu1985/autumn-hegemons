@@ -2,6 +2,7 @@ import type { Content } from "../definitions/types";
 import type { WorldState } from "./state";
 import { copyWorld } from "./state";
 import { advanceBattleDay } from "./time";
+import { flushEventFacts } from "./events";
 import {
   tickBattles,
   autoResolveBattle,
@@ -117,6 +118,7 @@ export function withdrawBattle(
   if (world.military.activeBattleId) throw new Error("请先完成当前决战");
   const next = copyWorld(world);
   retreatBattle(content, next, battleId, nationId);
+  flushEventFacts(content, next);
   return next;
 }
 export function startManualBattle(

@@ -7,6 +7,7 @@ import { militaryUpkeep } from "../simulation/military";
 import { researchUpkeep } from "../simulation/research";
 import { EconomyBudget } from "./economy/EconomyBudget";
 import { EconomySupply } from "./economy/EconomySupply";
+import { EconomyModifiers } from "./economy/EconomyModifiers";
 import "./economy/economy.css";
 
 interface Props {
@@ -67,6 +68,11 @@ export function EconomyPanel({ content, world, nationId, onWorld }: Props) {
             onBudget={(category, value) =>
               onWorld(setBudget(world, nationId, category, value))
             }
+          />
+          <EconomyModifiers
+            content={content}
+            world={world}
+            nationId={nationId}
           />
           <section
             className="ui-section economy-manpower"

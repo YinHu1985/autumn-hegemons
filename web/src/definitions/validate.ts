@@ -1,9 +1,16 @@
+import { validateModifierDefinitions } from "./modifier-definitions";
+import { validateEffectReferences } from "./effect-references";
+import { validateEventReferences } from "./event-references";
 import { validateDiplomacyRules } from "./diplomacy";
 import { validateModifiers } from "./modifiers";
 import { validateGeography } from "./geography";
 import { validateResearch } from "./research";
 import { validateUnits } from "./military";
-import { validateEvents } from "./events";
+import {
+  validateEvents,
+  validateEventPools,
+  DEFAULT_EVENT_POOLS,
+} from "./events";
 import { validateWarfare } from "./warfare";
 import { validateTactics } from "./tactics";
 import { scenarioMetadata } from "./scenarios";
@@ -298,7 +305,10 @@ export function validateContent(raw: unknown): Content {
   for (const unit of units)
     if (unit.requires && !unlockIds.has(unit.requires))
       throw new Error(`兵种 ${unit.id} 解锁引用不存在 ${unit.requires}`);
-  return {
+  const content: Content = {
+    modifierDefinitions: validateModifierDefinitions(
+      root.modifierDefinitions ?? [],
+    ),
     ...research,
     ...geography,
     warfare: validateWarfare(root.warfare),
@@ -306,6 +316,7 @@ export function validateContent(raw: unknown): Content {
     tactics: validateTactics(root.tactics, unlockIds),
     units,
     events: validateEvents(root.events ?? []),
+    eventPools: validateEventPools(root.eventPools ?? DEFAULT_EVENT_POOLS),
     goods,
     buildings,
     scenario: {
@@ -319,4 +330,7 @@ export function validateContent(raw: unknown): Content {
       ),
     } as Scenario,
   };
+  validateEffectReferences(content);
+  validateEventReferences(content);
+  return content;
 }

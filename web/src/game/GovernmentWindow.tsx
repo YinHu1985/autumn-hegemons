@@ -15,6 +15,7 @@ import "./government-window.css";
 
 interface Props {
   page: GamePage;
+  onOpenEvent: (id: string) => void;
   content: Content;
   world: WorldState;
   onWorld: (world: WorldState) => void;
@@ -27,6 +28,7 @@ interface Props {
 }
 export function GovernmentWindow({
   page,
+  onOpenEvent,
   content,
   world,
   onWorld,
@@ -101,7 +103,7 @@ export function GovernmentWindow({
             onTalents={onNavigate ? () => onNavigate("talents") : undefined}
           />
         ) : (
-          <EventsPanel {...props} />
+          <EventsPanel {...props} onOpenEvent={onOpenEvent} />
         )}
       </div>
     </section>

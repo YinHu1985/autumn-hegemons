@@ -16,6 +16,9 @@ import {
 import { tickCivicDay, tickCivicMonth } from "./civic";
 import { tickAI } from "./ai";
 import { tickDiplomacyDay, tickDiplomacyYear } from "./diplomacy";
+import { pruneExpiredModifiers } from "./modifier-instances";
+import { emitEventFact } from "./events/state";
+import { flushEventFacts, tickEventsDay, tickEventsMonth } from "./events";
 
 const categories = ["buildings", "army", "research"] as const;
 export function settleMonth(content: Content, world: WorldState): void {
@@ -82,6 +85,7 @@ function oneDay(
   world: WorldState,
   settlingBattle = false,
 ): void {
+  const closingMonth = world.date.day === 30;
   for (const city of Object.values(world.settlements)) {
     if (!city.construction) continue;
     city.construction.remainingDays -= 1;
@@ -94,6 +98,12 @@ function oneDay(
           effectiveLevel: city.buildings[buildingId]?.effectiveLevel ?? 0,
         };
       city.construction = null;
+      emitEventFact(world, {
+        type: "construction_completed",
+        nationId: city.owner,
+        settlementId: city.id,
+        subjectId: buildingId,
+      });
     }
   }
   tickCivicDay(content, world);
@@ -110,6 +120,12 @@ function oneDay(
       tickDiplomacyYear(content, world);
     }
   } else world.date.day++;
+  // Queries already exclude effects at the expiry boundary; storage follows the clock.
+  pruneExpiredModifiers(world);
+  // All domains commit first. New reports use the resulting date and retain their full decision window.
+  flushEventFacts(content, world);
+  if (closingMonth) tickEventsMonth(content, world);
+  tickEventsDay(content, world);
   tickAI(content, world);
 }
 export function advanceDays(
@@ -121,9 +137,21 @@ export function advanceDays(
     throw new Error("推进天数需在1到360之间");
   if (hasManualBattle(world) || hasPendingBattle(world)) return world;
   const next = copyWorld(world);
+  const existingEvents = new Set(world.civic.events.map((event) => event.id));
   for (let i = 0; i < days; i++) {
     oneDay(content, next);
     if (hasManualBattle(next) || hasPendingBattle(next)) break;
+    if (
+      next.civic.events.some(
+        (event) =>
+          event.nationId === next.playerNationId &&
+          !existingEvents.has(event.id) &&
+          content.events.find(
+            (definition) => definition.id === event.definitionId,
+          )?.presentation?.important,
+      )
+    )
+      break;
   }
   return next;
 }

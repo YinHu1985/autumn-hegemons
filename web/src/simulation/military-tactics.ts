@@ -1,7 +1,7 @@
 import type { Content } from "../definitions/types";
 import type { WorldState } from "./state";
 import type { Battle, TacticalUnit } from "./military-state";
-import { researchModifier } from "./research";
+import { resolveStat } from "./modifier-query";
 import {
   battleArmies,
   finishBattle,
@@ -66,16 +66,14 @@ export function beginTactical(
           armyEfficiency(content, world, army) *
           (general ? 1 + general.command / 180 : 0.8) *
           (side === "attacker"
-            ? Math.max(
-                0.1,
-                1 +
-                  researchModifier(
-                    content,
-                    world,
-                    army.nationId,
-                    "army.offense",
-                  ),
-              )
+            ? resolveStat(
+                content,
+                world,
+                { nationId: army.nationId },
+                "army.offense",
+                1,
+                { min: 0.1 },
+              ).value
             : 1);
         units.push({
           ...unit,
@@ -83,16 +81,14 @@ export function beginTactical(
           defenseMultiplier:
             side === "defender"
               ? defenseAdvantage(content, world, battle)
-              : Math.max(
-                  0.1,
-                  1 +
-                    researchModifier(
-                      content,
-                      world,
-                      army.nationId,
-                      "army.defense",
-                    ),
-                ),
+              : resolveStat(
+                  content,
+                  world,
+                  { nationId: army.nationId },
+                  "army.defense",
+                  1,
+                  { min: 0.1 },
+                ).value,
           armyId: army.id,
           side,
           x: 0,

@@ -62,28 +62,16 @@ export function tickEconomyAI(
 import { tickResearchAI } from "./research-ai";
 import { hasPendingBattle } from "./military-queue";
 import { tickMilitaryAI } from "./military-ai";
-import { chooseEvent } from "./civic";
+import { resolveAIEvents } from "./events";
 
 /** AI uses the same commands and prices as the player. Decisions are deliberately sparse. */
 export function tickAI(content: Content, world: WorldState): void {
+  resolveAIEvents(content, world);
   if (world.military.activeBattleId || hasPendingBattle(world)) return;
   const playerNationId = world.playerNationId;
   if (world.date.day === 1) {
     tickEconomyAI(content, world, playerNationId);
     tickResearchAI(content, world, playerNationId);
-    for (const nationId of Object.keys(world.nations)) {
-      if (
-        nationId === playerNationId ||
-        !Object.values(world.settlements).some(
-          (city) => city.owner === nationId,
-        )
-      )
-        continue;
-      for (const event of [...world.civic.events].filter(
-        (event) => event.nationId === nationId,
-      ))
-        Object.assign(world, chooseEvent(content, world, event.id, 0));
-    }
   }
   tickMilitaryAI(content, world);
 }

@@ -23,6 +23,7 @@ export interface ResearchGroup {
 }
 export interface NationResearch {
   unlocked: string[];
+  unlockedIdeas: string[];
   progress: Record<string, number>;
   bonuses: Record<string, number>;
   enacted: string[];

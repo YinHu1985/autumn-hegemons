@@ -4,7 +4,7 @@ import type { TechnologyDefinition } from "../../definitions/research";
 import type { WorldState } from "../../simulation/state";
 import { researchProgress, startResearch } from "../../simulation/research";
 
-/** Both the compact technology dock and the ideas detail use the same assignment rules. */
+/** Shared by the researcher rail and the technology assignment dock. */
 export function availableResearchLeaders(world: WorldState, nationId: string) {
   const groups = world.research.nations[nationId].groups;
   return Object.values(world.research.talents).filter(

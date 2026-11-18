@@ -580,6 +580,22 @@ function worldRemoveUnlock(f, id) {
   ].unlocked.filter((entry) => entry !== id);
 }
 
+test("理念限制的计策必须实行理念，单纯解锁理念不足以启用", () => {
+  const f = fixture();
+  const idea = f.content.ideas[0];
+  const fire = strategy(f, "fire");
+  fire.requires = idea.id;
+  fire.successChance = 1;
+  f.world.research.nations[f.player].unlockedIdeas.push(idea.id);
+  Object.assign(enemyOf(f), { x: 1, y: 1 });
+  const before = structuredClone(f.world);
+  assert.throws(() => order(f, 1, 1, fire.id));
+  assert.deepEqual(f.world, before);
+  f.world.research.nations[f.player].enacted.push(idea.id);
+  order(f, 1, 1, fire.id);
+  assert.equal(unitOf(f).strategyUsed, true);
+});
+
 for (const successChance of [0, 1]) {
   test(`火攻${successChance ? "成功" : "失败"}都恰好消耗一次AP及本次行动计策机会`, () => {
     const f = fixture();

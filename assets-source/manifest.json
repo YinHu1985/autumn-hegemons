@@ -1,0 +1,492 @@
+{
+  "version": 1,
+  "images": [
+    {
+      "source": "ideas/dingzhu_xingshu.png",
+      "origin": {
+        "project": "autumn-ascendant",
+        "path": "raw_assets/ideas/dingzhu_xingshu.png"
+      },
+      "sha256": "a9a91000cb4da4d8ebf45a46d525b83334d16ae75e717b99621ab48bb625e129",
+      "width": 1024,
+      "height": 1024,
+      "output": "assets/ideas/dingzhu_xingshu.webp",
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "method": 6,
+        "multithread": true
+      }
+    },
+    {
+      "source": "ideas/fenjun_lixian.png",
+      "origin": {
+        "project": "autumn-ascendant",
+        "path": "raw_assets/ideas/fenjun_lixian.png"
+      },
+      "sha256": "9fa818c32352268428ba863b38bbe75c54e7cef1fb59b335d2312369aef9e4d2",
+      "width": 1024,
+      "height": 1024,
+      "output": "assets/ideas/fenjun_lixian.webp",
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "method": 6,
+        "multithread": true
+      }
+    },
+    {
+      "source": "ideas/gengzhan_zhidu.png",
+      "origin": {
+        "project": "autumn-ascendant",
+        "path": "raw_assets/ideas/gengzhan_zhidu.png"
+      },
+      "sha256": "33d6c2ae63705e76a73849838f2c39ffcc4a784b52a5a7223aac45cd6a05c256",
+      "width": 1024,
+      "height": 1024,
+      "output": "assets/ideas/gengzhan_zhidu.webp",
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "method": 6,
+        "multithread": true
+      }
+    },
+    {
+      "source": "ideas/gongcheng_zhiji.png",
+      "origin": {
+        "project": "autumn-ascendant",
+        "path": "raw_assets/ideas/gongcheng_zhiji.png"
+      },
+      "sha256": "b37e7974e09881b0f10e2a2b4105c5339b9b84e4a31a8ecc7101a5feb0f6d17d",
+      "width": 1024,
+      "height": 1024,
+      "output": "assets/ideas/gongcheng_zhiji.webp",
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "method": 6,
+        "multithread": true
+      }
+    },
+    {
+      "source": "ideas/guisheng_zhongji.png",
+      "origin": {
+        "project": "autumn-ascendant",
+        "path": "raw_assets/ideas/guisheng_zhongji.png"
+      },
+      "sha256": "006ff45c838968d33880d7836a5406df83aaeedd93272843715d3e4d3be332df",
+      "width": 1024,
+      "height": 1024,
+      "output": "assets/ideas/guisheng_zhongji.webp",
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "method": 6,
+        "multithread": true
+      }
+    },
+    {
+      "source": "ideas/jianai_jiaoli.png",
+      "origin": {
+        "project": "autumn-ascendant",
+        "path": "raw_assets/ideas/jianai_jiaoli.png"
+      },
+      "sha256": "5492e575c0de0d05eb01e6fb8c70306a0be79d2fb0de0d488e5ebef3cc6abb45",
+      "width": 1024,
+      "height": 1024,
+      "output": "assets/ideas/jianai_jiaoli.webp",
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "method": 6,
+        "multithread": true
+      }
+    },
+    {
+      "source": "ideas/junmin_tonggeng.png",
+      "origin": {
+        "project": "autumn-ascendant",
+        "path": "raw_assets/ideas/junmin_tonggeng.png"
+      },
+      "sha256": "3943fb96b52b61353b3913cac0e077c82daa055a3d1a4c1ee6d859e5db94fc0c",
+      "width": 1024,
+      "height": 1024,
+      "output": "assets/ideas/junmin_tonggeng.webp",
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "method": 6,
+        "multithread": true
+      }
+    },
+    {
+      "source": "ideas/mojia_houxue.png",
+      "origin": {
+        "project": "autumn-ascendant",
+        "path": "raw_assets/ideas/mojia_houxue.png"
+      },
+      "sha256": "b54acdbcdb7f9467f571aca961dd7ed54fd10f0f5040ece721f8c7a9d374e2f0",
+      "width": 1024,
+      "height": 1024,
+      "output": "assets/ideas/mojia_houxue.webp",
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "method": 6,
+        "multithread": true
+      }
+    },
+    {
+      "source": "ideas/neisheng_waiwang.png",
+      "origin": {
+        "project": "autumn-ascendant",
+        "path": "raw_assets/ideas/neisheng_waiwang.png"
+      },
+      "sha256": "ddc4f10fccd1a8285bc80d6492dab7ac5d9cfe2bb7f38f83e4fc3ba7797897c2",
+      "width": 1024,
+      "height": 1024,
+      "output": "assets/ideas/neisheng_waiwang.webp",
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "method": 6,
+        "multithread": true
+      }
+    },
+    {
+      "source": "ideas/shangbing_famou.png",
+      "origin": {
+        "project": "autumn-ascendant",
+        "path": "raw_assets/ideas/shangbing_famou.png"
+      },
+      "sha256": "15d473e8a7dc19220d778a50692c2d21a7a92298ffd0e035b81d29343060c321",
+      "width": 1024,
+      "height": 1024,
+      "output": "assets/ideas/shangbing_famou.webp",
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "method": 6,
+        "multithread": true
+      }
+    },
+    {
+      "source": "ideas/shouyu_zhiqi.png",
+      "origin": {
+        "project": "autumn-ascendant",
+        "path": "raw_assets/ideas/shouyu_zhiqi.png"
+      },
+      "sha256": "12167955561bb99378214ac7b4df65f4a747044b7d84f64f5f0b0bec3d9c32c4",
+      "width": 1024,
+      "height": 1024,
+      "output": "assets/ideas/shouyu_zhiqi.webp",
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "method": 6,
+        "multithread": true
+      }
+    },
+    {
+      "source": "ideas/sitian_keshui.png",
+      "origin": {
+        "project": "autumn-ascendant",
+        "path": "raw_assets/ideas/sitian_keshui.png"
+      },
+      "sha256": "b5592b83f7420115333eb31c8ba09c33ce7dd22b9b2b1b420618d322aead30b7",
+      "width": 1024,
+      "height": 1024,
+      "output": "assets/ideas/sitian_keshui.webp",
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "method": 6,
+        "multithread": true
+      }
+    },
+    {
+      "source": "ideas/tianren_heyi.png",
+      "origin": {
+        "project": "autumn-ascendant",
+        "path": "raw_assets/ideas/tianren_heyi.png"
+      },
+      "sha256": "910e214793573a80c55fb516dca6a2666a509d53c7e8a5225e05743f9652aad0",
+      "width": 1024,
+      "height": 1024,
+      "output": "assets/ideas/tianren_heyi.webp",
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "method": 6,
+        "multithread": true
+      }
+    },
+    {
+      "source": "ideas/wuwei_erzhi.png",
+      "origin": {
+        "project": "autumn-ascendant",
+        "path": "raw_assets/ideas/wuwei_erzhi.png"
+      },
+      "sha256": "ba42f90f5c38ad70777646e3cde02e0e445ff85f7aed98b9fb1600c742d3c680",
+      "width": 1024,
+      "height": 1024,
+      "output": "assets/ideas/wuwei_erzhi.webp",
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "method": 6,
+        "multithread": true
+      }
+    },
+    {
+      "source": "ideas/youjiao_wulei.png",
+      "origin": {
+        "project": "autumn-ascendant",
+        "path": "raw_assets/ideas/youjiao_wulei.png"
+      },
+      "sha256": "5f71cda7dc0ad26a3132a026e263084e6bae0b1d31f3f832c444062436a68efe",
+      "width": 1024,
+      "height": 1024,
+      "output": "assets/ideas/youjiao_wulei.webp",
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "method": 6,
+        "multithread": true
+      }
+    },
+    {
+      "source": "ideas/zhiye_jundui.png",
+      "origin": {
+        "project": "autumn-ascendant",
+        "path": "raw_assets/ideas/zhiye_jundui.png"
+      },
+      "sha256": "e7c3a7ca26fba319063ff197fb30cd9ca84fb7fa2b0c8d922063bd6b4bfa905b",
+      "width": 1024,
+      "height": 1024,
+      "output": "assets/ideas/zhiye_jundui.webp",
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "method": 6,
+        "multithread": true
+      }
+    },
+    {
+      "source": "ideas/zhongyong_zhidao.png",
+      "origin": {
+        "project": "autumn-ascendant",
+        "path": "raw_assets/ideas/zhongyong_zhidao.png"
+      },
+      "sha256": "bed1322cf9170adc2a0c30036d9a1bc975297d092ac8b5afad955405d7ed2fbd",
+      "width": 1024,
+      "height": 1024,
+      "output": "assets/ideas/zhongyong_zhidao.webp",
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "method": 6,
+        "multithread": true
+      }
+    },
+    {
+      "source": "ideas/zhongzhi_suozai.png",
+      "origin": {
+        "project": "autumn-ascendant",
+        "path": "raw_assets/ideas/zhongzhi_suozai.png"
+      },
+      "sha256": "7e039c656b1d4f2e5a26cb271de9ce9fc595b7319a713913eb86ad5761c781ed",
+      "width": 1024,
+      "height": 1024,
+      "output": "assets/ideas/zhongzhi_suozai.webp",
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "method": 6,
+        "multithread": true
+      }
+    },
+    {
+      "source": "portraits/gongsunlong.png",
+      "origin": {
+        "project": "autumn-ascendant",
+        "path": "raw_assets/portraits/gongsunlong.png"
+      },
+      "sha256": "64344ea7e840b6d052a276401311e879aa96aae5ffb9e3691a6591571026485d",
+      "width": 1408,
+      "height": 768,
+      "output": "assets/portraits/gongsunlong.webp",
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "method": 6,
+        "multithread": true
+      }
+    },
+    {
+      "source": "portraits/lvbuwei.png",
+      "origin": {
+        "project": "autumn-ascendant",
+        "path": "raw_assets/portraits/lvbuwei.png"
+      },
+      "sha256": "02458e1b05612e4090d041a7bc8d21e5a2ab5de8fcfa2c17e48c8641a0aee9bb",
+      "width": 1408,
+      "height": 768,
+      "output": "assets/portraits/lvbuwei.webp",
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "method": 6,
+        "multithread": true
+      }
+    },
+    {
+      "source": "portraits/wuzixu.png",
+      "origin": {
+        "project": "autumn-ascendant",
+        "path": "raw_assets/portraits/wuzixu.png"
+      },
+      "sha256": "a29891c9c2125dc2320a5409f6a7dce20524bf78d234f22fbb431d6ba4865142",
+      "width": 1408,
+      "height": 768,
+      "output": "assets/portraits/wuzixu.webp",
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "method": 6,
+        "multithread": true
+      }
+    },
+    {
+      "source": "portraits/xunzi.png",
+      "origin": {
+        "project": "autumn-ascendant",
+        "path": "raw_assets/portraits/xunzi.png"
+      },
+      "sha256": "5b8a21e6c734e95338396d6a22271870715ee415b88dfe4a6574126d87070a7c",
+      "width": 1408,
+      "height": 768,
+      "output": "assets/portraits/xunzi.webp",
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "method": 6,
+        "multithread": true
+      }
+    },
+    {
+      "source": "technology/bloomery.jpg",
+      "origin": {
+        "project": "chongzhen-industry",
+        "path": "assets/technology/bloomery.jpg"
+      },
+      "sha256": "c317a2736294e988a55d08634ff278edddc096f9452c95f6d4a54cc5db08121d",
+      "width": 640,
+      "height": 426,
+      "output": "assets/technology/bloomery.jpg",
+      "encoding": {
+        "format": "copy"
+      }
+    },
+    {
+      "source": "technology/bronze_foundry.jpg",
+      "origin": {
+        "project": "chongzhen-industry",
+        "path": "assets/technology/bronze_foundry.jpg"
+      },
+      "sha256": "18d042c2a60e126ea0483c387dec324dc153c4ab70ff309bd68c9caea0c9f352",
+      "width": 640,
+      "height": 426,
+      "output": "assets/technology/bronze_foundry.jpg",
+      "encoding": {
+        "format": "copy"
+      }
+    },
+    {
+      "source": "cities/central.png",
+      "origin": {
+        "project": "sanguo",
+        "path": "src/assets/cities/central.png"
+      },
+      "sha256": "11c7347dd84fe8ec774ad2df00e3925a4d950e0a35f7c461d72733a163594e8e",
+      "width": 1536,
+      "height": 1024,
+      "output": "assets/central-city.webp",
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "method": 6,
+        "multithread": true
+      }
+    },
+    {
+      "source": "cities/jiangnan.png",
+      "origin": {
+        "project": "sanguo",
+        "path": "src/assets/cities/jiangnan.png"
+      },
+      "sha256": "eedb5e3e5e7e5a44ffaadbdbe11a113d066e903dc957595979e6f2a6d82ca9db",
+      "width": 1536,
+      "height": 1024,
+      "output": "assets/cities/jiangnan.webp",
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "method": 6,
+        "multithread": true
+      }
+    },
+    {
+      "source": "cities/north.png",
+      "origin": {
+        "project": "sanguo",
+        "path": "src/assets/cities/north.png"
+      },
+      "sha256": "05f364eff18f6228441eb97c73530aacd0b64a95779144c812c9c97a01eb238f",
+      "width": 1536,
+      "height": 1024,
+      "output": "assets/cities/north.webp",
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "method": 6,
+        "multithread": true
+      }
+    },
+    {
+      "source": "cities/northwest.png",
+      "origin": {
+        "project": "sanguo",
+        "path": "src/assets/cities/northwest.png"
+      },
+      "sha256": "fa98b7a35487948ad2adb17c57d04b17ec979da4fa26ba5b0fe96ce8226e3b10",
+      "width": 1536,
+      "height": 1024,
+      "output": "assets/cities/northwest.webp",
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "method": 6,
+        "multithread": true
+      }
+    },
+    {
+      "source": "cities/southwest.png",
+      "origin": {
+        "project": "sanguo",
+        "path": "src/assets/cities/southwest.png"
+      },
+      "sha256": "7a0db8ab8266bf3f82d549a2f96a88b4f8ba761ec9e82382f155ab4510c5a36a",
+      "width": 1536,
+      "height": 1024,
+      "output": "assets/cities/southwest.webp",
+      "encoding": {
+        "format": "webp",
+        "quality": 90,
+        "method": 6,
+        "multithread": true
+      }
+    }
+  ]
+}

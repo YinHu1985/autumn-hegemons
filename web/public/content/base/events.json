@@ -11,24 +11,52 @@
         "description": "获得 45 粮食。",
         "effects": [
           {
-            "kind": "grain",
-            "amount": 45
+            "amount": 45,
+            "type": "grain"
           }
-        ]
+        ],
+        "id": "store"
       },
       {
         "label": "留粮赈乡",
-        "description": "获得 10 粮食，各城治理提高 4%。",
+        "description": "获得 10 粮食，各城治理提高 4%；半年内渠堰整修提高农业产量，收益随本期产业维护覆盖变化。",
         "effects": [
           {
-            "kind": "grain",
-            "amount": 10
+            "amount": 10,
+            "type": "grain"
           },
           {
-            "kind": "governance",
-            "amount": 0.04
+            "amount": 0.04,
+            "type": "governance"
+          },
+          {
+            "type": "add_modifier",
+            "modifierId": "canal_repair",
+            "durationDays": 180
           }
-        ]
+        ],
+        "id": "irrigate"
+      }
+    ],
+    "triggers": [
+      {
+        "type": "random",
+        "poolId": "common"
+      }
+    ],
+    "repeat": {
+      "scope": "nation",
+      "cooldownDays": 360
+    },
+    "weightModifiers": [
+      {
+        "condition": {
+          "type": "metric",
+          "metric": "nation.operatingCoverage.buildings",
+          "compare": "gte",
+          "value": 0.9
+        },
+        "multiplier": 1.5
       }
     ]
   },
@@ -44,12 +72,23 @@
         "description": "全国人力恢复 700。",
         "effects": [
           {
-            "kind": "manpower",
-            "amount": 700
+            "amount": 700,
+            "type": "manpower"
           }
-        ]
+        ],
+        "id": "settle"
       }
-    ]
+    ],
+    "triggers": [
+      {
+        "type": "random",
+        "poolId": "common"
+      }
+    ],
+    "repeat": {
+      "scope": "nation",
+      "cooldownDays": 360
+    }
   },
   {
     "id": "granary_fire",
@@ -63,24 +102,52 @@
         "description": "消耗至多 35 粮食，治理提高 2%。",
         "effects": [
           {
-            "kind": "grain",
-            "amount": -35
+            "amount": -35,
+            "type": "grain"
           },
           {
-            "kind": "governance",
-            "amount": 0.02
+            "amount": 0.02,
+            "type": "governance"
           }
-        ]
+        ],
+        "id": "relief"
       },
       {
         "label": "令地方自筹",
-        "description": "节省粮食，各城治理降低 5%。",
+        "description": "节省粮食，各城治理降低 5%；地方负担使三个月内粮食收入降低 5%。",
         "effects": [
           {
-            "kind": "governance",
-            "amount": -0.05
+            "amount": -0.05,
+            "type": "governance"
+          },
+          {
+            "type": "add_modifier",
+            "modifierId": "local_relief_burden",
+            "durationDays": 90
           }
-        ]
+        ],
+        "id": "local_funding"
+      }
+    ],
+    "triggers": [
+      {
+        "type": "random",
+        "poolId": "common"
+      }
+    ],
+    "repeat": {
+      "scope": "nation",
+      "cooldownDays": 360
+    },
+    "weightModifiers": [
+      {
+        "condition": {
+          "type": "metric",
+          "metric": "nation.operatingCoverage.buildings",
+          "compare": "lt",
+          "value": 0.5
+        },
+        "multiplier": 2
       }
     ]
   },
@@ -96,22 +163,34 @@
         "description": "获得 30 粮食。",
         "effects": [
           {
-            "kind": "grain",
-            "amount": 30
+            "amount": 30,
+            "type": "grain"
           }
-        ]
+        ],
+        "id": "tax"
       },
       {
         "label": "宽税招徕",
         "description": "各城治理提高 3%。",
         "effects": [
           {
-            "kind": "governance",
-            "amount": 0.03
+            "amount": 0.03,
+            "type": "governance"
           }
-        ]
+        ],
+        "id": "welcome"
       }
-    ]
+    ],
+    "triggers": [
+      {
+        "type": "random",
+        "poolId": "common"
+      }
+    ],
+    "repeat": {
+      "scope": "nation",
+      "cooldownDays": 360
+    }
   },
   {
     "id": "travelling_scholar",
@@ -122,21 +201,353 @@
     "options": [
       {
         "label": "延入学舍",
-        "description": "当前课题各获得40点启发，受课题启发上限限制。",
+        "description": "当前课题各获得40点启发，受启发上限限制；半年内研究效率提高 5%。",
         "effects": [
           {
-            "kind": "research",
-            "amount": 40
+            "amount": 40,
+            "type": "research"
+          },
+          {
+            "type": "add_modifier",
+            "modifierId": "visiting_scholars",
+            "durationDays": 180
           }
-        ]
+        ],
+        "id": "teach"
       },
       {
         "label": "荐入郡县",
         "description": "各城治理提高3%。",
         "effects": [
           {
-            "kind": "governance",
+            "amount": 0.03,
+            "type": "governance"
+          }
+        ],
+        "id": "recommend"
+      }
+    ],
+    "triggers": [
+      {
+        "type": "random",
+        "poolId": "common"
+      }
+    ],
+    "repeat": {
+      "scope": "nation",
+      "cooldownDays": 360
+    },
+    "presentation": {
+      "speaker": "游士",
+      "image": "assets/portraits/scholar.svg"
+    }
+  },
+  {
+    "id": "foundry_trial",
+    "title": "匠人请试新炉",
+    "description": "新近掌握鼓风熔铜之术，{{settlement}}的冶工请求拨粮试造新炉。试制期间会影响当地铜冶产量，待三个月后呈报结果。",
+    "weight": 1,
+    "duration": 45,
+    "triggers": [
+      {
+        "type": "fact",
+        "fact": "research_completed",
+        "subjectId": "copper_2"
+      }
+    ],
+    "target": {
+      "kind": "settlement",
+      "condition": {
+        "type": "building",
+        "buildingId": "copperworks",
+        "compare": "gte",
+        "value": 1
+      }
+    },
+    "repeat": {
+      "scope": "nation",
+      "once": true
+    },
+    "presentation": {
+      "important": true,
+      "speaker": "工官",
+      "image": "assets/technology/bronze_foundry.jpg"
+    },
+    "options": [
+      {
+        "id": "decline",
+        "label": "暂缓试制",
+        "description": "现阶段维持原有生产。",
+        "effects": [],
+        "aiWeight": 1
+      },
+      {
+        "id": "fund",
+        "label": "拨粮试制",
+        "description": "拨出60粮食。当地铜冶产量暂降15%，三个月后回报结果。",
+        "cost": {
+          "grain": 60
+        },
+        "effects": [
+          {
+            "type": "add_modifier",
+            "modifierId": "foundry_trial_disruption",
+            "target": {
+              "kind": "settlement"
+            },
+            "durationDays": 180
+          },
+          {
+            "type": "set_flag",
+            "flagId": "foundry_trial_funded",
+            "target": {
+              "kind": "settlement"
+            },
+            "value": true
+          },
+          {
+            "type": "schedule_event",
+            "eventId": "foundry_trial_result",
+            "delayDays": 90
+          }
+        ],
+        "aiWeight": 3
+      }
+    ]
+  },
+  {
+    "id": "foundry_trial_result",
+    "title": "新炉试制告成",
+    "description": "{{settlement}}的匠人送来试制报告。新炉已能稳定出铜，试制期间的生产耽搁可以结束了。",
+    "weight": 1,
+    "duration": 45,
+    "triggers": [],
+    "target": {
+      "kind": "settlement"
+    },
+    "condition": {
+      "type": "flag",
+      "flagId": "foundry_trial_funded",
+      "target": {
+        "kind": "settlement"
+      },
+      "value": true
+    },
+    "repeat": {
+      "scope": "settlement",
+      "once": true
+    },
+    "presentation": {
+      "important": true,
+      "speaker": "工官",
+      "image": "assets/technology/bronze_foundry.jpg"
+    },
+    "options": [
+      {
+        "id": "adopt",
+        "label": "将新法用于生产",
+        "description": "移除本城试制阵痛；当地铜冶产量提高12%，持续一年。",
+        "effects": [
+          {
+            "type": "remove_modifier",
+            "modifierId": "foundry_trial_disruption",
+            "target": {
+              "kind": "settlement"
+            }
+          },
+          {
+            "type": "set_flag",
+            "flagId": "foundry_trial_funded",
+            "target": {
+              "kind": "settlement"
+            },
+            "value": false
+          },
+          {
+            "type": "add_modifier",
+            "modifierId": "foundry_trial_success",
+            "target": {
+              "kind": "settlement"
+            },
+            "durationDays": 360
+          }
+        ]
+      },
+      {
+        "id": "study",
+        "label": "召匠人讲述炉法",
+        "description": "移除本城试制阵痛；为炉冶精炼提供120研究启发，受该课题启发上限限制。",
+        "effects": [
+          {
+            "type": "remove_modifier",
+            "modifierId": "foundry_trial_disruption",
+            "target": {
+              "kind": "settlement"
+            }
+          },
+          {
+            "type": "set_flag",
+            "flagId": "foundry_trial_funded",
+            "target": {
+              "kind": "settlement"
+            },
+            "value": false
+          },
+          {
+            "type": "research",
+            "targetId": "copper_3",
+            "amount": 120
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "warehouse_completed",
+    "title": "新仓落成",
+    "description": "{{settlement}}的新仓已经完工，仓吏请示是否趁机重新编订收纳与防损章程。",
+    "weight": 1,
+    "duration": 30,
+    "triggers": [
+      {
+        "type": "fact",
+        "fact": "construction_completed",
+        "subjectId": "warehouse"
+      }
+    ],
+    "target": {
+      "kind": "settlement"
+    },
+    "repeat": {
+      "scope": "settlement",
+      "cooldownDays": 720
+    },
+    "options": [
+      {
+        "id": "routine",
+        "label": "依旧章收纳",
+        "description": "按原定安排启用仓库。",
+        "effects": [],
+        "aiWeight": 1
+      },
+      {
+        "id": "reorganize",
+        "label": "拨粮整顿仓务",
+        "description": "消耗20粮食，提高本城治理效率3个百分点。",
+        "cost": {
+          "grain": 20
+        },
+        "effects": [
+          {
+            "type": "governance",
             "amount": 0.03
+          }
+        ],
+        "aiWeight": 2
+      }
+    ]
+  },
+  {
+    "id": "gift_reception",
+    "title": "使者带回佳音",
+    "description": "{{relatedNation}}收下了{{nation}}送出的礼物，并派人表达谢意。使者认为此时可再致书修好。",
+    "weight": 1,
+    "duration": 30,
+    "triggers": [
+      {
+        "type": "fact",
+        "fact": "diplomacy_completed",
+        "subjectId": "gift"
+      }
+    ],
+    "target": {
+      "kind": "related_nation"
+    },
+    "repeat": {
+      "scope": "nation",
+      "cooldownDays": 360,
+      "group": "diplomatic_reports",
+      "groupCooldownDays": 90
+    },
+    "options": [
+      {
+        "id": "acknowledge",
+        "label": "礼成即可",
+        "description": "接收使者的回报。",
+        "effects": [],
+        "aiWeight": 1
+      },
+      {
+        "id": "letter",
+        "label": "再致书修好",
+        "description": "消耗15粮食。七成机会令两国关系再提高10；其余情况收到礼貌答复。",
+        "cost": {
+          "grain": 15
+        },
+        "effects": [],
+        "aiWeight": 2,
+        "outcomes": [
+          {
+            "id": "warm_reply",
+            "weight": 7,
+            "effects": [
+              {
+                "type": "relation",
+                "amount": 10
+              }
+            ]
+          },
+          {
+            "id": "polite_reply",
+            "weight": 3,
+            "effects": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "lean_granary",
+    "title": "仓廪告急",
+    "description": "仓吏奏报，{{nation}}的余粮已不足以应付突发开销。地方愿意短期加征，但百姓负担也将加重。",
+    "weight": 2,
+    "duration": 30,
+    "triggers": [
+      {
+        "type": "random",
+        "poolId": "common"
+      }
+    ],
+    "condition": {
+      "type": "metric",
+      "metric": "nation.treasury",
+      "compare": "lt",
+      "value": 50
+    },
+    "repeat": {
+      "scope": "nation",
+      "cooldownDays": 360
+    },
+    "options": [
+      {
+        "id": "wait",
+        "label": "先行节用",
+        "description": "暂不加征，可自行调整预算。",
+        "effects": []
+      },
+      {
+        "id": "levy",
+        "label": "暂借地方余粮",
+        "description": "获得60粮食，三个月内收入降低5%。",
+        "effects": [
+          {
+            "type": "grain",
+            "amount": 60
+          },
+          {
+            "type": "add_modifier",
+            "modifierId": "local_relief_burden",
+            "durationDays": 90
           }
         ]
       }

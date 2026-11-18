@@ -1,12 +1,19 @@
 import type { Content } from "../definitions/types";
 import type { WorldState } from "./state";
-import { researchModifier } from "./research";
+import { resolveStat } from "./modifier-query";
+import type { ModifierContribution } from "./modifier-state";
+import {
+  buildingContributions,
+  resourceCalculation,
+  type ResourceCalculation,
+} from "./economy-calculation";
 import { buildingCrowding } from "./settlements";
 
 export interface ResourceLine {
   source: string;
   resourceId: string;
   amount: number;
+  calculation?: ResourceCalculation;
 }
 export interface Economy {
   income: number;
@@ -16,6 +23,7 @@ export interface Economy {
   lines: ResourceLine[];
   fullBuildingUpkeep: number;
   modifiers: Record<string, number>;
+  modifierContributions: ModifierContribution[];
 }
 
 function add(table: Record<string, number>, id: string, amount: number): void {
@@ -41,19 +49,17 @@ export function calculateEconomy(
   const used: Record<string, number> = {};
   const lines: ResourceLine[] = [];
   const modifiers: Record<string, number> = {};
-  const incomeModifier = Math.max(
-    0,
-    1 + researchModifier(content, world, nationId, "income"),
-  );
-  const productionModifier = Math.max(
-    0,
-    1 + researchModifier(content, world, nationId, "production"),
-  );
+  const modifierContributions: ModifierContribution[] = [];
   let upkeep = 0;
-  const contribute = (source: string, resourceId: string, amount: number) => {
+  const contribute = (
+    source: string,
+    resourceId: string,
+    amount: number,
+    calculation?: ResourceCalculation,
+  ) => {
     if (amount <= 0) return;
     add(gross, resourceId, amount);
-    lines.push({ source, resourceId, amount });
+    lines.push({ source, resourceId, amount, calculation });
   };
   for (const [id, amount] of Object.entries(nationStart.baseResources))
     contribute(`国家基础 · ${nationStart.name}`, id, amount);
@@ -62,57 +68,85 @@ export function calculateEconomy(
     inputs: Record<string, number>;
     outputs: Record<string, number>;
     factor: number;
-    modifiers: Record<string, number>;
+    contributions: ModifierContribution[];
+    steps: ResourceCalculation["steps"];
+    income: ReturnType<typeof resolveStat>;
   }[] = [];
   for (const city of Object.values(world.settlements).filter(
     (item) => item.owner === nationId,
   )) {
     const start = cityStarts.get(city.id)!;
+    const context = { nationId, settlementId: city.id };
+    const income = resolveStat(content, world, context, "income", 1, {
+      min: 0,
+    });
+    const production = resolveStat(content, world, context, "production", 1, {
+      min: 0,
+    });
+    const cityIncome = resourceCalculation(city.scale * 8, [
+      { label: "治理效率", factor: city.governance },
+      { label: "粮食收入", factor: income.value, stat: income },
+    ]);
     contribute(
       `城镇规模 · ${start.name}`,
       "grain",
-      city.scale * 8 * city.governance * incomeModifier,
+      cityIncome.value,
+      cityIncome,
     );
     for (const [id, state] of Object.entries(city.buildings)) {
       const building = buildings.get(id)!;
       upkeep += building.levels[state.level - 1].upkeep;
       if (state.effectiveLevel === 0) continue;
       const level = building.levels[state.effectiveLevel - 1];
-      const routeModifier = building.route
-        ? Math.max(
-            0,
-            1 +
-              researchModifier(
-                content,
-                world,
-                nationId,
-                `production.${building.route}`,
-              ),
+      const route = building.route
+        ? resolveStat(
+            content,
+            world,
+            context,
+            `production.${building.route}`,
+            1,
+            { min: 0 },
           )
-        : 1;
-      const factor =
-        nation.operatingCoverage.buildings *
-        city.governance *
-        buildingCrowding(city) *
-        productionModifier *
-        routeModifier;
+        : undefined;
+      const steps: ResourceCalculation["steps"] = [
+        { label: "实际产业维护", factor: nation.operatingCoverage.buildings },
+        { label: "治理效率", factor: city.governance },
+        { label: "建筑容量", factor: buildingCrowding(city) },
+        { label: "产业产量", factor: production.value, stat: production },
+        ...(route
+          ? [{ label: "本产业产量", factor: route.value, stat: route }]
+          : []),
+      ];
+      const factor = resourceCalculation(1, steps).value;
       const source = `${start.name} · ${building.name}`;
+      const contributions = buildingContributions(
+        nationId,
+        city.id,
+        id,
+        source,
+        level.modifiers ?? {},
+        factor,
+      );
       if (building.stage === 0) {
-        for (const [resourceId, amount] of Object.entries(level.outputs))
-          contribute(
-            source,
-            resourceId,
-            amount * factor * (resourceId === "grain" ? incomeModifier : 1),
-          );
-        for (const [key, value] of Object.entries(level.modifiers ?? {}))
-          add(modifiers, key, value * factor);
+        for (const [resourceId, amount] of Object.entries(level.outputs)) {
+          const calculation = resourceCalculation(amount, [
+            ...steps,
+            ...(resourceId === "grain"
+              ? [{ label: "粮食收入", factor: income.value, stat: income }]
+              : []),
+          ]);
+          contribute(source, resourceId, calculation.value, calculation);
+        }
+        modifierContributions.push(...contributions);
       } else
         processing.push({
           source,
           inputs: level.inputs,
           outputs: level.outputs,
           factor,
-          modifiers: level.modifiers ?? {},
+          contributions,
+          steps,
+          income,
         });
     }
   }
@@ -131,15 +165,31 @@ export function calculateEconomy(
     );
     for (const [id, amount] of Object.entries(process.inputs))
       add(used, id, amount * process.factor * ratio);
-    for (const [id, amount] of Object.entries(process.outputs))
-      contribute(
-        process.source,
-        id,
-        amount * process.factor * ratio * (id === "grain" ? incomeModifier : 1),
-      );
-    for (const [key, value] of Object.entries(process.modifiers))
-      add(modifiers, key, value * process.factor * ratio);
+    for (const [id, amount] of Object.entries(process.outputs)) {
+      const calculation = resourceCalculation(amount, [
+        ...process.steps,
+        { label: "原料供给", factor: ratio },
+        ...(id === "grain"
+          ? [
+              {
+                label: "粮食收入",
+                factor: process.income.value,
+                stat: process.income,
+              },
+            ]
+          : []),
+      ]);
+      contribute(process.source, id, calculation.value, calculation);
+    }
+    modifierContributions.push(
+      ...process.contributions.map((entry) => ({
+        ...entry,
+        value: entry.value * ratio,
+      })),
+    );
   }
+  for (const contribution of modifierContributions)
+    add(modifiers, contribution.key, contribution.value);
   const available: Record<string, number> = {};
   for (const good of content.goods)
     available[good.id] = Math.max(
@@ -154,6 +204,7 @@ export function calculateEconomy(
     lines,
     fullBuildingUpkeep: upkeep,
     modifiers,
+    modifierContributions,
   };
 }
 

@@ -1,20 +1,21 @@
 import { useState } from "react";
 import type { Content } from "../definitions/types";
 import type { WorldState } from "../simulation/state";
-import { chooseEvent } from "../simulation/civic";
+import { eventDaysLeft, renderEventText } from "../simulation/events";
+import { EventHistory } from "./events/EventHistory";
+import { eventContextLabel } from "./events/event-view";
 import "./events/events.css";
 
 interface Props {
   content: Content;
   world: WorldState;
   nationId: string;
-  onWorld: (world: WorldState) => void;
+  onOpenEvent: (id: string) => void;
 }
-export function EventsPanel({ content, world, nationId, onWorld }: Props) {
+export function EventsPanel({ content, world, nationId, onOpenEvent }: Props) {
   const active = world.civic.events.filter(
     (event) => event.nationId === nationId,
   );
-  const log = world.civic.log.filter((entry) => entry.nationId === nationId);
   const [tab, setTab] = useState<"pending" | "history">("pending");
   return (
     <div className="events-screen">
@@ -29,94 +30,57 @@ export function EventsPanel({ content, world, nationId, onWorld }: Props) {
           aria-pressed={tab === "history"}
           onClick={() => setTab("history")}
         >
-          国史记录 <b>{log.length}</b>
+          国史记录
         </button>
+        <p>奏报逾期采用第一项抉择；暂停时期限不流逝。</p>
       </nav>
-      {tab === "pending" ? (
-        <section aria-label="待议奏报" className="events-pending">
-          <p className="ui-note">奏报须在期限内裁定；逾期将采用第一项抉择。</p>
-          {active.length === 0 && (
-            <div className="events-empty ui-empty">
-              <span aria-hidden="true">奏</span>
-              <strong>暂无待议奏报</strong>
-              <p>各地政务如常。已发生的国事可在「国史记录」中查阅。</p>
-              <button className="quiet" onClick={() => setTab("history")}>
-                查阅国史
-              </button>
-            </div>
-          )}
-          {active.map((event) => {
-            const def = content.events.find(
-              (item) => item.id === event.definitionId,
-            )!;
-            return (
-              <article className="event-dossier ui-section" key={event.id}>
-                <header className="ui-section-heading">
-                  <h3>{def.title}</h3>
-                  <span
-                    className={`ui-badge ${event.daysLeft <= 10 ? "event-urgent" : ""}`}
-                  >
-                    尚余 {event.daysLeft} 日
-                  </span>
-                </header>
-                <p className="event-description">{def.description}</p>
-                <div className="event-decisions">
-                  {def.options.map((option, index) => (
-                    <button
-                      key={option.label}
-                      onClick={() =>
-                        onWorld(chooseEvent(content, world, event.id, index))
-                      }
-                    >
-                      <span
-                        className="event-decision-number"
-                        aria-hidden="true"
-                      >
-                        {index + 1}
-                      </span>
-                      <span>
-                        <strong>{option.label}</strong>
-                        <small>{option.description}</small>
-                      </span>
-                      <span className="event-decision-arrow" aria-hidden="true">
-                        ›
-                      </span>
-                    </button>
-                  ))}
-                </div>
-              </article>
-            );
-          })}
-        </section>
+      {tab === "history" ? (
+        <EventHistory content={content} world={world} nationId={nationId} />
+      ) : !active.length ? (
+        <div className="events-empty ui-empty">
+          <span aria-hidden="true">奏</span>
+          <strong>暂无待议奏报</strong>
+          <p>各地政务如常。已发生的国事可在「国史记录」中查阅。</p>
+          <button className="quiet" onClick={() => setTab("history")}>
+            查阅国史
+          </button>
+        </div>
       ) : (
-        <section className="events-history" aria-label="国史记录">
-          <p className="ui-note">记国家兴衰，录政令得失。</p>
-          {log.length === 0 ? (
-            <div className="events-empty ui-empty">
-              <span aria-hidden="true">史</span>
-              <strong>新局伊始，国史待书</strong>
-              <p>营建、外交与军政大事将在此留录。</p>
-            </div>
-          ) : (
-            <ol className="events-timeline">
-              {log.map((entry, index) => (
-                <li key={index}>
-                  <time>
-                    <strong>
-                      {entry.date.year < 0
-                        ? "前" + -entry.date.year
-                        : entry.date.year}
-                      年
-                    </strong>
+        <section aria-label="待议奏报" className="event-inbox">
+          <header>
+            <small>列国纪事</small>
+            <h3>待议奏报</h3>
+            <p>点选奏报，在独立小窗中阅览与处置。</p>
+          </header>
+          <div className="event-inbox-list">
+            {active.map((event) => {
+              const definition = content.events.find(
+                (item) => item.id === event.definitionId,
+              );
+              if (!definition) return null;
+              const days = eventDaysLeft(world, event);
+              return (
+                <button key={event.id} onClick={() => onOpenEvent(event.id)}>
+                  <span className="event-inbox-meta">
                     <span>
-                      {entry.date.month}月{entry.date.day}日
+                      {definition.presentation?.important ? "要事" : "奏报"}
                     </span>
-                  </time>
-                  <p>{entry.text}</p>
-                </li>
-              ))}
-            </ol>
-          )}
+                    <span className={days <= 10 ? "event-urgent" : ""}>
+                      余 {days} 日
+                    </span>
+                  </span>
+                  <strong>
+                    {renderEventText(content, world, event, definition.title)}
+                  </strong>
+                  <small>
+                    {eventContextLabel(content, world, event.context)}
+                  </small>
+                  <span className="event-inbox-open">阅览奏报 ›</span>
+                </button>
+              );
+            })}
+          </div>
+          <footer>阅览奏报不会自行作出抉择。</footer>
         </section>
       )}
     </div>

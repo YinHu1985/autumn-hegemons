@@ -53,7 +53,7 @@ export function ResearchPanel(props: ResearchPanelProps) {
     <section className="technology-screen" aria-label="科技与研究组">
       <div className="technology-summary" aria-label="科研概况">
         <span>
-          百工技艺 <b>{known}</b> / {content.technologies.length}
+          已掌握科技 <b>{known}</b> / {content.technologies.length}
         </span>
         <span>
           科技组规模 <b>{researchScale(content, world, nationId).toFixed(0)}</b>
@@ -77,6 +77,7 @@ export function ResearchPanel(props: ResearchPanelProps) {
         <ResearchGroupsRail
           {...props}
           leaderId={focusedLeaderId}
+          subject={subject}
           onSelect={(id, targetId) => {
             setLeaderId(id);
             if (targetId) selectSubject(targetId);
@@ -116,7 +117,11 @@ export function ResearchPanel(props: ResearchPanelProps) {
           />
           <div className="technology-catalogue-note">
             <span>{routes.length} 条路线 · 点选科技查看下方详情</span>
-            <span>理念研究见「百家」</span>
+            <span>
+              {currentCategory === "humanities"
+                ? "百家知识相互启发 · 理念解锁后在「百家」实行"
+                : "按课题能力倾向安排人才"}
+            </span>
           </div>
         </section>
         <ResearchDetailDock

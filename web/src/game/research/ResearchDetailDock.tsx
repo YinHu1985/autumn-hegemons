@@ -1,13 +1,20 @@
 import type { TechnologyDefinition } from "../../definitions/research";
 import { CATEGORY_NAMES } from "../../definitions/research";
-import { formatModifier } from "../../definitions/modifiers";
 import {
   groupMonthlyProgress,
   inspiration,
+  researcherAptitude,
+  researchSpecialtyMultiplier,
+  researcherEffectiveness,
   worldKnowledge,
 } from "../../simulation/research";
 import type { ResearchPanelProps } from "../ResearchShared";
 import { useResearchAssignment } from "./useResearchAssignment";
+import { ResearchOutcomes } from "./ResearchOutcomes";
+import {
+  researchAttributeWeightsLabel,
+  researchLeaderOption,
+} from "./research-attributes";
 import "./research-detail-dock.css";
 
 interface Props extends ResearchPanelProps {
@@ -45,7 +52,7 @@ export function ResearchDetailDock({
         aria-label="科技详情"
       >
         <strong>选择一项科技</strong>
-        <p>点击上方课题，查看工艺、作用与前置条件，再安排科研人才主持。</p>
+        <p>点击上方课题，查看作用与前置条件，再安排科研人才主持。</p>
       </aside>
     );
   const prerequisite = content.technologies.find(
@@ -59,22 +66,15 @@ export function ResearchDetailDock({
       : locked
         ? "前置未成"
         : "可研究";
-  const effects = Object.entries(subject.effects).filter(
-    ([, value]) => value !== 0,
-  );
-  const unlocks = content.buildings.flatMap((building) =>
-    building.levels.flatMap((level, index) =>
-      level.technology === subject.id
-        ? [`${building.name} · ${index + 1} 级`]
-        : [],
-    ),
+  const unlocksIdeas = subject.completionEffects?.some(
+    (effect) => effect.type === "unlock_idea",
   );
   const percent = Math.max(0, Math.min(100, (progress / subject.cost) * 100));
   return (
     <aside className="tech-detail-dock" aria-label="科技详情">
-      <section className="tech-detail-background" aria-label="工艺简介">
+      <section className="tech-detail-background" aria-label="科技简介">
         <header>
-          <span>工艺档案</span>
+          <span>科技档案</span>
           <small>
             {CATEGORY_NAMES[subject.category]} ·{" "}
             {["初段", "中段", "后段"][subject.tier - 1]}
@@ -89,6 +89,9 @@ export function ResearchDetailDock({
         )}
         <h3>{subject.name}</h3>
         <p className="tech-detail-description">{subject.description}</p>
+        <p className="tech-detail-attributes">
+          能力倾向 · {researchAttributeWeightsLabel(subject)}
+        </p>
         <dl className="tech-detail-facts">
           <div>
             <dt>世界掌握率</dt>
@@ -111,18 +114,7 @@ export function ResearchDetailDock({
             {status}
           </small>
         </header>
-        {effects.length ? (
-          <ul className="tech-detail-effects">
-            {effects.map(([key, value]) => (
-              <li key={key}>{formatModifier(key, value)}</li>
-            ))}
-          </ul>
-        ) : (
-          <p className="tech-detail-note">效果待定</p>
-        )}
-        {unlocks.length > 0 && (
-          <p className="tech-detail-unlocks">解锁：{unlocks.join("、")}</p>
-        )}
+        <ResearchOutcomes content={content} subject={subject} />
         <div className="tech-detail-prerequisite">
           <span>直系前置</span>
           {prerequisite ? (
@@ -171,8 +163,7 @@ export function ResearchDetailDock({
               <option value="">选择科研人才</option>
               {available.map((talent) => (
                 <option key={talent.id} value={talent.id}>
-                  {talent.name} · 学识 {talent.scholarship} ·{" "}
-                  {CATEGORY_NAMES[talent.specialty]}
+                  {researchLeaderOption(subject, talent)}
                 </option>
               ))}
             </select>
@@ -191,6 +182,16 @@ export function ResearchDetailDock({
         >
           {known ? "已掌握" : researching ? "研究中" : "成立研究组"}
         </button>
+        {leader && !known && (
+          <p className="tech-detail-leader-factor">
+            负责人加成 ×{researcherEffectiveness(subject, leader).toFixed(2)}
+            <small>
+              能力 ×{researcherAptitude(subject, leader).toFixed(2)} ·{" "}
+              {CATEGORY_NAMES[leader.specialty]}专长 ×
+              {researchSpecialtyMultiplier(subject, leader).toFixed(2)}
+            </small>
+          </p>
+        )}
         {message ? (
           <p className="tech-detail-feedback" role="status">
             {message}
@@ -198,7 +199,9 @@ export function ResearchDetailDock({
         ) : (
           <p className="tech-detail-note">
             {known
-              ? "成果已生效，可继续安排其他课题。"
+              ? unlocksIdeas
+                ? "研究完成；可在「百家」查看理念并安排实行。"
+                : "成果已生效，可继续安排其他课题。"
               : researching
                 ? "投入与停止研究可在左侧科技组中调整。"
                 : locked

@@ -2,6 +2,7 @@ import { useState } from "react";
 import {
   CATEGORY_NAMES,
   type ResearchCategory,
+  type TechnologyDefinition,
 } from "../../definitions/research";
 import type { Talent } from "../../simulation/research-state";
 import {
@@ -10,15 +11,18 @@ import {
   researchProgress,
   researchScale,
   researchSubjects,
+  researcherAptitude,
   setResearchInvestment,
   stopResearch,
 } from "../../simulation/research";
 import type { ResearchPanelProps } from "../ResearchShared";
 import { availableResearchLeaders } from "./useResearchAssignment";
+import { researchTalentAttributesLabel } from "./research-attributes";
 import "./research-groups-rail.css";
 
 interface Props extends ResearchPanelProps {
   leaderId: string;
+  subject?: TechnologyDefinition;
   onSelect: (leaderId: string, targetId?: string) => void;
 }
 
@@ -26,10 +30,12 @@ function TeamIdentity({
   talent,
   status,
   target,
+  subject,
 }: {
   talent?: Talent;
   status: string;
   target: string;
+  subject?: TechnologyDefinition;
 }) {
   return (
     <>
@@ -55,8 +61,11 @@ function TeamIdentity({
         <span className="tech-team-target">{target}</span>
         {talent && (
           <small className="tech-team-specialty">
-            {CATEGORY_NAMES[talent.specialty]}专长 · 学识 {talent.scholarship} ·
-            统率 {talent.command}
+            {CATEGORY_NAMES[talent.specialty]}专长 ·{" "}
+            {researchTalentAttributesLabel(talent, subject)}
+            {subject && (
+              <> · 能力 ×{researcherAptitude(subject, talent).toFixed(2)}</>
+            )}
           </small>
         )}
       </span>
@@ -71,6 +80,7 @@ export function ResearchGroupsRail({
   nationId,
   onWorld,
   leaderId,
+  subject,
   onSelect,
 }: Props) {
   const [feedback, setFeedback] = useState({ groups: "", text: "" });
@@ -163,6 +173,7 @@ export function ResearchGroupsRail({
                   talent={leader}
                   status="在研"
                   target={target?.name ?? group.targetId}
+                  subject={target}
                 />
               </button>
               <div className="tech-team-progress-caption">
@@ -187,6 +198,12 @@ export function ResearchGroupsRail({
                 max={target?.cost ?? 1}
                 value={progress}
               />
+              {Math.max(group.investment, group.fundedInvestment) > scale && (
+                <p className="tech-team-warning">
+                  当前规模上限 {scale.toFixed(1)}，超额投入降低研究效率。
+                  本期已付投入不随滑条调整，请为下月重新安排。
+                </p>
+              )}
               <label className="tech-team-investment">
                 <span>
                   下月投入 <b>{group.investment}</b>
@@ -250,6 +267,7 @@ export function ResearchGroupsRail({
                 talent={talent}
                 status="待命"
                 target="选择课题安排研究"
+                subject={subject}
               />
             </button>
           </article>

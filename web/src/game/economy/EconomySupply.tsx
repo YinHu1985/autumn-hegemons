@@ -1,5 +1,6 @@
 import type { Content } from "../../definitions/types";
 import { calculateEconomy, formatQuantity } from "../../simulation/economy";
+import { ResourceCalculation } from "./ResourceCalculation";
 
 export function EconomySupply({
   content,
@@ -67,7 +68,16 @@ export function EconomySupply({
                         ?.name
                     }
                   </td>
-                  <td>+{formatQuantity(line.amount)}</td>
+                  <td>
+                    {line.calculation ? (
+                      <ResourceCalculation
+                        calculation={line.calculation}
+                        label={`${line.source} · ${content.goods.find((good) => good.id === line.resourceId)?.name ?? line.resourceId}`}
+                      />
+                    ) : (
+                      `+${formatQuantity(line.amount)}`
+                    )}
+                  </td>
                 </tr>
               ))}
             </tbody>

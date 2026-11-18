@@ -39,7 +39,7 @@ main:has(.content-studio) {
 }
 .studio-tabs {
   display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   gap: 4px;
   padding-bottom: 10px;
   flex-shrink: 0;
@@ -203,6 +203,7 @@ main:has(.content-studio) {
     monospace;
 }
 .definition-form input,
+.definition-form select,
 .definition-form textarea {
   width: 100%;
   font-family: ui-monospace, monospace;
@@ -213,13 +214,65 @@ main:has(.content-studio) {
   font-size: 12px;
   border-radius: 1px;
 }
+.event-authoring-guide {
+  flex-shrink: 0;
+  margin-bottom: 14px;
+  padding: 9px 12px;
+  border: 1px solid var(--ui-line);
+  background: var(--ui-paper-recessed);
+  font-size: 12px;
+  line-height: 1.7;
+}
+.event-authoring-guide summary {
+  color: var(--ui-pine);
+  cursor: pointer;
+  font-weight: 600;
+}
+.event-authoring-guide p {
+  margin: 9px 0;
+  color: var(--ui-muted);
+}
+.event-authoring-guide pre {
+  margin: 8px 0;
+  padding: 8px 10px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  background: var(--ui-paper-raised);
+  color: var(--ui-ink);
+  font-size: 11px;
+}
 .definition-form .wide {
   grid-column: 1 / -1;
+}
+.definition-form .definition-help {
+  display: block;
+  margin-top: 6px;
+  line-height: 1.6;
+  font-family: inherit;
 }
 .definition-form textarea {
   min-height: 125px;
   resize: vertical;
   line-height: 1.6;
+}
+.research-attribute-fields {
+  margin: 0;
+  padding: 12px;
+  border: 1px solid var(--ui-line);
+}
+.research-attribute-fields legend {
+  padding: 0 6px;
+  font-size: 12px;
+}
+.research-attribute-fields p {
+  margin: 0 0 12px;
+  color: var(--ui-muted);
+  font-size: 12px;
+}
+.research-attribute-fields > div {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
 }
 .json-editor {
   width: 100%;

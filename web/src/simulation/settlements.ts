@@ -1,6 +1,6 @@
 import type { Content } from "../definitions/types";
 import type { SettlementState, WorldState } from "./state";
-import { researchModifier } from "./research";
+import { resolveStat } from "./modifier-query";
 
 export const terrainNames: Record<string, string> = {
   plain: "平原",
@@ -26,14 +26,16 @@ export function governanceCap(
   content: Content,
   world: WorldState,
   nationId: string,
+  settlementId?: string,
 ): number {
-  return Math.max(
-    0.2,
-    Math.min(
-      1,
-      0.85 + researchModifier(content, world, nationId, "governance_cap"),
-    ),
-  );
+  return resolveStat(
+    content,
+    world,
+    { nationId, settlementId },
+    "governance_cap",
+    0.85,
+    { min: 0.2, max: 1 },
+  ).value;
 }
 export function constructionQuote(
   content: Content,
@@ -55,17 +57,25 @@ export function constructionQuote(
     cost: Math.ceil(
       cost *
         (terrain?.constructionCost ?? 1) *
-        Math.max(
-          0.25,
-          1 + researchModifier(content, world, city.owner, "building_cost"),
-        ),
+        resolveStat(
+          content,
+          world,
+          { nationId: city.owner, settlementId: cityId },
+          "building_cost",
+          1,
+          { min: 0.25 },
+        ).value,
     ),
     days: Math.ceil(
       (days * (terrain?.constructionTime ?? 1)) /
-        Math.max(
-          0.25,
-          1 + researchModifier(content, world, city.owner, "building_speed"),
-        ),
+        resolveStat(
+          content,
+          world,
+          { nationId: city.owner, settlementId: cityId },
+          "building_speed",
+          1,
+          { min: 0.25 },
+        ).value,
     ),
   };
 }

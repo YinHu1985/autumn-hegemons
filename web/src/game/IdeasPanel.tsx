@@ -1,11 +1,8 @@
 import { useState } from "react";
-import {
-  ResearchDetail,
-  effectLabel,
-  type ResearchPanelProps,
-} from "./ResearchShared";
-import { enactIdea, ideaSlots } from "../simulation/research";
-import "./research.css";
+import type { ResearchPanelProps } from "./ResearchShared";
+import { formatModifier } from "../definitions/modifiers";
+import { enactIdea, ideaSlots, isIdeaUnlocked } from "../simulation/research";
+import { IdeaDossier } from "./ideas/IdeaDossier";
 import "./ideas/ideas.css";
 
 export function IdeasPanel(props: ResearchPanelProps) {
@@ -19,7 +16,8 @@ export function IdeasPanel(props: ResearchPanelProps) {
     (idea) => school === "all" || idea.school === school,
   );
   const selected = ideas.find((idea) => idea.id === selectedId) ?? ideas[0];
-  const known = selected && state.unlocked.includes(selected.id);
+  const known =
+    selected && isIdeaUnlocked(content, world, nationId, selected.id);
   const enacted = selected && state.enacted.includes(selected.id);
   const enact = (id: string) => {
     try {
@@ -33,11 +31,12 @@ export function IdeasPanel(props: ResearchPanelProps) {
     <section className="ideas-screen" aria-label="诸子与国策">
       <div className="ideas-summary">
         <span>
-          已掌握{" "}
+          已解锁{" "}
           <b>
             {
-              content.ideas.filter((idea) => state.unlocked.includes(idea.id))
-                .length
+              content.ideas.filter((idea) =>
+                isIdeaUnlocked(content, world, nationId, idea.id),
+              ).length
             }
           </b>{" "}
           / {content.ideas.length} 项学说
@@ -45,7 +44,7 @@ export function IdeasPanel(props: ResearchPanelProps) {
         <span>
           实行国策 <b>{state.enacted.length}</b> / {capacity}
         </span>
-        <small>研究保留知识，实行获得国家加成</small>
+        <small>科研解锁理念，实行获得国家加成</small>
       </div>
       <div className="ideas-workspace">
         <aside className="ideas-enacted" aria-label="实行国策">
@@ -71,7 +70,7 @@ export function IdeasPanel(props: ResearchPanelProps) {
                   </button>
                   <p>
                     {Object.entries(idea.effects)
-                      .map(([key, value]) => effectLabel(key, value))
+                      .map(([key, value]) => formatModifier(key, value))
                       .join(" · ")}
                   </p>
                   <button className="quiet" onClick={() => enact(id)}>
@@ -120,11 +119,13 @@ export function IdeasPanel(props: ResearchPanelProps) {
           <div className="ideas-card-scroll">
             <div className="ideas-card-grid">
               {ideas.map((idea) => {
-                const isKnown = state.unlocked.includes(idea.id);
-                const isEnacted = state.enacted.includes(idea.id);
-                const isResearching = state.groups.some(
-                  (group) => group.targetId === idea.id,
+                const isKnown = isIdeaUnlocked(
+                  content,
+                  world,
+                  nationId,
+                  idea.id,
                 );
+                const isEnacted = state.enacted.includes(idea.id);
                 return (
                   <button
                     className={`ideas-choice ${selected?.id === idea.id ? "is-selected" : ""}`}
@@ -144,19 +145,13 @@ export function IdeasPanel(props: ResearchPanelProps) {
                     <div className="ideas-choice-caption">
                       <strong>{idea.name}</strong>
                       <span>
-                        <small>{["初档", "中档", "高档"][idea.tier - 1]}</small>
+                        <small>实行后生效</small>
                         <small
                           className={
                             isEnacted ? "is-enacted" : isKnown ? "is-known" : ""
                           }
                         >
-                          {isEnacted
-                            ? "实行中"
-                            : isKnown
-                              ? "已掌握"
-                              : isResearching
-                                ? "研究中"
-                                : "待研究"}
+                          {isEnacted ? "实行中" : isKnown ? "已解锁" : "未解锁"}
                         </small>
                       </span>
                     </div>
@@ -166,7 +161,7 @@ export function IdeasPanel(props: ResearchPanelProps) {
             </div>
           </div>
           <p className="ideas-catalogue-note">
-            学说彼此独立，可直接研究高档理念。
+            在科研中解锁理念，在此选择国家实行的主张。
           </p>
         </div>
         <aside
@@ -174,24 +169,15 @@ export function IdeasPanel(props: ResearchPanelProps) {
           aria-label="学说详情"
         >
           {selected ? (
-            <>
-              <ResearchDetail key={selected.id} {...props} subject={selected} />
-              {known && (
-                <div className="ideas-enact-action">
-                  <p className="ui-note">
-                    {enacted
-                      ? "该学说正在实行，国家已获得相应加成。"
-                      : `实行槽位 ${state.enacted.length} / ${capacity}，安排后获得国家加成。`}
-                  </p>
-                  <button
-                    className={enacted ? "danger" : "primary"}
-                    onClick={() => enact(selected.id)}
-                  >
-                    {enacted ? "停止实行该理念" : "安排实行该理念"}
-                  </button>
-                </div>
-              )}
-            </>
+            <IdeaDossier
+              content={content}
+              idea={selected}
+              known={!!known}
+              enacted={!!enacted}
+              usedSlots={state.enacted.length}
+              capacity={capacity}
+              onEnact={() => enact(selected.id)}
+            />
           ) : (
             <div className="ui-empty">选择一项学说查看详情。</div>
           )}

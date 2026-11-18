@@ -111,6 +111,21 @@ test("征募与复员守恒：存活人力回池，战死不返还", () => {
   assert.equal(world.nations.qi.manpower, before - 200);
 });
 
+test("理念解锁的兵种只在实行期间可用，仅解锁理念不会直接启用", () => {
+  const definitions = structuredClone(content);
+  const idea = definitions.ideas[0];
+  const type = definitions.units.find((entry) => entry.id === "infantry");
+  type.requires = idea.id;
+  const world = rules.createWorld(definitions);
+  const state = world.research.nations.qi;
+  state.unlockedIdeas.push(idea.id);
+  assert.equal(rules.unitUnlocked(definitions, world, "qi", type.id), false);
+  state.enacted.push(idea.id);
+  assert.equal(rules.unitUnlocked(definitions, world, "qi", type.id), true);
+  state.enacted = [];
+  assert.equal(rules.unitUnlocked(definitions, world, "qi", type.id), false);
+});
+
 test("常备受征召保护，骑兵伤亡直接减少常备", () => {
   const unit = {
     id: "u",

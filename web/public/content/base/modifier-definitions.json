@@ -1,0 +1,60 @@
+[
+  {
+    "id": "canal_repair",
+    "name": "渠堰整修",
+    "description": "留粮整修水利，农业增益随本期产业维护覆盖变化。",
+    "scope": "nation",
+    "effects": {
+      "production.agriculture": {
+        "op": "multiply",
+        "args": [
+          0.05,
+          {
+            "metric": "nation.operatingCoverage.buildings"
+          }
+        ]
+      }
+    },
+    "stacking": "refresh"
+  },
+  {
+    "id": "local_relief_burden",
+    "name": "地方赈济负担",
+    "description": "地方自行筹粮赈济，暂时减少上缴收入。",
+    "scope": "nation",
+    "effects": {
+      "income": -0.05
+    },
+    "stacking": "refresh"
+  },
+  {
+    "id": "visiting_scholars",
+    "name": "游士讲学",
+    "description": "游士留居学舍，交流技艺与见闻。",
+    "scope": "nation",
+    "effects": {
+      "research_efficiency": 0.05
+    },
+    "stacking": "refresh"
+  },
+  {
+    "id": "foundry_trial_disruption",
+    "name": "新炉试制阵痛",
+    "description": "冶工试造新炉，暂时影响本城铜冶产量。后续试制事件按此效果ID移除。",
+    "scope": "settlement",
+    "effects": {
+      "production.copper": -0.15
+    },
+    "stacking": "refresh"
+  },
+  {
+    "id": "foundry_trial_success",
+    "name": "新炉成法",
+    "description": "新炉已能稳定运行，提高本城铜冶产量。",
+    "scope": "settlement",
+    "effects": {
+      "production.copper": 0.12
+    },
+    "stacking": "refresh"
+  }
+]

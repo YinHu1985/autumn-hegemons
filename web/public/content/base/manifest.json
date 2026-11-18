@@ -11,5 +11,7 @@
   "specialties": "specialties.json",
   "warfare": "warfare.json",
   "tactics": "tactics.json",
-  "diplomacy": "diplomacy.json"
+  "diplomacy": "diplomacy.json",
+  "modifierDefinitions": "modifier-definitions.json",
+  "eventPools": "event-pools.json"
 }

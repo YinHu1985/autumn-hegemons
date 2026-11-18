@@ -13,6 +13,10 @@
     "effects": {
       "production": 0.012,
       "production.gold": 0.15
+    },
+    "attributeWeights": {
+      "administration": 1,
+      "scholarship": 0.25
     }
   },
   {
@@ -30,7 +34,11 @@
       "production": 0.012,
       "production.gold": 0.15
     },
-    "prerequisite": "gold_1"
+    "prerequisite": "gold_1",
+    "attributeWeights": {
+      "administration": 1,
+      "scholarship": 0.25
+    }
   },
   {
     "id": "gold_3",
@@ -47,7 +55,11 @@
       "production": 0.012,
       "production.gold": 0.15
     },
-    "prerequisite": "gold_2"
+    "prerequisite": "gold_2",
+    "attributeWeights": {
+      "administration": 1,
+      "scholarship": 0.25
+    }
   },
   {
     "id": "copper_1",
@@ -64,7 +76,11 @@
       "production": 0.012,
       "production.copper": 0.15
     },
-    "image": "assets/technology/bronze_foundry.jpg"
+    "image": "assets/technology/bronze_foundry.jpg",
+    "attributeWeights": {
+      "administration": 1,
+      "scholarship": 0.25
+    }
   },
   {
     "id": "copper_2",
@@ -82,7 +98,11 @@
       "production.copper": 0.15
     },
     "prerequisite": "copper_1",
-    "image": "assets/technology/bronze_foundry.jpg"
+    "image": "assets/technology/bronze_foundry.jpg",
+    "attributeWeights": {
+      "administration": 1,
+      "scholarship": 0.25
+    }
   },
   {
     "id": "copper_3",
@@ -100,7 +120,11 @@
       "production.copper": 0.15
     },
     "prerequisite": "copper_2",
-    "image": "assets/technology/bronze_foundry.jpg"
+    "image": "assets/technology/bronze_foundry.jpg",
+    "attributeWeights": {
+      "administration": 1,
+      "scholarship": 0.25
+    }
   },
   {
     "id": "iron_1",
@@ -117,7 +141,11 @@
       "production": 0.012,
       "production.iron": 0.15
     },
-    "image": "assets/technology/bloomery.jpg"
+    "image": "assets/technology/bloomery.jpg",
+    "attributeWeights": {
+      "administration": 1,
+      "scholarship": 0.25
+    }
   },
   {
     "id": "iron_2",
@@ -135,7 +163,11 @@
       "production.iron": 0.15
     },
     "prerequisite": "iron_1",
-    "image": "assets/technology/bloomery.jpg"
+    "image": "assets/technology/bloomery.jpg",
+    "attributeWeights": {
+      "administration": 1,
+      "scholarship": 0.25
+    }
   },
   {
     "id": "iron_3",
@@ -153,7 +185,11 @@
       "production.iron": 0.15
     },
     "prerequisite": "iron_2",
-    "image": "assets/technology/bloomery.jpg"
+    "image": "assets/technology/bloomery.jpg",
+    "attributeWeights": {
+      "administration": 1,
+      "scholarship": 0.25
+    }
   },
   {
     "id": "wood_1",
@@ -169,6 +205,9 @@
     "effects": {
       "production": 0.012,
       "production.wood": 0.15
+    },
+    "attributeWeights": {
+      "administration": 1
     }
   },
   {
@@ -186,7 +225,10 @@
       "production": 0.012,
       "production.wood": 0.15
     },
-    "prerequisite": "wood_1"
+    "prerequisite": "wood_1",
+    "attributeWeights": {
+      "administration": 1
+    }
   },
   {
     "id": "wood_3",
@@ -203,7 +245,10 @@
       "production": 0.012,
       "production.wood": 0.15
     },
-    "prerequisite": "wood_2"
+    "prerequisite": "wood_2",
+    "attributeWeights": {
+      "administration": 1
+    }
   },
   {
     "id": "leather_1",
@@ -219,6 +264,9 @@
     "effects": {
       "production": 0.012,
       "production.leather": 0.15
+    },
+    "attributeWeights": {
+      "administration": 1
     }
   },
   {
@@ -236,7 +284,10 @@
       "production": 0.012,
       "production.leather": 0.15
     },
-    "prerequisite": "leather_1"
+    "prerequisite": "leather_1",
+    "attributeWeights": {
+      "administration": 1
+    }
   },
   {
     "id": "leather_3",
@@ -253,7 +304,10 @@
       "production": 0.012,
       "production.leather": 0.15
     },
-    "prerequisite": "leather_2"
+    "prerequisite": "leather_2",
+    "attributeWeights": {
+      "administration": 1
+    }
   },
   {
     "id": "hemp_1",
@@ -269,6 +323,9 @@
     "effects": {
       "production": 0.012,
       "production.hemp": 0.15
+    },
+    "attributeWeights": {
+      "administration": 1
     }
   },
   {
@@ -286,7 +343,10 @@
       "production": 0.012,
       "production.hemp": 0.15
     },
-    "prerequisite": "hemp_1"
+    "prerequisite": "hemp_1",
+    "attributeWeights": {
+      "administration": 1
+    }
   },
   {
     "id": "hemp_3",
@@ -303,7 +363,10 @@
       "production": 0.012,
       "production.hemp": 0.15
     },
-    "prerequisite": "hemp_2"
+    "prerequisite": "hemp_2",
+    "attributeWeights": {
+      "administration": 1
+    }
   },
   {
     "id": "silk_1",
@@ -319,6 +382,9 @@
     "effects": {
       "production": 0.012,
       "production.silk": 0.15
+    },
+    "attributeWeights": {
+      "administration": 1
     }
   },
   {
@@ -336,7 +402,10 @@
       "production": 0.012,
       "production.silk": 0.15
     },
-    "prerequisite": "silk_1"
+    "prerequisite": "silk_1",
+    "attributeWeights": {
+      "administration": 1
+    }
   },
   {
     "id": "silk_3",
@@ -353,7 +422,10 @@
       "production": 0.012,
       "production.silk": 0.15
     },
-    "prerequisite": "silk_2"
+    "prerequisite": "silk_2",
+    "attributeWeights": {
+      "administration": 1
+    }
   },
   {
     "id": "jade_1",
@@ -369,6 +441,10 @@
     "effects": {
       "production": 0.012,
       "production.jade": 0.15
+    },
+    "attributeWeights": {
+      "administration": 1,
+      "scholarship": 0.25
     }
   },
   {
@@ -386,7 +462,11 @@
       "production": 0.012,
       "production.jade": 0.15
     },
-    "prerequisite": "jade_1"
+    "prerequisite": "jade_1",
+    "attributeWeights": {
+      "administration": 1,
+      "scholarship": 0.25
+    }
   },
   {
     "id": "jade_3",
@@ -403,7 +483,11 @@
       "production": 0.012,
       "production.jade": 0.15
     },
-    "prerequisite": "jade_2"
+    "prerequisite": "jade_2",
+    "attributeWeights": {
+      "administration": 1,
+      "scholarship": 0.25
+    }
   },
   {
     "id": "pottery_1",
@@ -419,6 +503,10 @@
     "effects": {
       "production": 0.012,
       "production.pottery": 0.15
+    },
+    "attributeWeights": {
+      "administration": 1,
+      "scholarship": 0.25
     }
   },
   {
@@ -436,7 +524,11 @@
       "production": 0.012,
       "production.pottery": 0.15
     },
-    "prerequisite": "pottery_1"
+    "prerequisite": "pottery_1",
+    "attributeWeights": {
+      "administration": 1,
+      "scholarship": 0.25
+    }
   },
   {
     "id": "pottery_3",
@@ -453,7 +545,11 @@
       "production": 0.012,
       "production.pottery": 0.15
     },
-    "prerequisite": "pottery_2"
+    "prerequisite": "pottery_2",
+    "attributeWeights": {
+      "administration": 1,
+      "scholarship": 0.25
+    }
   },
   {
     "id": "agriculture_1",
@@ -470,6 +566,9 @@
       "production": 0.012,
       "production.agriculture": 0.15,
       "manpower": 0.05
+    },
+    "attributeWeights": {
+      "administration": 1
     }
   },
   {
@@ -488,7 +587,10 @@
       "production.agriculture": 0.15,
       "manpower": 0.05
     },
-    "prerequisite": "agriculture_1"
+    "prerequisite": "agriculture_1",
+    "attributeWeights": {
+      "administration": 1
+    }
   },
   {
     "id": "agriculture_3",
@@ -506,7 +608,10 @@
       "production.agriculture": 0.15,
       "manpower": 0.05
     },
-    "prerequisite": "agriculture_2"
+    "prerequisite": "agriculture_2",
+    "attributeWeights": {
+      "administration": 1
+    }
   },
   {
     "id": "horse_1",
@@ -522,6 +627,10 @@
     "effects": {
       "production": 0.012,
       "production.horse": 0.15
+    },
+    "attributeWeights": {
+      "administration": 1,
+      "command": 0.25
     }
   },
   {
@@ -539,7 +648,11 @@
       "production": 0.012,
       "production.horse": 0.15
     },
-    "prerequisite": "horse_1"
+    "prerequisite": "horse_1",
+    "attributeWeights": {
+      "administration": 1,
+      "command": 0.25
+    }
   },
   {
     "id": "horse_3",
@@ -556,7 +669,11 @@
       "production": 0.012,
       "production.horse": 0.15
     },
-    "prerequisite": "horse_2"
+    "prerequisite": "horse_2",
+    "attributeWeights": {
+      "administration": 1,
+      "command": 0.25
+    }
   },
   {
     "id": "salt_1",
@@ -572,6 +689,9 @@
     "effects": {
       "production": 0.012,
       "production.salt": 0.15
+    },
+    "attributeWeights": {
+      "administration": 1
     }
   },
   {
@@ -589,7 +709,10 @@
       "production": 0.012,
       "production.salt": 0.15
     },
-    "prerequisite": "salt_1"
+    "prerequisite": "salt_1",
+    "attributeWeights": {
+      "administration": 1
+    }
   },
   {
     "id": "salt_3",
@@ -606,7 +729,10 @@
       "production": 0.012,
       "production.salt": 0.15
     },
-    "prerequisite": "salt_2"
+    "prerequisite": "salt_2",
+    "attributeWeights": {
+      "administration": 1
+    }
   },
   {
     "id": "leather_armor_1",
@@ -622,6 +748,10 @@
     "effects": {
       "production": 0.012,
       "production.leather_armor": 0.15
+    },
+    "attributeWeights": {
+      "administration": 1,
+      "command": 0.25
     }
   },
   {
@@ -639,7 +769,11 @@
       "production": 0.012,
       "production.leather_armor": 0.15
     },
-    "prerequisite": "leather_armor_1"
+    "prerequisite": "leather_armor_1",
+    "attributeWeights": {
+      "administration": 1,
+      "command": 0.25
+    }
   },
   {
     "id": "leather_armor_3",
@@ -656,7 +790,11 @@
       "production": 0.012,
       "production.leather_armor": 0.15
     },
-    "prerequisite": "leather_armor_2"
+    "prerequisite": "leather_armor_2",
+    "attributeWeights": {
+      "administration": 1,
+      "command": 0.25
+    }
   },
   {
     "id": "bows_1",
@@ -672,6 +810,10 @@
     "effects": {
       "production": 0.012,
       "production.bows": 0.15
+    },
+    "attributeWeights": {
+      "administration": 1,
+      "scholarship": 0.25
     }
   },
   {
@@ -689,7 +831,11 @@
       "production": 0.012,
       "production.bows": 0.15
     },
-    "prerequisite": "bows_1"
+    "prerequisite": "bows_1",
+    "attributeWeights": {
+      "administration": 1,
+      "scholarship": 0.25
+    }
   },
   {
     "id": "bows_3",
@@ -706,7 +852,11 @@
       "production": 0.012,
       "production.bows": 0.15
     },
-    "prerequisite": "bows_2"
+    "prerequisite": "bows_2",
+    "attributeWeights": {
+      "administration": 1,
+      "scholarship": 0.25
+    }
   },
   {
     "id": "bronze_arms_1",
@@ -723,7 +873,11 @@
       "production": 0.012,
       "production.bronze_arms": 0.15
     },
-    "image": "assets/technology/bronze_foundry.jpg"
+    "image": "assets/technology/bronze_foundry.jpg",
+    "attributeWeights": {
+      "administration": 1,
+      "command": 0.25
+    }
   },
   {
     "id": "bronze_arms_2",
@@ -741,7 +895,11 @@
       "production.bronze_arms": 0.15
     },
     "prerequisite": "bronze_arms_1",
-    "image": "assets/technology/bronze_foundry.jpg"
+    "image": "assets/technology/bronze_foundry.jpg",
+    "attributeWeights": {
+      "administration": 1,
+      "command": 0.25
+    }
   },
   {
     "id": "bronze_arms_3",
@@ -759,7 +917,11 @@
       "production.bronze_arms": 0.15
     },
     "prerequisite": "bronze_arms_2",
-    "image": "assets/technology/bronze_foundry.jpg"
+    "image": "assets/technology/bronze_foundry.jpg",
+    "attributeWeights": {
+      "administration": 1,
+      "command": 0.25
+    }
   },
   {
     "id": "iron_arms_1",
@@ -776,7 +938,11 @@
       "production": 0.012,
       "production.iron_arms": 0.15
     },
-    "image": "assets/technology/bloomery.jpg"
+    "image": "assets/technology/bloomery.jpg",
+    "attributeWeights": {
+      "administration": 1,
+      "scholarship": 0.25
+    }
   },
   {
     "id": "iron_arms_2",
@@ -794,7 +960,11 @@
       "production.iron_arms": 0.15
     },
     "prerequisite": "iron_arms_1",
-    "image": "assets/technology/bloomery.jpg"
+    "image": "assets/technology/bloomery.jpg",
+    "attributeWeights": {
+      "administration": 1,
+      "scholarship": 0.25
+    }
   },
   {
     "id": "iron_arms_3",
@@ -812,7 +982,11 @@
       "production.iron_arms": 0.15
     },
     "prerequisite": "iron_arms_2",
-    "image": "assets/technology/bloomery.jpg"
+    "image": "assets/technology/bloomery.jpg",
+    "attributeWeights": {
+      "administration": 1,
+      "scholarship": 0.25
+    }
   },
   {
     "id": "chariots_1",
@@ -828,6 +1002,10 @@
     "effects": {
       "production": 0.012,
       "production.chariots": 0.15
+    },
+    "attributeWeights": {
+      "administration": 1,
+      "command": 0.25
     }
   },
   {
@@ -845,7 +1023,11 @@
       "production": 0.012,
       "production.chariots": 0.15
     },
-    "prerequisite": "chariots_1"
+    "prerequisite": "chariots_1",
+    "attributeWeights": {
+      "administration": 1,
+      "command": 0.25
+    }
   },
   {
     "id": "chariots_3",
@@ -862,7 +1044,11 @@
       "production": 0.012,
       "production.chariots": 0.15
     },
-    "prerequisite": "chariots_2"
+    "prerequisite": "chariots_2",
+    "attributeWeights": {
+      "administration": 1,
+      "command": 0.25
+    }
   },
   {
     "id": "warhorses_1",
@@ -878,6 +1064,10 @@
     "effects": {
       "production": 0.012,
       "production.warhorses": 0.15
+    },
+    "attributeWeights": {
+      "administration": 1,
+      "command": 0.25
     }
   },
   {
@@ -895,7 +1085,11 @@
       "production": 0.012,
       "production.warhorses": 0.15
     },
-    "prerequisite": "warhorses_1"
+    "prerequisite": "warhorses_1",
+    "attributeWeights": {
+      "administration": 1,
+      "command": 0.25
+    }
   },
   {
     "id": "warhorses_3",
@@ -912,7 +1106,11 @@
       "production": 0.012,
       "production.warhorses": 0.15
     },
-    "prerequisite": "warhorses_2"
+    "prerequisite": "warhorses_2",
+    "attributeWeights": {
+      "administration": 1,
+      "command": 0.25
+    }
   },
   {
     "id": "clothing_1",
@@ -928,6 +1126,9 @@
     "effects": {
       "production": 0.012,
       "production.clothing": 0.15
+    },
+    "attributeWeights": {
+      "administration": 1
     }
   },
   {
@@ -945,7 +1146,10 @@
       "production": 0.012,
       "production.clothing": 0.15
     },
-    "prerequisite": "clothing_1"
+    "prerequisite": "clothing_1",
+    "attributeWeights": {
+      "administration": 1
+    }
   },
   {
     "id": "clothing_3",
@@ -962,7 +1166,10 @@
       "production": 0.012,
       "production.clothing": 0.15
     },
-    "prerequisite": "clothing_2"
+    "prerequisite": "clothing_2",
+    "attributeWeights": {
+      "administration": 1
+    }
   },
   {
     "id": "lacquer_1",
@@ -978,6 +1185,9 @@
     "effects": {
       "production": 0.012,
       "production.lacquer": 0.15
+    },
+    "attributeWeights": {
+      "administration": 1
     }
   },
   {
@@ -995,7 +1205,10 @@
       "production": 0.012,
       "production.lacquer": 0.15
     },
-    "prerequisite": "lacquer_1"
+    "prerequisite": "lacquer_1",
+    "attributeWeights": {
+      "administration": 1
+    }
   },
   {
     "id": "lacquer_3",
@@ -1012,7 +1225,10 @@
       "production": 0.012,
       "production.lacquer": 0.15
     },
-    "prerequisite": "lacquer_2"
+    "prerequisite": "lacquer_2",
+    "attributeWeights": {
+      "administration": 1
+    }
   },
   {
     "id": "luxury_clothing_1",
@@ -1028,6 +1244,9 @@
     "effects": {
       "production": 0.012,
       "production.luxury_clothing": 0.15
+    },
+    "attributeWeights": {
+      "administration": 1
     }
   },
   {
@@ -1045,7 +1264,10 @@
       "production": 0.012,
       "production.luxury_clothing": 0.15
     },
-    "prerequisite": "luxury_clothing_1"
+    "prerequisite": "luxury_clothing_1",
+    "attributeWeights": {
+      "administration": 1
+    }
   },
   {
     "id": "luxury_clothing_3",
@@ -1062,7 +1284,10 @@
       "production": 0.012,
       "production.luxury_clothing": 0.15
     },
-    "prerequisite": "luxury_clothing_2"
+    "prerequisite": "luxury_clothing_2",
+    "attributeWeights": {
+      "administration": 1
+    }
   },
   {
     "id": "bamboo_1",
@@ -1079,6 +1304,10 @@
       "production": 0.012,
       "production.bamboo": 0.15,
       "research_efficiency": 0.04
+    },
+    "attributeWeights": {
+      "administration": 1,
+      "scholarship": 0.25
     }
   },
   {
@@ -1097,7 +1326,11 @@
       "production.bamboo": 0.15,
       "research_efficiency": 0.04
     },
-    "prerequisite": "bamboo_1"
+    "prerequisite": "bamboo_1",
+    "attributeWeights": {
+      "administration": 1,
+      "scholarship": 0.25
+    }
   },
   {
     "id": "bamboo_3",
@@ -1115,7 +1348,11 @@
       "production.bamboo": 0.15,
       "research_efficiency": 0.04
     },
-    "prerequisite": "bamboo_2"
+    "prerequisite": "bamboo_2",
+    "attributeWeights": {
+      "administration": 1,
+      "scholarship": 0.25
+    }
   },
   {
     "id": "academy_1",
@@ -1133,6 +1370,10 @@
       "production.academy": 0.15,
       "research_scale": 2,
       "research_efficiency": 0.05
+    },
+    "attributeWeights": {
+      "administration": 1,
+      "scholarship": 0.5
     }
   },
   {
@@ -1152,7 +1393,11 @@
       "research_scale": 4,
       "research_efficiency": 0.05
     },
-    "prerequisite": "academy_1"
+    "prerequisite": "academy_1",
+    "attributeWeights": {
+      "administration": 1,
+      "scholarship": 0.5
+    }
   },
   {
     "id": "academy_3",
@@ -1171,7 +1416,11 @@
       "research_scale": 6,
       "research_efficiency": 0.05
     },
-    "prerequisite": "academy_2"
+    "prerequisite": "academy_2",
+    "attributeWeights": {
+      "administration": 1,
+      "scholarship": 0.5
+    }
   },
   {
     "id": "infantry_1",
@@ -1188,6 +1437,9 @@
       "army.attack": 0.02,
       "army.units": 0,
       "army.cadre_ratio": 0.05
+    },
+    "attributeWeights": {
+      "command": 1
     }
   },
   {
@@ -1206,7 +1458,10 @@
       "army.units": 1,
       "army.cadre_ratio": 0.05
     },
-    "prerequisite": "infantry_1"
+    "prerequisite": "infantry_1",
+    "attributeWeights": {
+      "command": 1
+    }
   },
   {
     "id": "infantry_3",
@@ -1224,7 +1479,10 @@
       "army.units": 1,
       "army.cadre_ratio": 0.05
     },
-    "prerequisite": "infantry_2"
+    "prerequisite": "infantry_2",
+    "attributeWeights": {
+      "command": 1
+    }
   },
   {
     "id": "crossbow_1",
@@ -1239,6 +1497,10 @@
     "upkeep": 0.8,
     "effects": {
       "army.attack": 0.02
+    },
+    "attributeWeights": {
+      "command": 1,
+      "scholarship": 0.25
     }
   },
   {
@@ -1255,7 +1517,11 @@
     "effects": {
       "army.attack": 0.02
     },
-    "prerequisite": "crossbow_1"
+    "prerequisite": "crossbow_1",
+    "attributeWeights": {
+      "command": 1,
+      "scholarship": 0.25
+    }
   },
   {
     "id": "crossbow_3",
@@ -1271,7 +1537,11 @@
     "effects": {
       "army.attack": 0.02
     },
-    "prerequisite": "crossbow_2"
+    "prerequisite": "crossbow_2",
+    "attributeWeights": {
+      "command": 1,
+      "scholarship": 0.25
+    }
   },
   {
     "id": "cavalry_1",
@@ -1287,6 +1557,9 @@
     "effects": {
       "army.attack": 0.02,
       "army.speed": 0.05
+    },
+    "attributeWeights": {
+      "command": 1
     }
   },
   {
@@ -1304,7 +1577,10 @@
       "army.attack": 0.02,
       "army.speed": 0.05
     },
-    "prerequisite": "cavalry_1"
+    "prerequisite": "cavalry_1",
+    "attributeWeights": {
+      "command": 1
+    }
   },
   {
     "id": "cavalry_3",
@@ -1321,7 +1597,10 @@
       "army.attack": 0.02,
       "army.speed": 0.05
     },
-    "prerequisite": "cavalry_2"
+    "prerequisite": "cavalry_2",
+    "attributeWeights": {
+      "command": 1
+    }
   },
   {
     "id": "chariot_1",
@@ -1336,6 +1615,9 @@
     "upkeep": 0.8,
     "effects": {
       "army.attack": 0.02
+    },
+    "attributeWeights": {
+      "command": 1
     }
   },
   {
@@ -1352,7 +1634,10 @@
     "effects": {
       "army.attack": 0.02
     },
-    "prerequisite": "chariot_1"
+    "prerequisite": "chariot_1",
+    "attributeWeights": {
+      "command": 1
+    }
   },
   {
     "id": "chariot_3",
@@ -1368,7 +1653,10 @@
     "effects": {
       "army.attack": 0.02
     },
-    "prerequisite": "chariot_2"
+    "prerequisite": "chariot_2",
+    "attributeWeights": {
+      "command": 1
+    }
   },
   {
     "id": "siege_1",
@@ -1384,6 +1672,10 @@
     "effects": {
       "army.attack": 0.02,
       "army.offense": 0.1
+    },
+    "attributeWeights": {
+      "command": 1,
+      "scholarship": 0.25
     }
   },
   {
@@ -1401,7 +1693,11 @@
       "army.attack": 0.02,
       "army.offense": 0.1
     },
-    "prerequisite": "siege_1"
+    "prerequisite": "siege_1",
+    "attributeWeights": {
+      "command": 1,
+      "scholarship": 0.25
+    }
   },
   {
     "id": "siege_3",
@@ -1418,7 +1714,11 @@
       "army.attack": 0.02,
       "army.offense": 0.1
     },
-    "prerequisite": "siege_2"
+    "prerequisite": "siege_2",
+    "attributeWeights": {
+      "command": 1,
+      "scholarship": 0.25
+    }
   },
   {
     "id": "defense_1",
@@ -1434,6 +1734,10 @@
     "effects": {
       "army.attack": 0.02,
       "army.defense": 0.08
+    },
+    "attributeWeights": {
+      "command": 1,
+      "administration": 0.25
     }
   },
   {
@@ -1451,7 +1755,11 @@
       "army.attack": 0.02,
       "army.defense": 0.08
     },
-    "prerequisite": "defense_1"
+    "prerequisite": "defense_1",
+    "attributeWeights": {
+      "command": 1,
+      "administration": 0.25
+    }
   },
   {
     "id": "defense_3",
@@ -1468,6 +1776,451 @@
       "army.attack": 0.02,
       "army.defense": 0.08
     },
-    "prerequisite": "defense_2"
+    "prerequisite": "defense_2",
+    "attributeWeights": {
+      "command": 1,
+      "administration": 0.25
+    }
+  },
+  {
+    "id": "doctrine_youjiao_wulei",
+    "name": "有教无类",
+    "description": "研习儒家学说，完成后解锁「有教无类」理念，可在百家中安排实行。",
+    "category": "humanities",
+    "route": "confucian",
+    "tier": 1,
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "image": "assets/ideas/youjiao_wulei.webp",
+    "routeName": "儒家",
+    "attributeWeights": {
+      "scholarship": 1
+    },
+    "effects": {},
+    "completionEffects": [
+      {
+        "type": "unlock_idea",
+        "ideaId": "idea_youjiao_wulei"
+      }
+    ]
+  },
+  {
+    "id": "doctrine_zhongyong_zhidao",
+    "name": "中庸之道",
+    "description": "研习儒家学说，完成后解锁「中庸之道」理念，可在百家中安排实行。",
+    "category": "humanities",
+    "route": "confucian",
+    "tier": 2,
+    "cost": 1000,
+    "inspiration": 250,
+    "inspirationCap": 0.5,
+    "upkeep": 1.6,
+    "image": "assets/ideas/zhongyong_zhidao.webp",
+    "routeName": "儒家",
+    "attributeWeights": {
+      "scholarship": 1
+    },
+    "effects": {},
+    "completionEffects": [
+      {
+        "type": "unlock_idea",
+        "ideaId": "idea_zhongyong_zhidao"
+      }
+    ]
+  },
+  {
+    "id": "doctrine_neisheng_waiwang",
+    "name": "内圣外王",
+    "description": "研习儒家学说，完成后解锁「内圣外王」理念，可在百家中安排实行。",
+    "category": "humanities",
+    "route": "confucian",
+    "tier": 3,
+    "cost": 10000,
+    "inspiration": 2500,
+    "inspirationCap": 0.65,
+    "upkeep": 3.2,
+    "image": "assets/ideas/neisheng_waiwang.webp",
+    "routeName": "儒家",
+    "attributeWeights": {
+      "scholarship": 1
+    },
+    "effects": {},
+    "completionEffects": [
+      {
+        "type": "unlock_idea",
+        "ideaId": "idea_neisheng_waiwang"
+      }
+    ]
+  },
+  {
+    "id": "doctrine_dingzhu_xingshu",
+    "name": "鼎铸刑书",
+    "description": "研习法家学说，完成后解锁「鼎铸刑书」理念，可在百家中安排实行。",
+    "category": "humanities",
+    "route": "legalist",
+    "tier": 1,
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "image": "assets/ideas/dingzhu_xingshu.webp",
+    "routeName": "法家",
+    "attributeWeights": {
+      "scholarship": 1,
+      "administration": 0.25
+    },
+    "effects": {},
+    "completionEffects": [
+      {
+        "type": "unlock_idea",
+        "ideaId": "idea_dingzhu_xingshu"
+      }
+    ]
+  },
+  {
+    "id": "doctrine_gengzhan_zhidu",
+    "name": "耕战制度",
+    "description": "研习法家学说，完成后解锁「耕战制度」理念，可在百家中安排实行。",
+    "category": "humanities",
+    "route": "legalist",
+    "tier": 2,
+    "cost": 1000,
+    "inspiration": 250,
+    "inspirationCap": 0.5,
+    "upkeep": 1.6,
+    "image": "assets/ideas/gengzhan_zhidu.webp",
+    "routeName": "法家",
+    "attributeWeights": {
+      "scholarship": 1,
+      "administration": 0.25
+    },
+    "effects": {},
+    "completionEffects": [
+      {
+        "type": "unlock_idea",
+        "ideaId": "idea_gengzhan_zhidu"
+      }
+    ]
+  },
+  {
+    "id": "doctrine_fenjun_lixian",
+    "name": "分郡立县",
+    "description": "研习法家学说，完成后解锁「分郡立县」理念，可在百家中安排实行。",
+    "category": "humanities",
+    "route": "legalist",
+    "tier": 3,
+    "cost": 10000,
+    "inspiration": 2500,
+    "inspirationCap": 0.65,
+    "upkeep": 3.2,
+    "image": "assets/ideas/fenjun_lixian.webp",
+    "routeName": "法家",
+    "attributeWeights": {
+      "scholarship": 1,
+      "administration": 0.25
+    },
+    "effects": {},
+    "completionEffects": [
+      {
+        "type": "unlock_idea",
+        "ideaId": "idea_fenjun_lixian"
+      }
+    ]
+  },
+  {
+    "id": "doctrine_jianai_jiaoli",
+    "name": "兼爱交利",
+    "description": "研习墨家学说，完成后解锁「兼爱交利」理念，可在百家中安排实行。",
+    "category": "humanities",
+    "route": "mohist",
+    "tier": 1,
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "image": "assets/ideas/jianai_jiaoli.webp",
+    "routeName": "墨家",
+    "attributeWeights": {
+      "scholarship": 1
+    },
+    "effects": {},
+    "completionEffects": [
+      {
+        "type": "unlock_idea",
+        "ideaId": "idea_jianai_jiaoli"
+      }
+    ]
+  },
+  {
+    "id": "doctrine_shouyu_zhiqi",
+    "name": "守御之器",
+    "description": "研习墨家学说，完成后解锁「守御之器」理念，可在百家中安排实行。",
+    "category": "humanities",
+    "route": "mohist",
+    "tier": 2,
+    "cost": 1000,
+    "inspiration": 250,
+    "inspirationCap": 0.5,
+    "upkeep": 1.6,
+    "image": "assets/ideas/shouyu_zhiqi.webp",
+    "routeName": "墨家",
+    "attributeWeights": {
+      "scholarship": 1
+    },
+    "effects": {},
+    "completionEffects": [
+      {
+        "type": "unlock_idea",
+        "ideaId": "idea_shouyu_zhiqi"
+      }
+    ]
+  },
+  {
+    "id": "doctrine_mojia_houxue",
+    "name": "墨家后学",
+    "description": "研习墨家学说，完成后解锁「墨家后学」理念，可在百家中安排实行。",
+    "category": "humanities",
+    "route": "mohist",
+    "tier": 3,
+    "cost": 10000,
+    "inspiration": 2500,
+    "inspirationCap": 0.65,
+    "upkeep": 3.2,
+    "image": "assets/ideas/mojia_houxue.webp",
+    "routeName": "墨家",
+    "attributeWeights": {
+      "scholarship": 1
+    },
+    "effects": {},
+    "completionEffects": [
+      {
+        "type": "unlock_idea",
+        "ideaId": "idea_mojia_houxue"
+      }
+    ]
+  },
+  {
+    "id": "doctrine_wuwei_erzhi",
+    "name": "无为而治",
+    "description": "研习道家学说，完成后解锁「无为而治」理念，可在百家中安排实行。",
+    "category": "humanities",
+    "route": "taoist",
+    "tier": 1,
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "image": "assets/ideas/wuwei_erzhi.webp",
+    "routeName": "道家",
+    "attributeWeights": {
+      "scholarship": 1
+    },
+    "effects": {},
+    "completionEffects": [
+      {
+        "type": "unlock_idea",
+        "ideaId": "idea_wuwei_erzhi"
+      }
+    ]
+  },
+  {
+    "id": "doctrine_guisheng_zhongji",
+    "name": "贵生重己",
+    "description": "研习道家学说，完成后解锁「贵生重己」理念，可在百家中安排实行。",
+    "category": "humanities",
+    "route": "taoist",
+    "tier": 2,
+    "cost": 1000,
+    "inspiration": 250,
+    "inspirationCap": 0.5,
+    "upkeep": 1.6,
+    "image": "assets/ideas/guisheng_zhongji.webp",
+    "routeName": "道家",
+    "attributeWeights": {
+      "scholarship": 1
+    },
+    "effects": {},
+    "completionEffects": [
+      {
+        "type": "unlock_idea",
+        "ideaId": "idea_guisheng_zhongji"
+      }
+    ]
+  },
+  {
+    "id": "doctrine_tianren_heyi",
+    "name": "天人合一",
+    "description": "研习道家学说，完成后解锁「天人合一」理念，可在百家中安排实行。",
+    "category": "humanities",
+    "route": "taoist",
+    "tier": 3,
+    "cost": 10000,
+    "inspiration": 2500,
+    "inspirationCap": 0.65,
+    "upkeep": 3.2,
+    "image": "assets/ideas/tianren_heyi.webp",
+    "routeName": "道家",
+    "attributeWeights": {
+      "scholarship": 1
+    },
+    "effects": {},
+    "completionEffects": [
+      {
+        "type": "unlock_idea",
+        "ideaId": "idea_tianren_heyi"
+      }
+    ]
+  },
+  {
+    "id": "doctrine_shangbing_famou",
+    "name": "上兵伐谋",
+    "description": "研习兵家学说，完成后解锁「上兵伐谋」理念，可在百家中安排实行。",
+    "category": "humanities",
+    "route": "militarist",
+    "tier": 1,
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "image": "assets/ideas/shangbing_famou.webp",
+    "routeName": "兵家",
+    "attributeWeights": {
+      "scholarship": 1,
+      "command": 0.25
+    },
+    "effects": {},
+    "completionEffects": [
+      {
+        "type": "unlock_idea",
+        "ideaId": "idea_shangbing_famou"
+      }
+    ]
+  },
+  {
+    "id": "doctrine_zhiye_jundui",
+    "name": "职业军队",
+    "description": "研习兵家学说，完成后解锁「职业军队」理念，可在百家中安排实行。",
+    "category": "humanities",
+    "route": "militarist",
+    "tier": 2,
+    "cost": 1000,
+    "inspiration": 250,
+    "inspirationCap": 0.5,
+    "upkeep": 1.6,
+    "image": "assets/ideas/zhiye_jundui.webp",
+    "routeName": "兵家",
+    "attributeWeights": {
+      "scholarship": 1,
+      "command": 0.25
+    },
+    "effects": {},
+    "completionEffects": [
+      {
+        "type": "unlock_idea",
+        "ideaId": "idea_zhiye_jundui"
+      }
+    ]
+  },
+  {
+    "id": "doctrine_gongcheng_zhiji",
+    "name": "攻城之计",
+    "description": "研习兵家学说，完成后解锁「攻城之计」理念，可在百家中安排实行。",
+    "category": "humanities",
+    "route": "militarist",
+    "tier": 3,
+    "cost": 10000,
+    "inspiration": 2500,
+    "inspirationCap": 0.65,
+    "upkeep": 3.2,
+    "image": "assets/ideas/gongcheng_zhiji.webp",
+    "routeName": "兵家",
+    "attributeWeights": {
+      "scholarship": 1,
+      "command": 0.25
+    },
+    "effects": {},
+    "completionEffects": [
+      {
+        "type": "unlock_idea",
+        "ideaId": "idea_gongcheng_zhiji"
+      }
+    ]
+  },
+  {
+    "id": "doctrine_junmin_tonggeng",
+    "name": "君民同耕",
+    "description": "研习农家学说，完成后解锁「君民同耕」理念，可在百家中安排实行。",
+    "category": "humanities",
+    "route": "agriculturalist",
+    "tier": 1,
+    "cost": 100,
+    "inspiration": 0,
+    "inspirationCap": 0.4,
+    "upkeep": 0.8,
+    "image": "assets/ideas/junmin_tonggeng.webp",
+    "routeName": "农家",
+    "attributeWeights": {
+      "scholarship": 1,
+      "administration": 0.25
+    },
+    "effects": {},
+    "completionEffects": [
+      {
+        "type": "unlock_idea",
+        "ideaId": "idea_junmin_tonggeng"
+      }
+    ]
+  },
+  {
+    "id": "doctrine_sitian_keshui",
+    "name": "私田课税",
+    "description": "研习农家学说，完成后解锁「私田课税」理念，可在百家中安排实行。",
+    "category": "humanities",
+    "route": "agriculturalist",
+    "tier": 2,
+    "cost": 1000,
+    "inspiration": 250,
+    "inspirationCap": 0.5,
+    "upkeep": 1.6,
+    "image": "assets/ideas/sitian_keshui.webp",
+    "routeName": "农家",
+    "attributeWeights": {
+      "scholarship": 1,
+      "administration": 0.25
+    },
+    "effects": {},
+    "completionEffects": [
+      {
+        "type": "unlock_idea",
+        "ideaId": "idea_sitian_keshui"
+      }
+    ]
+  },
+  {
+    "id": "doctrine_zhongzhi_suozai",
+    "name": "众志所在",
+    "description": "研习农家学说，完成后解锁「众志所在」理念，可在百家中安排实行。",
+    "category": "humanities",
+    "route": "agriculturalist",
+    "tier": 3,
+    "cost": 10000,
+    "inspiration": 2500,
+    "inspirationCap": 0.65,
+    "upkeep": 3.2,
+    "image": "assets/ideas/zhongzhi_suozai.webp",
+    "routeName": "农家",
+    "attributeWeights": {
+      "scholarship": 1,
+      "administration": 0.25
+    },
+    "effects": {},
+    "completionEffects": [
+      {
+        "type": "unlock_idea",
+        "ideaId": "idea_zhongzhi_suozai"
+      }
+    ]
   }
 ]

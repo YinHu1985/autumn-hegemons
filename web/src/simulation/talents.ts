@@ -54,7 +54,7 @@ export function generateTalent(
     )[Math.floor(researchRandom(state) * 4)],
     recruitedMonth: month,
     busy: false,
-    portrait: `assets/portraits/${["xunzi", "wuzixu", "lvbuwei", "gongsunlong"][Math.floor(researchRandom(state) * 4)]}.png`,
+    portrait: `assets/portraits/${["xunzi", "wuzixu", "lvbuwei", "gongsunlong"][Math.floor(researchRandom(state) * 4)]}.webp`,
   };
   return state.talents[id];
 }

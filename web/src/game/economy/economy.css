@@ -49,6 +49,89 @@
   display: grid;
   gap: 16px;
 }
+.economy-modifiers .ui-note {
+  margin-bottom: 0;
+}
+.economy-modifier-list {
+  max-height: 185px;
+  overflow-y: auto;
+  margin: 9px -4px -5px;
+  padding: 0 4px;
+}
+.economy-modifier + .economy-modifier {
+  border-top: 1px solid var(--ui-line);
+}
+.economy-modifier summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  cursor: pointer;
+  list-style: none;
+}
+.economy-modifier summary::-webkit-details-marker {
+  display: none;
+}
+.economy-modifier summary:focus-visible {
+  outline: 2px solid var(--ui-gold);
+  outline-offset: 2px;
+}
+.economy-modifier-seal {
+  display: grid;
+  place-items: center;
+  flex: 0 0 28px;
+  height: 30px;
+  border: 1px solid #b49a6366;
+  background: var(--ui-paper-recessed);
+  color: var(--ui-pine);
+  font:
+    19px Daoli,
+    serif;
+}
+.economy-modifier-seal img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.economy-modifier-caption {
+  min-width: 0;
+  flex: 1;
+}
+.economy-modifier-caption strong {
+  display: block;
+  font-size: 12px;
+}
+.window-body .economy-modifier-caption small {
+  display: block;
+  margin-top: 3px;
+  font-size: 10px;
+  color: var(--ui-muted);
+}
+.economy-modifier-chevron {
+  color: var(--ui-gold);
+  transition: transform 120ms ease;
+}
+.economy-modifier[open] .economy-modifier-chevron {
+  transform: rotate(180deg);
+}
+.economy-modifier-detail {
+  padding: 0 6px 10px 38px;
+  font-size: 11px;
+  line-height: 1.65;
+}
+.economy-modifier-detail p {
+  margin: 0 0 5px;
+  color: var(--ui-muted);
+}
+.economy-modifier-detail ul {
+  margin: 5px 0;
+  padding-left: 15px;
+  color: var(--ui-pine);
+}
+.window-body .economy-modifier-detail > small {
+  color: var(--ui-muted);
+  font-size: 10px;
+}
 .economy-budget-item {
   padding: 12px 0 9px;
   border-bottom: 1px solid var(--ui-line);
@@ -173,6 +256,102 @@
   max-height: 260px;
   overflow: auto;
   margin: 12px -16px -16px;
+}
+.economy-calculation-trigger {
+  min-height: 0;
+  padding: 3px 0;
+  border: 0;
+  background: transparent;
+  color: var(--ui-pine);
+  box-shadow: none;
+  font: inherit;
+  white-space: nowrap;
+  text-decoration: underline dotted #b49a63;
+  text-underline-offset: 3px;
+}
+.economy-calculation-trigger span {
+  color: var(--ui-gold);
+  margin-left: 4px;
+}
+.economy-calculation-popover {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(480px, calc(100vw - 32px));
+  max-height: min(680px, 80vh);
+  overflow: auto;
+  padding: 0;
+  border: 1px solid var(--ui-gold);
+  background: var(--ui-paper);
+  color: var(--ui-ink);
+  box-shadow: 0 20px 60px #10291fcc;
+  text-align: left;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.economy-calculation-popover::backdrop {
+  background: #13231b33;
+}
+.economy-calculation-header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 13px 18px;
+  border-bottom: 1px solid var(--ui-line);
+  background: var(--ui-paper-raised);
+}
+.economy-calculation-header h3 {
+  margin: 2px 0 0;
+  color: var(--ui-pine);
+  font-size: 15px;
+}
+.economy-calculation-header small {
+  color: var(--ui-muted);
+  font-size: 11px;
+}
+.economy-calculation-header button {
+  flex-shrink: 0;
+  width: 30px;
+  min-height: 30px;
+  padding: 0;
+  font-size: 21px;
+}
+.economy-calculation-detail {
+  padding: 18px;
+}
+.economy-calculation-heading,
+.economy-calculation-total {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+}
+.economy-calculation-step {
+  margin-top: 8px;
+}
+.economy-stat-breakdown {
+  color: var(--ui-muted);
+}
+.economy-stat-source {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 4px 12px;
+  margin-top: 4px;
+}
+.economy-stat-source > span:last-child {
+  color: var(--ui-pine);
+}
+.economy-stat-formula {
+  margin: 4px 0 0;
+  font-variant-numeric: tabular-nums;
+}
+.economy-calculation-total {
+  border-top: 1px solid var(--ui-line);
+  margin-top: 9px;
+  padding-top: 8px;
+  color: var(--ui-pine);
 }
 @media (max-height: 800px) {
   .economy-table-scroll {

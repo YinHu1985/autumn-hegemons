@@ -228,7 +228,7 @@ export function Outliner({
                     <span className="outliner-row-symbol">学</span>
                     <span>
                       <strong>
-                        {[...content.technologies, ...content.ideas].find(
+                        {content.technologies.find(
                           (subject) => subject.id === group.targetId,
                         )?.name ?? group.targetId}
                       </strong>

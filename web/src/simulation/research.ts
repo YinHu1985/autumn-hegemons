@@ -1,4 +1,5 @@
 import type { Content } from "../definitions/types";
+import { emitEventFact } from "./events/state";
 import type {
   ResearchCategory,
   TechnologyDefinition,
@@ -10,6 +11,16 @@ import type { ResearchState, ResearchGroup } from "./research-state";
 import { absoluteMonth, researchRandom } from "./research-state";
 import { generateTalent, refreshCandidates } from "./talents";
 import { cancelDiplomacyTasksForTalent } from "./diplomacy";
+import { researcherEffectiveness } from "./research-aptitude";
+import { resolveStat } from "./modifier-query";
+import { applyCompletionEffects } from "./completion-effects";
+export { researchModifier } from "./research-modifiers";
+export { isIdeaUnlocked, unlockIdea, enactIdea, ideaSlots } from "./ideas";
+export {
+  researcherAptitude,
+  researchSpecialtyMultiplier,
+  researcherEffectiveness,
+} from "./research-aptitude";
 export type {
   ResearchState,
   ResearchGroup,
@@ -30,6 +41,7 @@ export function createResearch(content: Content): ResearchState {
       unlocked: (content.technologies ?? [])
         .filter((t) => ["agriculture_1", "infantry_1"].includes(t.id))
         .map((t) => t.id),
+      unlockedIdeas: [],
       progress: {},
       bonuses: {},
       enacted: [],
@@ -50,7 +62,7 @@ export function createResearch(content: Content): ResearchState {
   return state;
 }
 export function researchSubjects(content: Content): TechnologyDefinition[] {
-  return [...(content.technologies ?? []), ...(content.ideas ?? [])];
+  return content.technologies;
 }
 export function hasTechnology(
   world: WorldState,
@@ -59,54 +71,16 @@ export function hasTechnology(
 ): boolean {
   return world.research.nations[nationId]?.unlocked.includes(id) ?? false;
 }
-export function researchModifier(
-  content: Content,
-  world: WorldState,
-  nationId: string,
-  key: string,
-): number {
-  const state = world.research.nations[nationId];
-  if (!state) return 0;
-  let sum = 0;
-  for (const t of content.technologies ?? [])
-    if (state.unlocked.includes(t.id)) sum += t.effects[key] ?? 0;
-  for (const t of content.ideas ?? [])
-    if (state.enacted.includes(t.id)) sum += t.effects[key] ?? 0;
-  const advisors = Object.values(world.research.talents).filter(
-    (t) =>
-      t.nationId === nationId &&
-      t.role === "advisor" &&
-      t.recruitedMonth !== null,
-  );
-  const capacity = 2;
-  const penalty =
-    advisors.length > capacity ? (capacity / advisors.length) ** 2 : 1;
-  for (const t of advisors) {
-    if (key === "income") sum += (t.administration / 1000) * penalty;
-    if (key === "research_efficiency") sum += (t.scholarship / 1500) * penalty;
-    if (key === "governance_cap") sum += (t.administration / 3000) * penalty;
-  }
-  return sum;
-}
-function buildingModifier(
-  content: Content,
-  world: WorldState,
-  nationId: string,
-  key: string,
-): number {
-  return calculateEconomy(content, world, nationId).modifiers[key] ?? 0;
-}
 export function researchScale(
   content: Content,
   world: WorldState,
   nationId: string,
 ): number {
-  return Math.max(
-    1,
-    10 +
-      researchModifier(content, world, nationId, "research_scale") +
-      buildingModifier(content, world, nationId, "research_scale"),
-  );
+  return resolveStat(content, world, { nationId }, "research_scale", 10, {
+    min: 1,
+    additional: calculateEconomy(content, world, nationId)
+      .modifierContributions,
+  }).value;
 }
 export function categorySeats(
   content: Content,
@@ -114,21 +88,14 @@ export function categorySeats(
   nationId: string,
   category: ResearchCategory,
 ): number {
-  return Math.max(
+  return resolveStat(
+    content,
+    world,
+    { nationId },
+    `research.seats.${category}`,
     1,
-    1 +
-      researchModifier(content, world, nationId, `research.seats.${category}`),
-  );
-}
-export function ideaSlots(
-  content: Content,
-  world: WorldState,
-  nationId: string,
-): number {
-  return Math.max(
-    1,
-    2 + researchModifier(content, world, nationId, "idea.slots"),
-  );
+    { min: 1 },
+  ).value;
 }
 export function inspiration(
   content: Content,
@@ -137,14 +104,11 @@ export function inspiration(
   target: TechnologyDefinition,
 ): number {
   const state = world.research.nations[nationId];
-  const isIdea = content.ideas.some((t) => t.id === target.id);
-  const sources = isIdea ? content.ideas : content.technologies;
-  const count = sources.filter(
+  const count = content.technologies.filter(
     (t) =>
       state.unlocked.includes(t.id) &&
       t.category === target.category &&
-      t.tier === target.tier - 1 &&
-      (!isIdea || t.route === target.route),
+      t.tier === target.tier - 1,
   ).length;
   return Math.min(
     target.cost * target.inspirationCap,
@@ -208,19 +172,37 @@ export function groupMonthlyProgress(
   ).length;
   const seats = categorySeats(content, world, nationId, t.category);
   const penalty = Math.min(1, (seats / same) ** 2);
-  const skill =
-    (t.category === "military" ? leader.command : leader.scholarship) / 100;
-  const matching = leader.specialty === t.category ? 1.75 : 0.7;
-  const efficiency = Math.max(
-    0,
-    1 +
-      researchModifier(content, world, nationId, "research_efficiency") +
-      buildingModifier(content, world, nationId, "research_efficiency"),
-  );
+  const economy = calculateEconomy(content, world, nationId);
+  const efficiency = resolveStat(
+    content,
+    world,
+    { nationId },
+    "research_efficiency",
+    1,
+    {
+      min: 0,
+      additional: economy.modifierContributions,
+    },
+  ).value;
+  const investment = funded ? group.fundedInvestment : group.investment;
+  const scale = resolveStat(
+    content,
+    world,
+    { nationId },
+    "research_scale",
+    10,
+    {
+      min: 1,
+      additional: economy.modifierContributions,
+    },
+  ).value;
+  // A shrinking soft cap keeps existing funding, but excess scale reduces its efficiency.
+  // Use already funded investment, not today's slider, to prevent budget-switch exploits.
+  const scalePenalty = Math.min(1, (scale / Math.max(0.01, investment)) ** 2);
   return (
-    (funded ? group.fundedInvestment : group.investment) *
-    (0.5 + skill) *
-    matching *
+    investment *
+    scalePenalty *
+    researcherEffectiveness(t, leader) *
     efficiency *
     penalty *
     (1 + worldKnowledge(content, world, t.id) * 3)
@@ -307,25 +289,6 @@ export function stopResearch(
   ].groups.filter((g) => g.id !== id);
   return next;
 }
-export function enactIdea(
-  content: Content,
-  world: WorldState,
-  nationId: string,
-  id: string,
-): WorldState {
-  const state = world.research.nations[nationId];
-  if (!content.ideas.some((i) => i.id === id) || !state.unlocked.includes(id))
-    throw new Error("理念尚未研究完成");
-  const next = copyWorld(world);
-  const enacted = next.research.nations[nationId].enacted;
-  if (enacted.includes(id)) enacted.splice(enacted.indexOf(id), 1);
-  else {
-    if (enacted.length >= ideaSlots(content, world, nationId))
-      throw new Error("理念槽位已满，请先卸下一个理念");
-    enacted.push(id);
-  }
-  return next;
-}
 export function tickResearchMonth(content: Content, world: WorldState): void {
   // Snapshot all gains before unlocking any nation, so world diffusion is independent of nation order.
   const gains = new Map<string, number>();
@@ -337,12 +300,28 @@ export function tickResearchMonth(content: Content, world: WorldState): void {
     for (const group of [...state.groups]) {
       const target = subjects.find((t) => t.id === group.targetId);
       if (!target) continue;
+      if (state.unlocked.includes(target.id)) {
+        state.groups = state.groups.filter((g) => g.id !== group.id);
+        continue;
+      }
       state.progress[target.id] =
         (state.progress[target.id] ?? 0) + (gains.get(group.id) ?? 0);
       if (researchProgress(content, world, id, target) >= target.cost) {
         state.unlocked.push(target.id);
+        applyCompletionEffects(
+          content,
+          world,
+          id,
+          target.completionEffects ?? [],
+          { kind: "technology", id: target.id, name: target.name },
+        );
         state.groups = state.groups.filter((g) => g.id !== group.id);
         state.notices.unshift(`研究完成：${target.name}`);
+        emitEventFact(world, {
+          type: "research_completed",
+          nationId: id,
+          subjectId: target.id,
+        });
       }
     }
     const month = absoluteMonth(world.date);

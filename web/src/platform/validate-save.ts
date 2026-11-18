@@ -2,6 +2,8 @@ import type { Content } from "../definitions/types";
 import type { WorldState } from "../simulation/state";
 import type { Battle } from "../simulation/military-state";
 import { BOARD_COLUMNS, tacticalRows } from "../simulation/tactical-board";
+import { validateSavedModifiers } from "./validate-modifier-save";
+import { validateSavedEvents } from "./validate-event-save";
 import { validateSavedDiplomacy } from "./validate-diplomacy-save";
 type RecordValue = Record<string, unknown>;
 function invalid(path: string): never {
@@ -59,6 +61,7 @@ function keysMatch(value: RecordValue, ids: Set<string>, path: string) {
 function date(value: unknown, path: string) {
   const d = record(value, path);
   num(d.year, `${path}.year`, -10000, 10000, true);
+  if (d.year === 0) invalid(`${path}.year`);
   num(d.month, `${path}.month`, 1, 12, true);
   num(d.day, `${path}.day`, 1, 30, true);
 }
@@ -78,9 +81,7 @@ export function validateSavedWorld(raw: unknown, content: Content): WorldState {
   date(w.date, "date");
   const nationIds = new Set(content.scenario.nations.map((n) => n.id));
   const cityIds = new Set(content.scenario.settlements.map((c) => c.id));
-  const subjectIds = new Set(
-    [...content.technologies, ...content.ideas].map((t) => t.id),
-  );
+  const subjectIds = new Set(content.technologies.map((t) => t.id));
   const ideaIds = new Set(content.ideas.map((t) => t.id));
   const unitTypes = new Set(content.units.map((u) => u.id));
   reference(w.playerNationId, nationIds, "playerNationId");
@@ -189,9 +190,12 @@ export function validateSavedWorld(raw: unknown, content: Content): WorldState {
     const unlocked = list(state.unlocked, `${id}.unlocked`);
     for (const subject of unlocked)
       reference(subject, subjectIds, `${id}.unlocked`);
+    const unlockedIdeas = list(state.unlockedIdeas, `${id}.unlockedIdeas`);
+    for (const idea of unlockedIdeas)
+      reference(idea, ideaIds, `${id}.unlockedIdeas`);
     for (const idea of list(state.enacted, `${id}.enacted`)) {
       reference(idea, ideaIds, `${id}.enacted`);
-      if (!unlocked.includes(idea)) invalid(`${id}.enacted`);
+      if (!unlockedIdeas.includes(idea)) invalid(`${id}.enacted`);
     }
     for (const key of ["progress", "bonuses"])
       for (const [target, value] of Object.entries(
@@ -536,16 +540,7 @@ export function validateSavedWorld(raw: unknown, content: Content): WorldState {
       invalid(`${id}.status`);
   }
   const civic = record(w.civic, "civic");
-  num(civic.seed, "civic.seed", 0, 4294967295, true);
-  num(civic.nextEventId, "civic.nextEventId", 1, Infinity, true);
-  const eventIds = new Set(content.events.map((e) => e.id));
-  for (const value of list(civic.events, "civic.events")) {
-    const event = record(value, "event");
-    text(event.id, "event.id");
-    reference(event.definitionId, eventIds, "event.definitionId");
-    reference(event.nationId, nationIds, "event.nationId");
-    num(event.daysLeft, "event.daysLeft", 1, Infinity, true);
-  }
+  validateSavedEvents(civic, content, w as unknown as WorldState);
   for (const value of list(civic.log, "civic.log")) {
     const entry = record(value, "log");
     date(entry.date, "log.date");
@@ -553,5 +548,6 @@ export function validateSavedWorld(raw: unknown, content: Content): WorldState {
     text(entry.text, "log.text");
   }
   validateSavedDiplomacy(w.diplomacy, content, w as unknown as WorldState);
+  validateSavedModifiers(w.modifiers, content, w as unknown as WorldState);
   return w as unknown as WorldState;
 }

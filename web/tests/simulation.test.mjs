@@ -11,7 +11,7 @@ const temp = await mkdtemp(join(tmpdir(), "autumn-economy-test-"));
 after(() => rm(temp, { recursive: true, force: true }));
 const bundled = await build({
   stdin: {
-    contents: `export * from './src/simulation/index.ts'; export * from './src/simulation/civic.ts'; export * from './src/simulation/commands.ts'; export * from './src/simulation/research.ts'; export * from './src/simulation/time.ts'; export * from './src/simulation/military.ts';`,
+    contents: `export * from './src/simulation/index.ts'; export * from './src/simulation/civic.ts'; export * from './src/simulation/events/index.ts'; export * from './src/simulation/modifier-clock.ts'; export * from './src/simulation/commands.ts'; export * from './src/simulation/research.ts'; export * from './src/simulation/time.ts'; export * from './src/simulation/military.ts';`,
     resolveDir: process.cwd(),
   },
   bundle: true,
@@ -32,9 +32,15 @@ const raw = Object.fromEntries(
       "ideas",
       "units",
       "events",
+      "modifierDefinitions",
     ].map(async (name) => [
       name,
-      JSON.parse(await readFile(`public/content/base/${name}.json`, "utf8")),
+      JSON.parse(
+        await readFile(
+          `public/content/base/${name === "modifierDefinitions" ? "modifier-definitions" : name}.json`,
+          "utf8",
+        ),
+      ),
     ]),
   ),
 );
@@ -203,18 +209,27 @@ test("事件逾期选择第一项，治理损失按容量同比扣全国人力�
       id: "test-event",
       definitionId: "good_harvest",
       nationId: "qi",
-      daysLeft: 1,
+      context: { nationId: "qi" },
+      createdAt: rules.gameDay(world.date) - 1,
+      expiresAt: rules.gameDay(world.date),
     },
   ];
-  rules.tickCivicDay(data, world);
+  rules.tickEventsDay(data, world);
   assert.equal(world.nations.qi.treasury, before + 45);
   assert.equal(world.civic.events.length, 0);
   world.civic.events = [
-    { id: "fire", definitionId: "granary_fire", nationId: "qi", daysLeft: 30 },
+    {
+      id: "fire",
+      definitionId: "granary_fire",
+      nationId: "qi",
+      context: { nationId: "qi" },
+      createdAt: rules.gameDay(world.date),
+      expiresAt: rules.gameDay(world.date) + 30,
+    },
   ];
   const oldManpower = world.nations.qi.manpower,
     oldCapacity = rules.manpowerCapacity(data, world, "qi");
-  const after = rules.chooseEvent(data, world, "fire", 1);
+  const after = rules.chooseEvent(data, world, "fire", "local_funding");
   assert.equal(
     after.nations.qi.manpower,
     Math.floor(
@@ -236,10 +251,12 @@ test("事件启发计入当前课题并受定义上限约束", () => {
       id: "scholar",
       definitionId: "travelling_scholar",
       nationId: "qi",
-      daysLeft: 30,
+      context: { nationId: "qi" },
+      createdAt: rules.gameDay(world.date),
+      expiresAt: rules.gameDay(world.date) + 30,
     },
   ];
-  const after = rules.chooseEvent(data, world, "scholar", 0);
+  const after = rules.chooseEvent(data, world, "scholar", "teach");
   const tech = data.technologies.find((t) => t.id === "copper_1");
   assert.ok(after.research.nations.qi.bonuses.copper_1 > 0);
   assert.ok(

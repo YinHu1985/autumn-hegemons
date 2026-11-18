@@ -34,10 +34,7 @@ export function TalentDossier({
     (entry) => entry.leaderId === talent.id,
   );
   const subject =
-    group &&
-    [...content.technologies, ...content.ideas].find(
-      (entry) => entry.id === group.targetId,
-    );
+    group && content.technologies.find((entry) => entry.id === group.targetId);
   const army = Object.values(world.military.armies).find(
     (entry) => entry.generalId === talent.id,
   );

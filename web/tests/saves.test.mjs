@@ -26,11 +26,17 @@ const raw = Object.fromEntries(
       "ideas",
       "units",
       "events",
+      "modifierDefinitions",
       "warfare",
       "tactics",
     ].map(async (name) => [
       name,
-      JSON.parse(await readFile(`public/content/base/${name}.json`, "utf8")),
+      JSON.parse(
+        await readFile(
+          `public/content/base/${name === "modifierDefinitions" ? "modifier-definitions" : name}.json`,
+          "utf8",
+        ),
+      ),
     ]),
   ),
 );
@@ -40,7 +46,7 @@ raw.scenario = JSON.parse(
 );
 const content = rules.validateContent(raw);
 const save = (world = atWar(rules.createWorld(content))) => ({
-  version: 7,
+  version: rules.SAVE_VERSION,
   savedAt: "2026-11-10T12:00:00.000Z",
   content: structuredClone(content),
   world,
@@ -64,6 +70,91 @@ test("存档完整保留内容包、科研投入和世界状态，读回后可�
   const continued = rules.advanceDays(loaded.content, loaded.world, 1);
   assert.notDeepEqual(continued.date, world.date);
 });
+test("已研究的百家科技与实行理念按独立 ID 完整存读", () => {
+  const world = atWar(rules.createWorld(content));
+  const idea = content.ideas[0];
+  const technology = content.technologies.find((entry) =>
+    entry.completionEffects?.some(
+      (effect) => effect.type === "unlock_idea" && effect.ideaId === idea.id,
+    ),
+  );
+  assert.ok(technology);
+  const state = world.research.nations.qi;
+  state.unlocked.push(technology.id);
+  state.unlockedIdeas.push(idea.id);
+  state.enacted.push(idea.id);
+  state.progress[technology.id] = 12;
+  state.bonuses[technology.id] = 4;
+  const loaded = rules.parseSave(JSON.stringify(save(world)));
+  assert.deepEqual(loaded.world.research.nations.qi, state);
+  assert.deepEqual(
+    loaded.content.technologies.find((entry) => entry.id === technology.id),
+    technology,
+  );
+  assert.ok(!loaded.world.research.nations.qi.unlocked.includes(idea.id));
+});
+
+test("已解锁理念独立于科研完成列表保存，可接收其他来源的解锁", () => {
+  const world = atWar(rules.createWorld(content));
+  const state = world.research.nations.qi;
+  state.unlocked = [];
+  state.unlockedIdeas.push(content.ideas[0].id);
+  state.enacted.push(content.ideas[0].id);
+  const loaded = rules.parseSave(JSON.stringify(save(world)));
+  assert.deepEqual(loaded.world.research.nations.qi, state);
+});
+
+test("读档不根据已完成科技重建理念解锁状态", () => {
+  const world = atWar(rules.createWorld(content));
+  const state = world.research.nations.qi;
+  state.unlocked = content.technologies.map((entry) => entry.id);
+  state.unlockedIdeas = [];
+  state.enacted = [];
+  const loaded = rules.parseSave(JSON.stringify(save(world)));
+  assert.deepEqual(loaded.world.research.nations.qi, state);
+});
+
+test("实行理念必须已解锁，完成全部科技不替代独立解锁状态", () => {
+  const idea = content.ideas[0];
+  bad((world) => {
+    const state = world.research.nations.qi;
+    state.unlocked = content.technologies.map((entry) => entry.id);
+    state.unlockedIdeas = [];
+    state.enacted.push(idea.id);
+  });
+  bad((world) => {
+    delete world.research.nations.qi.unlockedIdeas;
+  });
+  bad((world) => world.research.nations.qi.unlockedIdeas.push("missing_idea"));
+  bad((world) =>
+    world.research.nations.qi.unlockedIdeas.push(content.technologies[0].id),
+  );
+});
+
+test("理念 ID 不可作为已完成、进度、启发或科技组的研究对象", () => {
+  const idea = content.ideas[0];
+  bad((world) => world.research.nations.qi.unlocked.push(idea.id));
+  for (const field of ["progress", "bonuses"])
+    bad((world) => {
+      world.research.nations.qi[field][idea.id] = 1;
+    });
+  const world = atWar(rules.createWorld(content));
+  const leader = Object.values(world.research.talents).find(
+    (talent) => talent.nationId === "qi" && talent.role === "research",
+  );
+  const researching = rules.startResearch(
+    content,
+    world,
+    "qi",
+    "iron_1",
+    leader.id,
+  );
+  const valid = save(researching);
+  assert.doesNotThrow(() => rules.parseSave(JSON.stringify(valid)));
+  valid.world.research.nations.qi.groups[0].targetId = idea.id;
+  assert.throws(() => rules.parseSave(JSON.stringify(valid)), /targetId/);
+});
+
 test("手动战斗的部队、回合与暂停状态可完整读回", () => {
   let world = atWar(rules.createWorld(content));
   const attacker = Object.values(world.military.armies).find(
@@ -209,7 +300,7 @@ test("当前存档保留行动条、时钟、已花费行动力与控制状态",
     { kind: "provoke", remainingActivations: 1, sourceId: source.id },
   ];
   const loaded = rules.parseSave(JSON.stringify(s));
-  assert.equal(loaded.version, 7);
+  assert.equal(loaded.version, 10);
   assert.deepEqual(loaded.world, s.world);
   assert.deepEqual(loaded.content.tactics, s.content.tactics);
 });
@@ -436,9 +527,9 @@ test("本地保存与载入共用校验，未保存时返回null", () => {
 test("只读取当前格式，导出与本地保存使用同一构造器", () => {
   const world = atWar(rules.createWorld(content));
   const exported = rules.createSave(content, world);
-  assert.equal(exported.version, 7);
+  assert.equal(exported.version, 10);
   assert.deepEqual(rules.parseSave(JSON.stringify(exported)).world, world);
-  for (const version of [2, 3, 4, 5, 6, 8]) {
+  for (const version of [2, 3, 4, 5, 6, 7, 8, 9, 11]) {
     assert.throws(
       () => rules.parseSave(JSON.stringify({ ...exported, version })),
       /不支持的存档格式/,

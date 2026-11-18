@@ -1,7 +1,7 @@
 import type { Content } from "../definitions/types";
 import type { WorldState } from "./state";
 import { copyWorld } from "./state";
-import { researchModifier } from "./research";
+import { resolveStat } from "./modifier-query";
 import { manpowerCapacity } from "./civic";
 import { armySize, maximumCadreRatio, unitUnlocked } from "./military-strength";
 import { logMilitary } from "./military-state";
@@ -163,10 +163,14 @@ export function marchDays(
       ((30 + Math.hypot(from.map.x - to.map.x, from.map.y - to.map.y) / 3) *
         terrainFactor) /
         (cavalry ? 1.6 : 1) /
-        Math.max(
-          0.25,
-          1 + researchModifier(content, world, army.nationId, "army.speed"),
-        ),
+        resolveStat(
+          content,
+          world,
+          { nationId: army.nationId },
+          "army.speed",
+          1,
+          { min: 0.25 },
+        ).value,
     ),
   );
 }

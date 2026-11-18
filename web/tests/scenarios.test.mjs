@@ -57,7 +57,7 @@ const sortedGeometry = (scenario) =>
     .sort((a, b) => a.id.localeCompare(b.id));
 const saveText = (content, world) =>
   JSON.stringify({
-    version: 7,
+    version: rules.SAVE_VERSION,
     savedAt: "2026-11-15T12:00:00.000Z",
     content,
     world,
@@ -128,12 +128,12 @@ test("春秋保留晋与诸小国，战国体现韩赵魏，剧本归属互不�
   assert.deepEqual(starts, before);
 });
 
-test("v7 存档保留剧本元数据、年代和任选国家，再读回仍对应原剧本", () => {
+test("当前存档保留剧本元数据、年代和任选国家，再读回仍对应原剧本", () => {
   for (const content of starts) {
     const world = rules.createWorld(content);
     world.playerNationId = content.scenario.nations.at(-1).id;
     const loaded = rules.parseSave(saveText(content, world));
-    assert.equal(loaded.version, 7);
+    assert.equal(loaded.version, 10);
     assert.deepEqual(loaded.content.scenario, content.scenario);
     assert.deepEqual(loaded.world.date, content.scenario.start);
     assert.equal(loaded.world.playerNationId, world.playerNationId);

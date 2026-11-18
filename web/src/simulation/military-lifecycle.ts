@@ -1,4 +1,5 @@
 import type { Content } from "../definitions/types";
+import { emitEventFact } from "./events/state";
 import type { WorldState } from "./state";
 import type { Army, Battle } from "./military-state";
 import { logMilitary } from "./military-state";
@@ -130,6 +131,13 @@ export function occupyCity(
   city.owner = nationId;
   city.governance = 0.25;
   city.construction = null;
+  emitEventFact(world, {
+    type: "settlement_captured",
+    nationId,
+    settlementId: cityId,
+    relatedNationId: old,
+    subjectId: cityId,
+  });
   world.nations[old].manpower =
     oldCap > 0
       ? (world.nations[old].manpower * manpowerCapacity(content, world, old)) /

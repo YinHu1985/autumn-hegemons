@@ -1,7 +1,8 @@
+import type { NamedModifierDefinition } from "./modifier-definitions";
 import type { TerrainDefinition, SpecialtyDefinition } from "./geography";
 import type { TechnologyDefinition, IdeaDefinition } from "./research";
 import type { UnitDefinition } from "./military";
-import type { EventDefinition } from "./events";
+import type { EventDefinition, EventPoolDefinition } from "./events";
 import type { WarfareRules } from "./warfare";
 import type { TacticalRules } from "./tactics";
 import type { RoadDefinition } from "./roads";
@@ -82,6 +83,8 @@ export interface Content {
   ideas: IdeaDefinition[];
   units: UnitDefinition[];
   events: EventDefinition[];
+  eventPools: EventPoolDefinition[];
+  modifierDefinitions: NamedModifierDefinition[];
 }
 export interface ContentTexts {
   diplomacy: string;
@@ -96,6 +99,8 @@ export interface ContentTexts {
   ideas: string;
   units: string;
   events: string;
+  eventPools: string;
+  modifierDefinitions: string;
 }
 
 export const CONTENT_FILES = [
@@ -108,6 +113,8 @@ export const CONTENT_FILES = [
   "ideas",
   "units",
   "events",
+  "eventPools",
+  "modifierDefinitions",
   "warfare",
   "tactics",
   "diplomacy",

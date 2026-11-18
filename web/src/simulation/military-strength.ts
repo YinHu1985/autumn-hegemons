@@ -2,7 +2,8 @@ import type { Content } from "../definitions/types";
 import type { WorldState } from "./state";
 import type { Army, Regiment } from "./military-state";
 import { calculateEconomy } from "./economy";
-import { hasTechnology, researchModifier } from "./research";
+import { hasTechnology } from "./research";
+import { resolveStat } from "./modifier-query";
 import { fatigueMultiplier } from "./military-fatigue";
 export const armySize = (army: Army) =>
   army.units.reduce((sum, u) => sum + u.cadre + u.levy, 0);
@@ -62,14 +63,12 @@ export function armyLimits(
   nationId: string,
 ) {
   return {
-    armies: Math.max(
-      1,
-      2 + researchModifier(content, world, nationId, "army.limit"),
-    ),
-    units: Math.max(
-      1,
-      4 + researchModifier(content, world, nationId, "army.units"),
-    ),
+    armies: resolveStat(content, world, { nationId }, "army.limit", 2, {
+      min: 1,
+    }).value,
+    units: resolveStat(content, world, { nationId }, "army.units", 4, {
+      min: 1,
+    }).value,
   };
 }
 export function armyEfficiency(
@@ -125,7 +124,8 @@ export function regimentPower(
     Math.max(0.05, world.nations[nationId].operatingCoverage.army) *
     fatigueMultiplier(content, u) *
     (unlocked ? 1 : 0.015) *
-    (1 + researchModifier(content, world, nationId, "army.attack"))
+    resolveStat(content, world, { nationId }, "army.attack", 1, { min: 0 })
+      .value
   );
 }
 export function militaryStrength(
@@ -186,9 +186,12 @@ export function maximumCadreRatio(
   const type = content.units.find((u) => u.id === typeId);
   if (!type || !type.cadre) return 0;
   if (!type.levy) return 1;
-  return Math.min(
-    0.8,
-    type.cadre / (type.cadre + type.levy) +
-      researchModifier(content, world, nationId, "army.cadre_ratio"),
-  );
+  return resolveStat(
+    content,
+    world,
+    { nationId },
+    "army.cadre_ratio",
+    type.cadre / (type.cadre + type.levy),
+    { min: 0, max: 0.8 },
+  ).value;
 }

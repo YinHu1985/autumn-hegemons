@@ -40,7 +40,7 @@ const content = rules.validateContent(
     ),
   ),
 );
-const load = (world, version = 7) =>
+const load = (world, version = rules.SAVE_VERSION) =>
   rules.parseSave(
     JSON.stringify({
       version,
@@ -70,7 +70,7 @@ const missionWorld = () => {
 test("新局全部关系20且对称，当前存档保留全国家关系", () => {
   const world = rules.createWorld(content);
   const restored = load(world);
-  assert.equal(restored.version, 7);
+  assert.equal(restored.version, 10);
   assert.deepEqual(restored.world, world);
   for (const nation of content.scenario.nations) {
     assert.equal(

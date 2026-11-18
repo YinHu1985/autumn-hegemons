@@ -1,4 +1,5 @@
 import type { Content } from "../definitions/types";
+import { emitEventFact } from "./events/state";
 import type { WorldState } from "./state";
 import type { Army, Battle } from "./military-state";
 import { logMilitary, randomMilitary } from "./military-state";
@@ -7,7 +8,8 @@ import {
   militaryStrength,
   applyCasualties,
 } from "./military-strength";
-import { researchModifier } from "./research";
+import { resolveStat } from "./modifier-query";
+import { calculateEconomy } from "./economy";
 import { applyOffensiveFatigue, recordCombat } from "./military-fatigue";
 import { defenseQueue } from "./military-queue";
 import {
@@ -72,10 +74,16 @@ export function defenseAdvantage(
   )?.terrain;
   return Math.max(
     0.1,
-    1 +
+    resolveStat(
+      content,
+      world,
+      { nationId: battle.defenderId },
+      "army.defense",
+      1,
+      { min: 0.1 },
+    ).value +
       cityFortification(content, world, battle.cityId) * 0.18 +
-      (["hill", "forest", "mountain"].includes(terrain ?? "") ? 0.2 : 0) +
-      researchModifier(content, world, battle.defenderId, "army.defense"),
+      (["hill", "forest", "mountain"].includes(terrain ?? "") ? 0.2 : 0),
   );
 }
 
@@ -92,10 +100,22 @@ export function battleStrength(
   if (side === "attacker")
     return (
       strength *
-      Math.max(
-        0.1,
-        1 + researchModifier(content, world, battle.attackerId, "army.offense"),
-      )
+      resolveStat(
+        content,
+        world,
+        { nationId: battle.attackerId },
+        "army.offense",
+        1,
+        { min: 0.1 },
+      ).value *
+      resolveStat(
+        content,
+        world,
+        { nationId: battle.attackerId },
+        "army.defense",
+        1,
+        { min: 0.1 },
+      ).value
     );
   return (
     (strength + availableGarrison(content, world, battle) * 0.5) *
@@ -252,6 +272,16 @@ export function finishBattle(
     world.military,
     `${content.scenario.settlements.find((city) => city.id === battle.cityId)?.name}会战结束：${battle.result}`,
   );
+  for (const side of ["attacker", "defender"] as const)
+    emitEventFact(world, {
+      type: "battle_resolved",
+      nationId: side === "attacker" ? battle.attackerId : battle.defenderId,
+      relatedNationId:
+        side === "attacker" ? battle.defenderId : battle.attackerId,
+      settlementId: battle.cityId,
+      subjectId: battle.id,
+      outcome: side === winner ? "victory" : "defeat",
+    });
 }
 
 export function autoResolveBattle(
@@ -361,16 +391,16 @@ export function cityFortification(
   cityId: string,
 ) {
   const city = world.settlements[cityId];
-  return (
-    Object.entries(city.buildings).reduce(
-      (sum, [id, state]) =>
-        sum +
-        (content.buildings.find((building) => building.id === id)?.levels[
-          state.effectiveLevel - 1
-        ]?.modifiers?.fortification ?? 0),
-      0,
-    ) *
-    city.governance *
-    world.nations[city.owner].operatingCoverage.buildings
-  );
+  return resolveStat(
+    content,
+    world,
+    { nationId: city.owner, settlementId: cityId },
+    "fortification",
+    0,
+    {
+      min: 0,
+      additional: calculateEconomy(content, world, city.owner)
+        .modifierContributions,
+    },
+  ).value;
 }
